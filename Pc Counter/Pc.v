@@ -16,8 +16,6 @@ begin
     begin
         pc_current<=pc_next;
     end
-    else
-    pc_current <= pc_current; //stall
 end
     
 endmodule
