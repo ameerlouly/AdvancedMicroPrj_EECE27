@@ -5,8 +5,8 @@ module CCR(
     output reg [3:0] CCR_reg
 );
     
-    always @(posedge clk or posedge rst) begin
-        if(rst) begin
+    always @(posedge clk or negedge rst) begin
+        if(!rst) begin
             CCR_reg <= 4'b0000;
         end
         else if(flag_en) begin
