@@ -1,0 +1,10 @@
+<LayoutInfo version="1" CurrentRTLLayout="Default">
+ <Layout Name="Default" Type="IDE_pref">
+  <dockareas left="1194" top="0" right="450" bottom="266"/>
+  <taborder left="zinflownavigator+" bottom="transcript+"/>
+  <activetab left="zinflownavigator" activewindow="zinflownavigator" bottom="transcript"/>
+  <window y="0" visible="1" undocked="0" dock_location="left" type="zinflownavigator" title="Flow Navigator" x="0"/>
+  <window y="0" visible="1" undocked="0" dock_location="bottom" type="transcript" x="0"/>
+  <window height="800" y="50" visible="1" undocked="0" type="rtl" width="1200" x="50"/>
+ </Layout>
+</LayoutInfo>

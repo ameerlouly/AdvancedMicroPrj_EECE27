@@ -1,0 +1,11 @@
+D:/GitHub/AdvancedMicroPrj_EECE27/MEM_Arbit/MEM_Arbit_tb.v {2 {vlog -work work -vopt -stats=none D:/GitHub/AdvancedMicroPrj_EECE27/MEM_Arbit/MEM_Arbit_tb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module MEM_Arbit_tb
+** Warning: D:/GitHub/AdvancedMicroPrj_EECE27/MEM_Arbit/MEM_Arbit_tb.v(58): (vlog-2283) Extra semicolon in $unit (global) scope.
+** Warning: D:/GitHub/AdvancedMicroPrj_EECE27/MEM_Arbit/MEM_Arbit_tb.v(59): (vlog-2284) Empty $unit scope found.
+-- Compiling package MEM_Arbit_tb_v_unit
+
+Top level modules:
+	MEM_Arbit_tb
+
+} {} {}}
