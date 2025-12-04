@@ -11,7 +11,7 @@ always @(posedge clk or negedge rst) begin
     else begin
         data_addr_out <= data_addr_in + 128;
         if(data_addr_out >= 223) begin// let stack size be 32B so range is from 128 to 222
-            data_addr_out <= data_addr_out - 223; // overflow the memory
+            data_addr_out <= data_addr_out - 223 + 128; // overflow the memory
         end 
     end
 end
