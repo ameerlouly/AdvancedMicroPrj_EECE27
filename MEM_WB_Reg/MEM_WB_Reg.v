@@ -2,8 +2,8 @@ module MEM_WB_Reg(
     input clk, rst,
     input wr_en,
     input flush,
-    input mem_data_in,
-    output reg mem_data_out
+    input [7:0] mem_data_in,
+    output reg [7:0] mem_data_out
 );
 
 always @(posedge clk or negedge rst) begin
