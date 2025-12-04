@@ -40,8 +40,8 @@ module ALU_tb;
     endtask
 
     initial begin
-        $dumpfile("ALU_F_tb.vcd");
-        $dumpvars(0, ALU_F_tb);
+        $dumpfile("ALU_tb.vcd");
+        $dumpvars(0, ALU_tb);
 
         // ---------- TESTS ----------
         // ADD (opcode 2)
