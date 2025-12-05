@@ -5,7 +5,7 @@ module ALU(
 	input wire cin,
 
 	output reg [7:0] out,
-	output reg Z, N, C, V	//flags are kept the same unless explicitly updated by an operation
+	output reg Z, N, C, V	//flags are don't cares unless updated by the operation
 );
 	// ALU encodings (localparam)
 	localparam ALU_NOP  = 4'b0000;
@@ -27,18 +27,15 @@ module ALU(
 	localparam ALU_INC  = 4'b1100;
 	localparam ALU_DEC  = 4'b1101;
 
-	// giving initial values to outputs
-	initial begin
-		out = 8'h00;
-		Z = 1'b0;
-		N = 1'b0;
-		C = 1'b0;
-		V = 1'b0;
-	end
-
 	reg [8:0] temp_wide;
 
 	always @* begin
+		// giving default values to outputs
+		out = 8'hxx;
+		Z = 1'bx;
+		N = 1'bx;
+		C = 1'bx;
+		V = 1'bx;
 		case (sel)
 			ALU_PASS: out = B;		//none
 			ALU_ADD: begin
