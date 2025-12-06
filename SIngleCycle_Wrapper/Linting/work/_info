@@ -1,0 +1,125 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Linting
+vALU
+Z1 !s110 1765056688
+!i10b 1
+!s100 90Y;_dmE@8EhMC^6WFF2_0
+I6<zjB1^`YPZ7hm^5i[K2Q2
+R0
+w1765017083
+8D:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v
+FD:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v
+!i122 14
+L0 1 109
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z4 !s108 1765056688.000000
+!s107 D:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v|
+!s90 D:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v|-work|work|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
+n@a@l@u
+vCCR
+R1
+!i10b 1
+!s100 <07_9IzizSJ6<C:LFhJUO3
+IGzWzS1]_mXY2e>iamjE4F3
+R0
+w1765040489
+8D:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v
+FD:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v
+!i122 15
+L0 1 28
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v|
+!s90 D:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v|-work|work|
+!i113 0
+R5
+R6
+n@c@c@r
+vCPU_Wrapper1
+R1
+!i10b 1
+!s100 =gTejQRUU=ikWlXHEa5aA3
+IBzWFhk_IYcmX]KNBR3CUd0
+R0
+w1765053654
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v
+!i122 13
+L0 1 171
+R2
+R3
+r1
+!s85 0
+31
+R4
+Z7 !s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v|
+Z8 !s90 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v|-work|work|
+!i113 0
+R5
+R6
+n@c@p@u_@wrapper1
+vmemory
+R1
+!i10b 1
+!s100 S4QF`HlD4fMS:TP;R1ioS1
+IomhHfMUC<8eSdOlgfL_h00
+R0
+w1764969919
+8D:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v
+FD:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v
+!i122 12
+L0 1 58
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v|
+!s90 D:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v|-work|work|
+!i113 0
+R5
+R6
+vRegister_file
+R1
+!i10b 1
+!s100 h0mhINjWldob<EAGUU3:S3
+I2ML:8EbVT6[mIc>znC<hQ1
+R0
+w1764664349
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v
+!i122 13
+L0 1 41
+R2
+R3
+r1
+!s85 0
+31
+R4
+R7
+R8
+!i113 0
+R5
+R6
+n@register_file

@@ -1,0 +1,26 @@
+<LayoutInfo version="1" CurrentRTLLayout="Default">
+ <Layout Name="Default" Type="IDE_pref">
+  <dockareas top="0" bottom="506" left="1914" right="643"/>
+  <taborder bottom="zinmsgviewer+" left="zinflownavigator+"/>
+  <activetab bottom="zinmsgviewer" left="zinflownavigator" activewindow="zinmsgviewer"/>
+  <window visible="1" x="0" type="zinflownavigator" title="Flow Navigator" dock_location="left" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinmsgviewer" title="Message Viewer" dock_location="bottom" y="0" undocked="0"/>
+  <window height="1009" visible="1" x="-1" type="rtl" y="-8" width="1920" undocked="0"/>
+  <window visible="0" x="0" type="transcript" dock_location="bottom" y="0" undocked="0"/>
+  <window visible="0" x="0" type="source" dock_location="center" y="0" undocked="0"/>
+  <window id="1" visible="1" x="0" type="source" dock_location="center" y="0" undocked="0"/>
+  <window id="2" visible="0" x="0" type="source" dock_location="center" y="0" undocked="0"/>
+  <window id="3" visible="0" x="0" type="source" dock_location="center" y="0" undocked="0"/>
+  <window id="4" visible="1" x="0" type="source" dock_location="center" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zindetails" title="Details (Wrap)" dock_location="left" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinschematicview" title="Schematic 1" dock_location="right" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinmodulewindowview" title="Modules" dock_location="left" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zincdcdutview" title="Design" dock_location="left" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintMsgView" title="Lint Checks" dock_location="bottom" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintMsgSummaryView" title="Lint Summary" dock_location="right" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintMsgDashboardView" title="Lint Dashboard" dock_location="bottom" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintMsgStatusHistoryView" title="Status History" dock_location="bottom" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintDesignMetricsView" title="Design Metrics" dock_location="bottom" y="0" undocked="0"/>
+  <window visible="1" x="0" type="zinlintDesignInfoView" title="Design Information" dock_location="bottom" y="0" undocked="0"/>
+ </Layout>
+</LayoutInfo>
