@@ -1,7 +1,7 @@
 module CPU_Wrapper1 (
     input wire clk,
     input wire rst,
-    output reg [3 : 0] CCR_out,
+    output wire [3 : 0] CCR_out,
 
     // Interfacing with memory
     output  wire [7:0]  mem_addr_a,
@@ -139,7 +139,7 @@ module CPU_Wrapper1 (
         .V(ALU_V)
     );
 
-    assign ALU_B = rb_data;
+    assign rb_data = ALU_B;
 
     always @(*) begin
         case(op2_sel)

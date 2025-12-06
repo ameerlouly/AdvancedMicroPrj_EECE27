@@ -5,19 +5,26 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	Register_file
 
+} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/PC_MUX.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/PC_MUX.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module PC_MUX
+
+Top level modules:
+	PC_MUX
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/CCR/CCR.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module CCR
+
+Top level modules:
+	CCR
+
 } {} {}} {D:/Github/AdvancedMicroPrj_EECE27/Control Unit/control_unit.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/Control Unit/control_unit.v}
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module control_unit_A
 
 Top level modules:
 	control_unit_A
-
-} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/Pc.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/Pc.v}
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module Pc
-
-Top level modules:
-	Pc
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CCR.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CCR.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -26,19 +33,12 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	CCR
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/Memory/Memory.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module CPU_Wrapper1
+-- Compiling module memory
 
 Top level modules:
-	CPU_Wrapper1
-
-} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/PC_MUX.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/PC_MUX.v}
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module PC_MUX
-
-Top level modules:
-	PC_MUX
+	memory
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Memory.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Memory.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -46,6 +46,41 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 
 Top level modules:
 	memory
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module CPU_Wrapper1
+
+Top level modules:
+	CPU_Wrapper1
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/ALU/another_ALU.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/another_ALU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/another_ALU.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/Pc.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/Pc Counter/Pc.v}
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module Pc
+
+Top level modules:
+	Pc
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/Register_file.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module Register_file
+
+Top level modules:
+	Register_file
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1_tb.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/CPU_Wrapper1_tb.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
