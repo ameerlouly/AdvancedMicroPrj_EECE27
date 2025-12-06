@@ -2,41 +2,53 @@
 
 module CPU_Wrapper1_tb();
 
-    // Clock signal
+    // Inputs
     reg clk;
     reg rst;
+
+    // Outputs
+    wire [3 : 0]    CCR_out;
 
 
     // Instantiations
 
     wire [7 : 0]    OutDataA,
                     OutDataB;
+    
+    wire mem_read;
+    wire mem_write;
+    wire [7:0] mem_addr_a;
+    reg  [7:0] Instr_in;
+    wire mem_write_enable;             // write enable for port B
+    wire [7:0] mem_addr_b;
+    wire [7:0] mem_write_data_b;
+    reg  [7:0] mem_data_out_b;
+
     memory MEM_Dual (
         // Inputs
         .clk(clk),
         .rst(rst),            
-        .addr_a(pc_current),
-        .addr_b(rb_data),
+        .addr_a(mem_addr_a),
+        .addr_b(mem_addr_b),
         .we_b(cu_mem_write),             // write enable for port B
-        .write_data_b(AlU_out),
+        .write_data_b(mem_write_data_b),
         // Ouputs
-        .instr_out(OutDataA),
-        .data_out_b(OutDataB)
+        .instr_out(Instr_in),
+        .data_out_b(mem_data_out_b)
     );
 
     CPU_Wrapper1 CPU_UT (
         .clk(clk),
         .rst(rst),
-        output reg [3 : 0] CCR_out,
+        .CCR_out(CCR_out),
 
         // Interfacing with memory
-        output mem_read, mem_write,
-        output  wire [7:0]  mem_addr_a,
-        input   reg  [7:0]  Instr_in,
-        output  wire        mem_write_enable,             // write enable for port B
-        output  wire [7:0]  mem_addr_b,
-        output wire [7:0]   mem_write_data_b,
-        input reg  [7:0]    mem_data_out_b
+        .mem_addr_a(mem_addr_a),
+        .Instr_in(Instr_in),
+        .mem_write_enable(mem_write_enable),             // write enable for port B
+        .mem_addr_b(mem_addr_b),
+        .mem_write_data_b(mem_write_data_b),
+        .mem_data_out_b(mem_data_out_b)
     );
 
 

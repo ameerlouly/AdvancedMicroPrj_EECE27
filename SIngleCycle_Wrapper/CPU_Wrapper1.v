@@ -4,7 +4,6 @@ module CPU_Wrapper1 (
     output reg [3 : 0] CCR_out,
 
     // Interfacing with memory
-    output mem_read, mem_write,
     output  wire [7:0]  mem_addr_a,
     input   reg  [7:0]  Instr_in,
     output  wire        mem_write_enable,             // write enable for port B
@@ -37,15 +36,14 @@ module CPU_Wrapper1 (
 
 // ALU Specific Signals
     wire [7 : 0]    ALU_out;
-    wire [7 : 0]    ALU_A, ALU_B;
+    reg [7 : 0]    ALU_A, ALU_B;
     wire    ALU_Z, ALU_N, ALU_C, ALU_V;
 
 // Register File Specific Signals
     wire [1 : 0]    rb_addr;
     wire [7 : 0]    ra_data;
-    wire [7 : 0]    ra_data;
     wire [7 : 0]    rb_data;
-    wire [7 : 0]    WData_RF;
+    reg [7 : 0]    WData_RF;
 
 /* CU Begin ************************************************************/
     control_unit_A CU (
@@ -89,22 +87,15 @@ module CPU_Wrapper1 (
 /* PC End  *************************************************************/
 
 /* MEM Begin  *************************************************************/
+    
+    wire mem_read;
     assign ir = Instr_in;
     assign mem_addr_a = pc_current;
-    assign OutDataA
-    assign cu_mem_read  = mem_read;
-    assign cu_mem_write = mem_write;
-
-    // memory MEM_Dual (
-    //     .clk(clk),   //? Finished
-    //     .rst(rst),   //? Finished    
-    //     .addr_a(pc_current),   //? Finished  
-    //     .instr_out(OutDataA),
-    //     .we_b(cu_mem_write),             // write enable for port B
-    //     .addr_b(rb_data),
-    //     .write_data_b(AlU_out),
-    //     .data_out_b(OutDataB)
-    // );
+    assign cu_mem_read  = mem_read; // Does Nothing
+    assign cu_mem_write = mem_write_data_b;
+    assign mem_addr_b   = rb_data;
+    assign mem_write_data_b = ALU_out;
+    // assign mem_data_out_b = OutDataB;
 
 /* MEM End  *************************************************************/
 
@@ -112,8 +103,8 @@ module CPU_Wrapper1 (
 
     always @(*) begin
         case (wb_sel)
-            00: WData_RF = OutDataB;
-            01: WData_RF = OutDataB;    // Change later to IP
+            00: WData_RF = mem_data_out_b;
+            01: WData_RF = mem_data_out_b;    // Change later to IP
             10: WData_RF = ALU_out;
             11: WData_RF = ALU_out;     // Change Later to OutDataA
         endcase
