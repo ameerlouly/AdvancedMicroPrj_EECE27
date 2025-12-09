@@ -17,7 +17,7 @@ module HU(
         flush = 0;
 
         // 2. Load-Use Hazard Detection
-        // Stall only if the instruction in EX is a Load AND it writes to a register we need now.
+        // Stall only if the instruction in EX is a Load AND it writes to a register we need now or we need an imm value.
         if ((id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb || opcode == 12))) begin
             pc_en = 0;      // Freeze PC
             if_id_en = 0;   // Freeze IF/ID Pipeline Reg
