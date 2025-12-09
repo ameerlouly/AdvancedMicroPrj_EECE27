@@ -1,82 +1,107 @@
 `timescale 1ns/1ps
 
+/*
+ * ID_EX_reg_tb.v - Updated ID/EX Pipeline Register Testbench
+ * 
+ * Tests the updated ID/EX pipeline stage with:
+ * - PC+1, Instruction Pointer (IP), Immediate value
+ * - Branch Type, Memory-to-Register, Register Write controls
+ * - Memory Read/Write, ALU operation, Update Flags, IO Write
+ * - Register addresses, register values, RegDistidx
+ * - Flush behavior (controls cleared, pc_plus1 updates)
+ */
+
 module id_ex_reg_tb;
 
     // DUT signals
-    reg        clk;
-    reg        rst;         // active-low
-    reg        flush;
-    reg        wr_en;
-
+    reg         clk;
+    reg         rst;
+    reg         flush;
+    
     // Control inputs
-    reg        reg_write;
-    reg  [1:0] dst_reg;
-    reg  [3:0] alu_sel;
-    reg  [1:0] op2_sel;
-    reg  [1:0] wb_sel;
-    reg        mem_read;
-    reg        mem_write;
-    reg        flag_en;
-
+    reg  [1:0]  BType;
+    reg  [1:0]  MemToReg;
+    reg         RegWrite;
+    reg         MemWrite;
+    reg         MemRead;
+    reg         UpdateFlags;
+    reg  [1:0]  RegDistidx;
+    reg         ALU_src;
+    reg  [3:0]  ALU_op;
+    reg         IO_Write;
+    
     // Data inputs
-    reg  [7:0] ra_val_in;
-    reg  [7:0] rb_val_in;
-    reg  [7:0] imm_in;
-    reg  [7:0] pc_in;
-
+    reg  [7:0]  ra_val_in;
+    reg  [7:0]  rb_val_in;
+    reg  [1:0]  ra;
+    reg  [1:0]  rb;
+    reg  [7:0]  pc_plus1;
+    reg  [7:0]  IP;
+    reg  [7:0]  imm;
+    
     // Control outputs
-    wire        reg_write_out;
-    wire [1:0]  dst_reg_out;
-    wire [3:0]  alu_sel_out;
-    wire [1:0]  op2_sel_out;
-    wire [1:0]  wb_sel_out;
-    wire        mem_read_out;
-    wire        mem_write_out;
-    wire        flag_en_out;
-
+    wire [1:0]  BType_out;
+    wire [1:0]  MemToReg_out;
+    wire        RegWrite_out;
+    wire        MemWrite_out;
+    wire        MemRead_out;
+    wire        UpdateFlags_out;
+    wire [1:0]  RegDistidx_out;
+    wire        ALU_src_out;
+    wire [3:0]  ALU_op_out;
+    wire        IO_Write_out;
+    
     // Data outputs
     wire [7:0]  ra_val_out;
     wire [7:0]  rb_val_out;
+    wire [1:0]  ra_out;
+    wire [1:0]  rb_out;
+    wire [7:0]  pc_plus1_out;
+    wire [7:0]  IP_out;
     wire [7:0]  imm_out;
-    wire [7:0]  pc_out;
-
-    integer tests  = 0;
+    
+    integer tests = 0;
     integer errors = 0;
 
     // Instantiate DUT
     id_ex_reg dut (
-        .clk          (clk),
-        .rst          (rst),
-        .flush        (flush),
-        .wr_en        (wr_en),
-
-        .reg_write    (reg_write),
-        .dst_reg      (dst_reg),
-        .alu_sel      (alu_sel),
-        .op2_sel      (op2_sel),
-        .wb_sel       (wb_sel),
-        .mem_read     (mem_read),
-        .mem_write    (mem_write),
-        .flag_en      (flag_en),
-
-        .ra_val_in    (ra_val_in),
-        .rb_val_in    (rb_val_in),
-        .imm_in       (imm_in),
-        .pc_in        (pc_in),
-
-        .reg_write_out(reg_write_out),
-        .dst_reg_out  (dst_reg_out),
-        .alu_sel_out  (alu_sel_out),
-        .op2_sel_out  (op2_sel_out),
-        .wb_sel_out   (wb_sel_out),
-        .mem_read_out (mem_read_out),
-        .mem_write_out(mem_write_out),
-        .flag_en_out  (flag_en_out),
-
-        .ra_val_out   (ra_val_out),
-        .rb_val_out   (rb_val_out),
-        .imm_out      (imm_out),
-        .pc_out       (pc_out)
+        .clk            (clk),
+        .rst            (rst),
+        .flush          (flush),
+        .pc_plus1       (pc_plus1),
+        .IP             (IP),
+        .imm            (imm),
+        .BType          (BType),
+        .MemToReg       (MemToReg),
+        .RegWrite       (RegWrite),
+        .MemWrite       (MemWrite),
+        .MemRead        (MemRead),
+        .UpdateFlags    (UpdateFlags),
+        .RegDistidx     (RegDistidx),
+        .ALU_src        (ALU_src),
+        .ALU_op         (ALU_op),
+        .IO_Write       (IO_Write),
+        .ra_val_in      (ra_val_in),
+        .rb_val_in      (rb_val_in),
+        .ra             (ra),
+        .rb             (rb),
+        .BType_out      (BType_out),
+        .MemToReg_out   (MemToReg_out),
+        .RegWrite_out   (RegWrite_out),
+        .MemWrite_out   (MemWrite_out),
+        .MemRead_out    (MemRead_out),
+        .UpdateFlags_out(UpdateFlags_out),
+        .RegDistidx_out (RegDistidx_out),
+        .ALU_src_out    (ALU_src_out),
+        .ALU_op_out     (ALU_op_out),
+        .IO_Write_out   (IO_Write_out),
+        .ra_val_out     (ra_val_out),
+        .rb_val_out     (rb_val_out),
+        .ra_out         (ra_out),
+        .rb_out         (rb_out),
+        .pc_plus1_out   (pc_plus1_out),
+        .IP_out         (IP_out),
+        .imm_out        (imm_out)
     );
 
     // Clock: 10 ns period
@@ -84,57 +109,53 @@ module id_ex_reg_tb;
         clk = 0;
         forever #5 clk = ~clk;
     end
-
-    // Task to check everything
-    task check_idex(
-        input        exp_reg_write,
-        input  [1:0] exp_dst_reg,
-        input  [3:0] exp_alu_sel,
-        input  [1:0] exp_op2_sel,
-        input  [1:0] exp_wb_sel,
-        input        exp_mem_read,
-        input        exp_mem_write,
-        input        exp_flag_en,
-
-        input  [7:0] exp_ra_val,
-        input  [7:0] exp_rb_val,
-        input  [7:0] exp_imm,
-        input  [7:0] exp_pc,
-
+    
+    // Task to check outputs
+    task check_all_outputs(
+        input [1:0]  exp_btype,
+        input [1:0]  exp_memtoreg,
+        input        exp_regwrite,
+        input        exp_memwrite,
+        input        exp_memread,
+        input        exp_updateflags,
+        input [1:0]  exp_regdistidx,
+        input        exp_alu_src,
+        input [3:0]  exp_alu_op,
+        input        exp_io_write,
+        input [7:0]  exp_ra_val,
+        input [7:0]  exp_rb_val,
+        input [1:0]  exp_ra,
+        input [1:0]  exp_rb,
+        input [7:0]  exp_pc_plus1,
+        input [7:0]  exp_ip,
+        input [7:0]  exp_imm,
         input [255*8:0] msg
     );
     begin
         tests = tests + 1;
-        #1; // allow signals to settle
-
-        if (reg_write_out !== exp_reg_write ||
-            dst_reg_out   !== exp_dst_reg   ||
-            alu_sel_out   !== exp_alu_sel   ||
-            op2_sel_out   !== exp_op2_sel   ||
-            wb_sel_out    !== exp_wb_sel    ||
-            mem_read_out  !== exp_mem_read  ||
-            mem_write_out !== exp_mem_write ||
-            flag_en_out   !== exp_flag_en   ||
-
-            ra_val_out    !== exp_ra_val    ||
-            rb_val_out    !== exp_rb_val    ||
-            imm_out       !== exp_imm       ||
-            pc_out        !== exp_pc) begin
-
+        #1;
+        
+        if (BType_out !== exp_btype ||
+            MemToReg_out !== exp_memtoreg ||
+            RegWrite_out !== exp_regwrite ||
+            MemWrite_out !== exp_memwrite ||
+            MemRead_out !== exp_memread ||
+            UpdateFlags_out !== exp_updateflags ||
+            RegDistidx_out !== exp_regdistidx ||
+            ALU_src_out !== exp_alu_src ||
+            ALU_op_out !== exp_alu_op ||
+            IO_Write_out !== exp_io_write ||
+            ra_val_out !== exp_ra_val ||
+            rb_val_out !== exp_rb_val ||
+            ra_out !== exp_ra ||
+            rb_out !== exp_rb ||
+            pc_plus1_out !== exp_pc_plus1 ||
+            IP_out !== exp_ip ||
+            imm_out !== exp_imm) begin
+            
             errors = errors + 1;
             $display("TEST %0d FAILED: %s", tests, msg);
-            $display("  Expected: rw=%b dst=%0d alu=%0h op2=%0d wb=%0d mr=%b mw=%b fe=%b",
-                     exp_reg_write, exp_dst_reg, exp_alu_sel, exp_op2_sel, exp_wb_sel,
-                     exp_mem_read, exp_mem_write, exp_flag_en);
-            $display("            ra=%0h rb=%0h imm=%0h pc=%0h",
-                     exp_ra_val, exp_rb_val, exp_imm, exp_pc);
-            $display("  Got     : rw=%b dst=%0d alu=%0h op2=%0d wb=%0d mr=%b mw=%b fe=%b",
-                     reg_write_out, dst_reg_out, alu_sel_out, op2_sel_out, wb_sel_out,
-                     mem_read_out, mem_write_out, flag_en_out);
-            $display("            ra=%0h rb=%0h imm=%0h pc=%0h",
-                     ra_val_out, rb_val_out, imm_out, pc_out);
-        end
-        else begin
+        end else begin
             $display("TEST %0d PASSED: %s", tests, msg);
         end
     end
@@ -142,129 +163,244 @@ module id_ex_reg_tb;
 
     // Main stimulus
     initial begin
-        // init
-        flush      = 1'b0;
-        wr_en      = 1'b0;
+        $display("\n=== ID/EX PIPELINE REGISTER TESTBENCH ===\n");
+        
+        // Initialize
+        flush = 1'b0;
+        BType = 2'd0;
+        MemToReg = 2'd0;
+        RegWrite = 1'b0;
+        MemWrite = 1'b0;
+        MemRead = 1'b0;
+        UpdateFlags = 1'b0;
+        RegDistidx = 2'd0;
+        ALU_src = 1'b0;
+        ALU_op = 4'd0;
+        IO_Write = 1'b0;
+        ra_val_in = 8'd0;
+        rb_val_in = 8'd0;
+        ra = 2'd0;
+        rb = 2'd0;
+        pc_plus1 = 8'd0;
+        IP = 8'd0;
+        imm = 8'd0;
 
-        reg_write  = 1'b0;
-        dst_reg    = 2'd0;
-        alu_sel    = 4'd0;
-        op2_sel    = 2'd0;
-        wb_sel     = 2'd0;
-        mem_read   = 1'b0;
-        mem_write  = 1'b0;
-        flag_en    = 1'b0;
-
-        ra_val_in  = 8'd0;
-        rb_val_in  = 8'd0;
-        imm_in     = 8'd0;
-        pc_in      = 8'd0;
-
-        // Reset
+        // Apply reset
         rst = 1'b0;
         @(posedge clk);
-        check_idex(1'b0, 2'd0, 4'd0, 2'd0, 2'd0, 1'b0, 1'b0, 1'b0,
-                   8'd0, 8'd0, 8'd0, 8'd0,
-                   "After reset: everything should be 0");
+        check_all_outputs(2'd0, 2'd0, 1'b0, 1'b0, 1'b0, 1'b0, 2'd0, 1'b0, 4'd0, 1'b0,
+                         8'd0, 8'd0, 2'd0, 2'd0, 8'd0, 8'd0, 8'd0,
+                         "After reset: all outputs cleared");
 
         // Release reset
         rst = 1'b1;
         @(posedge clk);
-        check_idex(1'b0, 2'd0, 4'd0, 2'd0, 2'd0, 1'b0, 1'b0, 1'b0,
-                   8'd0, 8'd0, 8'd0, 8'd0,
-                   "After reset release (no write yet)");
+        check_all_outputs(2'd0, 2'd0, 1'b0, 1'b0, 1'b0, 1'b0, 2'd0, 1'b0, 4'd0, 1'b0,
+                         8'd0, 8'd0, 2'd0, 2'd0, 8'd0, 8'd0, 8'd0,
+                         "After reset release (no propagation yet)");
 
-        // Test 1: normal write
-        wr_en      = 1'b1;
-        flush      = 1'b0;
-
-        reg_write  = 1'b1;
-        dst_reg    = 2'd2;
-        alu_sel    = 4'hA;
-        op2_sel    = 2'd1;
-        wb_sel     = 2'd2;
-        mem_read   = 1'b1;
-        mem_write  = 1'b0;
-        flag_en    = 1'b1;
-
-        ra_val_in  = 8'h11;
-        rb_val_in  = 8'h22;
-        imm_in     = 8'h33;
-        pc_in      = 8'h44;
-
+        // Test 1: Normal write - all signals valid
+        BType = 2'b01;
+        MemToReg = 2'b10;
+        RegWrite = 1'b1;
+        MemWrite = 1'b0;
+        MemRead = 1'b1;
+        UpdateFlags = 1'b1;
+        RegDistidx = 2'b10;
+        ALU_src = 1'b0;
+        ALU_op = 4'h3;
+        IO_Write = 1'b0;
+        ra_val_in = 8'h12;
+        rb_val_in = 8'h34;
+        ra = 2'b00;
+        rb = 2'b01;
+        pc_plus1 = 8'h05;
+        IP = 8'h10;
+        imm = 8'h42;
         @(posedge clk);
-        check_idex(1'b1, 2'd2, 4'hA, 2'd1, 2'd2, 1'b1, 1'b0, 1'b1,
-                   8'h11, 8'h22, 8'h33, 8'h44,
-                   "Normal update from ID to EX");
+        check_all_outputs(2'b01, 2'b10, 1'b1, 1'b0, 1'b1, 1'b1, 2'b10, 1'b0, 4'h3, 1'b0,
+                         8'h12, 8'h34, 2'b00, 2'b01, 8'h05, 8'h10, 8'h42,
+                         "Normal write: all signals propagate");
 
-        // Test 2: stall (wr_en=0) → values must hold
-        wr_en      = 1'b0;
-
-        reg_write  = 1'b0;
-        dst_reg    = 2'd1;
-        alu_sel    = 4'h3;
-        op2_sel    = 2'd0;
-        wb_sel     = 2'd1;
-        mem_read   = 1'b0;
-        mem_write  = 1'b1;
-        flag_en    = 1'b0;
-
-        ra_val_in  = 8'hAA;
-        rb_val_in  = 8'hBB;
-        imm_in     = 8'hCC;
-        pc_in      = 8'hDD;
-
+        // Test 2: Boundary - all zeros
+        BType = 2'd0;
+        MemToReg = 2'd0;
+        RegWrite = 1'b0;
+        MemWrite = 1'b0;
+        MemRead = 1'b0;
+        UpdateFlags = 1'b0;
+        RegDistidx = 2'd0;
+        ALU_src = 1'b0;
+        ALU_op = 4'd0;
+        IO_Write = 1'b0;
+        ra_val_in = 8'd0;
+        rb_val_in = 8'd0;
+        ra = 2'd0;
+        rb = 2'd0;
+        pc_plus1 = 8'd0;
+        IP = 8'd0;
+        imm = 8'd0;
         @(posedge clk);
-        check_idex(1'b1, 2'd2, 4'hA, 2'd1, 2'd2, 1'b1, 1'b0, 1'b1,
-                   8'h11, 8'h22, 8'h33, 8'h44,
-                   "Stall: outputs should hold previous values");
+        check_all_outputs(2'd0, 2'd0, 1'b0, 1'b0, 1'b0, 1'b0, 2'd0, 1'b0, 4'd0, 1'b0,
+                         8'd0, 8'd0, 2'd0, 2'd0, 8'd0, 8'd0, 8'd0,
+                         "Boundary: all zeros");
 
-        // Test 3: flush → outputs should go to NOP/0
-        wr_en      = 1'b1;
-        flush      = 1'b1;
-
+        // Test 3: Boundary - all ones
+        BType = 2'b11;
+        MemToReg = 2'b11;
+        RegWrite = 1'b1;
+        MemWrite = 1'b1;
+        MemRead = 1'b1;
+        UpdateFlags = 1'b1;
+        RegDistidx = 2'b11;
+        ALU_src = 1'b1;
+        ALU_op = 4'hF;
+        IO_Write = 1'b1;
+        ra_val_in = 8'hFF;
+        rb_val_in = 8'hFF;
+        ra = 2'b11;
+        rb = 2'b11;
+        pc_plus1 = 8'hFF;
+        IP = 8'hFF;
+        imm = 8'hFF;
         @(posedge clk);
-        check_idex(1'b0, 2'd0, 4'd0, 2'd0, 2'd0, 1'b0, 1'b0, 1'b0,
-                   8'd0, 8'd0, 8'd0, 8'd0,
-                   "Flush: outputs should be cleared");
+        check_all_outputs(2'b11, 2'b11, 1'b1, 1'b1, 1'b1, 1'b1, 2'b11, 1'b1, 4'hF, 1'b1,
+                         8'hFF, 8'hFF, 2'b11, 2'b11, 8'hFF, 8'hFF, 8'hFF,
+                         "Boundary: all ones");
 
-        // Stop flushing
-        flush      = 1'b0;
-
-        // Test 4: write again after flush
-        wr_en      = 1'b1;
-
-        reg_write  = 1'b1;
-        dst_reg    = 2'd3;
-        alu_sel    = 4'h5;
-        op2_sel    = 2'd2;
-        wb_sel     = 2'd3;
-        mem_read   = 1'b0;
-        mem_write  = 1'b1;
-        flag_en    = 1'b0;
-
-        ra_val_in  = 8'hF0;
-        rb_val_in  = 8'h0F;
-        imm_in     = 8'h5A;
-        pc_in      = 8'hC3;
-
+        // Test 4: Flush - outputs should be NOP but pc_plus1 updates
+        flush = 1'b1;
+        BType = 2'b10;
+        MemToReg = 2'b01;
+        RegWrite = 1'b1;
+        MemWrite = 1'b1;
+        MemRead = 1'b1;
+        UpdateFlags = 1'b1;
+        RegDistidx = 2'b01;
+        ALU_src = 1'b1;
+        ALU_op = 4'h5;
+        IO_Write = 1'b1;
+        pc_plus1 = 8'h20;
         @(posedge clk);
-        check_idex(1'b1, 2'd3, 4'h5, 2'd2, 2'd3, 1'b0, 1'b1, 1'b0,
-                   8'hF0, 8'h0F, 8'h5A, 8'hC3,
-                   "Update after flush");
+        check_all_outputs(2'd0, 2'd0, 1'b0, 1'b0, 1'b0, 1'b0, 2'd0, 1'b0, 4'd0, 1'b0,
+                         8'd0, 8'd0, 2'd0, 2'd0, 8'h20, 8'hFF, 8'hFF,
+                         "Flush: control signals cleared, pc_plus1 updates");
 
-        // Final result
+        // Test 5: After flush - resume normal operation
+        flush = 1'b0;
+        BType = 2'b00;
+        MemToReg = 2'b01;
+        RegWrite = 1'b1;
+        MemWrite = 1'b1;
+        MemRead = 1'b1;
+        UpdateFlags = 1'b1;
+        RegDistidx = 2'b01;
+        ALU_src = 1'b1;
+        ALU_op = 4'h5;
+        IO_Write = 1'b1;
+        pc_plus1 = 8'h22;
+        IP = 8'h25;
+        imm = 8'h50;
+        ra_val_in = 8'hAA;
+        rb_val_in = 8'hBB;
+        ra = 2'b11;
+        rb = 2'b11;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b1, 1'b1, 1'b1, 2'b01, 1'b1, 4'h5, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Resume after flush");
+
+        // Test 6: Memory Read operation
+        MemRead = 1'b1;
+        MemWrite = 1'b0;
+        ALU_op = 4'h2;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b0, 1'b1, 1'b1, 2'b01, 1'b1, 4'h2, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Memory read operation");
+
+        // Test 7: Memory Write operation
+        MemRead = 1'b0;
+        MemWrite = 1'b1;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b1, 1'b0, 1'b1, 2'b01, 1'b1, 4'h2, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Memory write operation");
+
+        // Test 8: I/O Write operation
+        MemRead = 1'b0;
+        MemWrite = 1'b0;
+        IO_Write = 1'b1;
+        RegWrite = 1'b0;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b0, 1'b0, 1'b0, 1'b1, 2'b01, 1'b1, 4'h2, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "I/O write operation");
+
+        // Test 9: ALU operations - different types
+        ALU_op = 4'h0;  // NOP
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b0, 1'b0, 1'b0, 1'b1, 2'b01, 1'b1, 4'h0, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "ALU op: NOP (0x0)");
+
+        // Test 10: ALU operation extended
+        ALU_op = 4'hC;  // Other operation
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b0, 1'b0, 1'b0, 1'b1, 2'b01, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "ALU op: 0xC");
+
+        // Test 11: Register destination variations - R0
+        RegDistidx = 2'b00;
+        RegWrite = 1'b1;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b0, 1'b0, 1'b1, 2'b00, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Register destination: R0");
+
+        // Test 12: Register destination - R1
+        RegDistidx = 2'b01;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b0, 1'b0, 1'b1, 2'b01, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Register destination: R1");
+
+        // Test 13: Register destination - R2
+        RegDistidx = 2'b10;
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b0, 1'b0, 1'b1, 2'b10, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Register destination: R2");
+
+        // Test 14: Branch Type variations
+        BType = 2'b00;  // No branch
+        @(posedge clk);
+        check_all_outputs(2'b00, 2'b01, 1'b1, 1'b0, 1'b0, 1'b1, 2'b10, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'hBB, 2'b11, 2'b11, 8'h22, 8'h25, 8'h50,
+                         "Branch Type: 00 (no branch)");
+
+        // Test 15: Data pattern - alternating bits
+        BType = 2'b10;
+        ra_val_in = 8'hAA;
+        rb_val_in = 8'h55;
+        imm = 8'h33;
+        @(posedge clk);
+        check_all_outputs(2'b10, 2'b01, 1'b1, 1'b0, 1'b0, 1'b1, 2'b10, 1'b1, 4'hC, 1'b1,
+                         8'hAA, 8'h55, 2'b11, 2'b11, 8'h22, 8'h25, 8'h33,
+                         "Data pattern: alternating bits");
+
+        // Print summary
+        $display("\n");
+        $display("======================================");
         if (errors == 0) begin
-            $display("======================================");
-            $display("  ALL %0d ID/EX REG TESTS PASSED ", tests);
-            $display("======================================");
+            $display("  ALL %0d ID/EX REG TESTS PASSED", tests);
         end else begin
-            $display("======================================");
-            $display("  ID/EX REG TESTBENCH FAILED ");
+            $display("  ID/EX REG TESTBENCH FAILED");
             $display("  %0d out of %0d TESTS FAILED", errors, tests);
-            $display("======================================");
         end
-
+        $display("======================================\n");
+        
         $stop;
     end
 

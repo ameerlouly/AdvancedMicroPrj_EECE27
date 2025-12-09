@@ -8,6 +8,7 @@ module memory (
 
     ///// Port B Data Memory /////
     input  wire        we_b,             // write enable for port B
+    input              rd_b,
     input  wire [7:0]  addr_b,
     input  wire [7:0]  write_data_b,
     output reg  [7:0]  data_out_b
@@ -46,12 +47,10 @@ module memory (
                 else
                     instr_out <= mem[addr_a];
             end
-            else 
-            begin
-                // No write on port B: normal reads (synchronous)
+            if(rd_b) begin
                 data_out_b <= mem[addr_b];
-                instr_out  <= mem[addr_a];
             end
+            instr_out  <= mem[addr_a];
         end
     end
 
