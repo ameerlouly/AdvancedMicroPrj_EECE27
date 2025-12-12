@@ -1,5 +1,5 @@
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-Start time: 23:52:29 on Dec 12,2025
+Start time: 23:54:59 on Dec 12,2025
 vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work 
 -- Compiling module ALU
 -- Compiling module Branch_Unit
@@ -16,5 +16,5 @@ vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/G
 Top level modules:
 	CPU_WrapperV2
 	FU
-End time: 23:52:30 on Dec 12,2025, Elapsed time: 0:00:01
+End time: 23:54:59 on Dec 12,2025, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

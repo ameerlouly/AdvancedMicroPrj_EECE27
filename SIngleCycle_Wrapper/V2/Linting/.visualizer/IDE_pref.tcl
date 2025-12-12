@@ -2,7 +2,7 @@ set Perspective_Version   2
 #
 pref::section perspective
 set perspective_Name       {IDE_pref}
-set perspective_DateTime   {2025-12-12T23:52:36}
+set perspective_DateTime   {2025-12-12T23:55:01}
 set perspective_Directory  {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting}
 set perspective_USER       {test}
 set perspective_VisId      {2021.1}
