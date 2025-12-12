@@ -5,8 +5,8 @@ module ALU(
 	input wire cin,
 
 	output reg [7:0] out,
-	output reg Z, N, C, V	//flags are kept the same unless explicitly updated by an operation
-	output reg [3:0] flag_mask; //[V C N Z]
+	output reg Z, N, C, V,	//flags are kept the same unless explicitly updated by an operation
+	output reg [3:0] flag_mask //[V C N Z]
 );
 	// ALU encodings (localparam)
 	localparam ALU_NOP  = 4'b0000;

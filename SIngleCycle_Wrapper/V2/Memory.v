@@ -8,9 +8,9 @@ module memory (
 
     ///// Port B Data Memory /////
     input  wire [7:0]  addr_b,
-    output reg  [7:0]  data_out_b
+    output reg  [7:0]  data_out_b,
     input  wire        we_b,             // write enable for port B
-    input  wire [7:0]  write_data_b,
+    input  wire [7:0]  write_data_b
 );
 
     // memory 
@@ -27,7 +27,7 @@ module memory (
         if (!rst) 
         begin
             
-            instr_out  <= 8'd0;
+            data_out_a  <= 8'd0;
             data_out_b <= 8'd0;
             
         end
@@ -35,20 +35,20 @@ module memory (
         begin
             // If a write to addr_b happens this cycle, we want deterministic behavior:
             // - data_out_b should return the newly written value (read-after-write).
-            // - instr_out should reflect the new value if fetch address equals addr_b (addr_a == addr_b).
+            // - data_out_a should reflect the new value if fetch address equals addr_b (addr_a == addr_b).
             if (we_b) 
             begin
                 mem[addr_b] <= write_data_b;   // perform write
                 data_out_b  <= write_data_b;   // read-after-write deterministic
                 // instruction fetch sees the new data if it's the same address
                 if (addr_a == addr_b)
-                    instr_out <= write_data_b;
+                    data_out_a <= write_data_b;
                 else
-                    instr_out <= mem[addr_a];
+                    data_out_a <= mem[addr_a];
             end
 
             data_out_b <= mem[addr_b];
-            instr_out  <= mem[addr_a];
+            data_out_a  <= mem[addr_a];
         end
     end
 

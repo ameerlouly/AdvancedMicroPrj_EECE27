@@ -6,7 +6,7 @@ module HU (
     input       BT,             // Branch Taken
     output reg  pc_en,
     output reg  if_id_en,
-    output reg  flush,
+    output reg  flush
 );
 
     always @(*) begin

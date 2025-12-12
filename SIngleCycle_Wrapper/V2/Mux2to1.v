@@ -8,9 +8,9 @@ module mux2to1 #(
 
     always @(*) begin
         case (sel)
-            1'b0: y = d0;
-            1'b1: y = d1;
-            default: y = {WIDTH{1'b0}}; // safety default (all zeros)
+            1'b0: out = d0;
+            1'b1: out = d1;
+            default: out = {WIDTH{1'b0}}; // safetout default (all zeros)
         endcase
     end
 
