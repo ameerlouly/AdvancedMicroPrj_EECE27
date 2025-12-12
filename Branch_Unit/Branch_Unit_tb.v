@@ -33,12 +33,12 @@ module tb_Branch_Unit();
     localparam BR_JMP  = 3'b110;
     localparam BR_RET  = 3'b111;
 
-    // Counters
+    // Counters for tracking results
     integer passed = 0;
     integer failed = 0;
     integer total  = 0;
 
-    // Test task
+    // Task to run each test case
     task run_test;
         input [3:0] t_flags;
         input [2:0] t_btype;
@@ -47,13 +47,13 @@ module tb_Branch_Unit();
         begin
             flag_mask = t_flags;
             BTYPE     = t_btype;
-            #1;
+            #1; // Allow for combinational settle
 
             total = total + 1;
 
             if (B_TAKE !== expected_take || PC_SRC !== expected_pc) begin
                 failed = failed + 1;
-                $display("FAIL: flags=%b BTYPE=%b -> B_TAKE=%b (exp %b), PC_SRC=%b (exp %b)",
+                $display("FAIL: flags=%b BTYPE=%b -> B_TAKE=%b (expected %b), PC_SRC=%b (expected %b)",
                          flag_mask, BTYPE, B_TAKE, expected_take, PC_SRC, expected_pc);
             end else begin
                 passed = passed + 1;
@@ -63,42 +63,42 @@ module tb_Branch_Unit();
         end
     endtask
 
-
     initial begin
         $display("\n=== Branch Unit Testbench Start ===\n");
 
-        // BR_NONE
-        run_test(4'b0000, BR_NONE, 2'b00, FW);
+        // Test BR_NONE: Expect B_TAKE = 00 and PC_SRC = 00
+        run_test(4'b0000, BR_NONE, 2'b00, NORM);
 
-        // BR_JZ
-        run_test(4'b0001, BR_JZ, 2'b01, FW);   // Z=1 -> take
-        run_test(4'b0000, BR_JZ, 2'b00, NORM); // Z=0 -> no
+        // Test BR_JZ:
+        run_test(4'b0001, BR_JZ, 2'b01, FW);   // Z=1
+        run_test(4'b0000, BR_JZ, 2'b00, NORM);  // Z=0
 
-        // BR_JN
+        // Test BR_JN:
         run_test(4'b0010, BR_JN, 2'b01, FW);   // N=1
-        run_test(4'b0000, BR_JN, 2'b00, NORM); // N=0
+        run_test(4'b0000, BR_JN, 2'b00, NORM);  // N=0
 
-        // BR_JC
+        // Test BR_JC:
         run_test(4'b0100, BR_JC, 2'b01, FW);   // C=1
-        run_test(4'b0000, BR_JC, 2'b00, NORM);
+        run_test(4'b0000, BR_JC, 2'b00, NORM);  // C=0
 
-        // BR_JV
+        // Test BR_JV:
         run_test(4'b1000, BR_JV, 2'b01, FW);   // V=1
-        run_test(4'b0000, BR_JV, 2'b00, NORM);
+        run_test(4'b0000, BR_JV, 2'b00, NORM);  // V=0
 
-        // BR_LOOP (Z == 0)
-        run_test(4'b0000, BR_LOOP, 2'b01, FW); // Z=0 → LOOP continue
-        run_test(4'b0001, BR_LOOP, 2'b00, NORM); // Z=1 → stop
+        // Test BR_LOOP: (Take if Z=0)
+        run_test(4'b0000, BR_LOOP, 2'b01, FW); // Z=0
+        run_test(4'b0001, BR_LOOP, 2'b00, NORM); // Z=1
 
-        // BR_JMP (always take)
+        // Test BR_JMP: (Always take)
         run_test(4'bxxxx, BR_JMP, 2'b01, FW);
 
-        // BR_RET (always take, PC from DataB)
+        // Test BR_RET: (Always take, PC_SRC=DataB)
         run_test(4'bxxxx, BR_RET, 2'b01, DataB);
 
-        // DEFAULT case
+        // Test DEFAULT: (No take, PC_SRC=DataB)
         run_test(4'b0000, 3'bxxx, 2'b00, DataB);
 
+        // Final summary
         $display("\n=== Testbench Finished ===");
         $display("TOTAL TESTS = %0d", total);
         $display("PASSED      = %0d", passed);
@@ -108,3 +108,4 @@ module tb_Branch_Unit();
     end
 
 endmodule
+
