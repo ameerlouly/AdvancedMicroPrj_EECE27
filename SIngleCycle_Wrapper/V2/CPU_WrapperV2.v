@@ -140,7 +140,7 @@ module CPU_WrapperV2 (
         .IO_Write       (cu_io_write)
     );
 
-    wire reg_dist;
+    wire [1:0]  reg_dist;
     mux2to1 #(.WIDTH(2)) reg_dist_mux (
         .d0     (IR[3:2]),
         .d1     (IR[1:0]),
@@ -174,7 +174,7 @@ module CPU_WrapperV2 (
   
     mux4to1 rf_wd_mux (
         .d0(alu_out),
-        .d1(mem_data_b_out ), 
+        .d1(mem_data_b_out), 
         .d2(I_Port),
         .d3(8'b0),
         .sel(cu_memtoreg),
@@ -224,6 +224,7 @@ module CPU_WrapperV2 (
     //     .out()
     // );
 
+    assign alu_a = ra_data_out; // Temporarily untill Fwd is done
 
     mux2to1 #(.WIDTH(8)) alu_b_mux2to1 (
         .d0     (rb_data_out),
