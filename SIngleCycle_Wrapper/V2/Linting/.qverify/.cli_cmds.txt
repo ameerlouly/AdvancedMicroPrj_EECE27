@@ -1,0 +1,381 @@
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 6
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 7
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 822
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverifyek  -od D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting -l .elab.log  -cli -internal -cmd elab -zdb D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting/qcache/DB/zdb_1 -tool lint -d CPU_WrapperV2 -L work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1028
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverifyek  -od D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting -l .elab.log  -cli -internal -cmd elab -zdb D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting/qcache/DB/zdb_2 -tool lint -d CPU_WrapperV2 -L work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1234
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverifyek  -od D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting -l .elab.log  -cli -internal -cmd elab -zdb D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting/qcache/DB/zdb_3 -tool lint -d CPU_WrapperV2 -L work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1440
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverifyek  -od D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting -l .elab.log  -cli -internal -cmd elab -zdb D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting/qcache/DB/zdb_4 -tool lint -d CPU_WrapperV2 -L work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1647
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1648
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1649
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1856
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1857
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 1858
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2065
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2066
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2067
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2274
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2275
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2276
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2483
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2484
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2485
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2692
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2693
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2694
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2901
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2902
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 2903
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3110
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3111
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3112
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3319
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3320
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3321
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3528
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3529
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3530
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3737
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3738
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3739
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3946
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3947
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 3948
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4155
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4156
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4157
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4364
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4365
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4366
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4573
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4574
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4575
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4782
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4783
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4784
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4991
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4992
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 4993
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5200
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5201
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5202
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5409
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlib work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5410
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vmap work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5411
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/share/modeltech/win64/vlog D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/another_ALU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Branch_Unit.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CCR.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/CPU_WrapperV2.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/FU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/HU.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Memory.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux2to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Mux4to1.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Pc.v D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Register_file.v -work work
+Questa Debug flags:
+ 4300:  lint_gui_mode        (Default False) signal for any gui required action
+
+
+# F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverify_ui_cmds.tcl : 5617
+F:/QFT_2021.1/QFT_2021.1/QFT/V2021.1/win64/bin/qverifyek  -od D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting -l .elab.log  -cli -internal -cmd elab -zdb D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V2/Linting/qcache/DB/zdb_24 -tool lint -d CPU_WrapperV2 -L work
