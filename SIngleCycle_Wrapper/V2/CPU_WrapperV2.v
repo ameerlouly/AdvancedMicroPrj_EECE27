@@ -65,6 +65,9 @@ module CPU_WrapperV2 (
             cu_reg_dist;
 
     // Execut Wires
+    wire    cu_alu_src;
+    wire [3 : 0]    cu_alu_op;
+    wire cu_flag_en;
 
     // Memory Wires
     wire    cu_mem_read,
@@ -88,12 +91,12 @@ module CPU_WrapperV2 (
         .SP_EN          (cu_sp_en),
         .SP_OP          (cu_sp_op),
         // Execute Control
-        .Alu_Op         (), // 4 Bits
+        .Alu_Op         (cu_alu_op), // 4 Bits
         .BTYPE          (), // 3 Bits
-        .Alu_src        (),
-        .IS_CALL        (),
-        .UpdateFlags    (),
+        .Alu_src        (cu_alu_src),
+        .UpdateFlags    (cu_flag_en),
         // Memory Control
+        .IS_CALL        (),
         .MemToReg       (), // 2 Bits
         .MemWrite       (),
         .MemRead        (cu_mem_read),
@@ -129,6 +132,9 @@ module CPU_WrapperV2 (
 
 /*** Register File *****************************************************************************/
 
+    wire [7 : 0]    ra_data_out,
+                    rb_data_out;
+
     Register_file regfile_inst (
         .clk        (clk),
         .rst        (rstn),
@@ -139,8 +145,8 @@ module CPU_WrapperV2 (
         .rb         (IR[1:0]),
         .rd         (reg_dist), 
         .write_data (),
-        .ra_date    (),
-        .rb_date    ()
+        .ra_date    (ra_data_out),
+        .rb_date    (rb_data_out)
     );
 
     wire [3 : 2]    ra_mux_out;
@@ -151,6 +157,71 @@ module CPU_WrapperV2 (
         .out    (ra_mux_out)
     );
 
-/*** ALU ************************************************************************************/
+/*** ALU ****************************************************************************************/
+
+    wire [7 : 0]    alu_a,
+                    alu_b,
+                    alu_out;
+
+    wire            alu_z,
+                    alu_n,
+                    alu_c,
+                    alu_v;
+
+    wire [3 : 0]    alu_flag_mask,
+                    ccr_reg_out;
+
+    //todo: When doing Pipelined
+    // mux4to1 alu_a_mux (
+    //     .d0(ra_data_out),
+    //     .d1(),  //todo ResWB    (FWD)
+    //     .d2(),  //todo ResMem   (FWD)
+    //     .d3(8'b0),  
+    //     .sel(),
+    //     .out()
+    // );
+
+    // mux4to1 alu_b_mux4to1 (
+    //     .d0(ra_data_out),
+    //     .d1(),  //todo ResWB    (FWD)
+    //     .d2(),  //todo ResMem   (FWD)
+    //     .d3(8'b0),  
+    //     .sel(),
+    //     .out()
+    // );
+
+
+    mux2to1 #(.WIDTH(8)) alu_b_mux2to1 (
+        .d0     (rb_data_out),
+        .d1     (IR),
+        .sel    (cu_alu_src),
+        .out    (alu_b)
+    );
+
+    ALU alu_inst (
+        .A         (alu_a),
+        .B         (alu_b),
+        .sel       (cu_alu_op),
+        .cin       (ccr_reg_out[2]),
+        .out       (alu_out),
+        .Z         (alu_z),
+        .N         (alu_n),
+        .C         (alu_c),
+        .V         (alu_v),
+        .flag_mask (alu_flag_mask)  // 4 Bits
+    );
+
+    CCR ccr_inst (
+        .clk       (clk),
+        .rst       (rstn),
+        .Z         (alu_z),
+        .N         (alu_n),
+        .C         (alu_c),
+        .V         (alu_v),
+        .flag_en   (cu_flag_en),
+        .flag_mask (alu_flag_mask), // 4 bits
+        .CCR_reg   (ccr_reg_out)  // 4 bits
+    );
+
 
 endmodule
