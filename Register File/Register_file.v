@@ -2,6 +2,8 @@ module Register_file (
     input wire clk,              // Clock signal
     input wire rst,              // Active-low reset
     input wire wenabel,          // Write enable signal
+    input wire SP_EN,
+    input wire SP_OP,
 
     input wire [1:0] ra,         // Read address A  (selects R0..R3)
     input wire [1:0] rb,         // Read address B  (selects R0..R3)
@@ -30,6 +32,10 @@ module Register_file (
         else if (wenabel) begin
             // Write operation: write_data → R[rd]
             regs[rd] <= write_data;
+        end
+
+        if(SP_EN) begin
+        regs[3] <= (SP_OP == 1'b1)? regs[3] + 1 : regs[3] - 1;
         end
         
     end
