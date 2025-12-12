@@ -24,6 +24,7 @@ module CPU_WrapperV2 (
 
     assign pc_plus1 = pc_current + 1;
     assign pc_write = cu_pc_write_en & hu_pc_write_en;
+    assign if_id_end = cu_if_id_write_en & hu_if_id_write_en;
 
     mux4to1 PC_MUX (
         .d0(pc_plus1),
@@ -52,7 +53,9 @@ module CPU_WrapperV2 (
     
     // Fetch Wires
     wire    cu_pc_write_en,
-            cu_if_id_write_en;
+            cu_if_id_write_en,
+            cu_inject_bubble, //todo: Currently Empty
+            cu_inject_int;  //todo: Currently Empty
 
     // Decode Wires
     wire    cu_sp_en,
@@ -60,6 +63,12 @@ module CPU_WrapperV2 (
             cu_reg_write,
             cu_sp_sel,
             cu_reg_dist;
+
+    // Execut Wires
+
+    // Memory Wires
+    wire    cu_mem_read,
+            cu_mem_write;
 
     Control_unit ctrl_inst (
         .clk            (clk),
@@ -69,9 +78,9 @@ module CPU_WrapperV2 (
         .ra             (IR[3:2]),
         // Fetch Control
         .PC_Write_En    (cu_pc_write),
-        .IF_ID_Write_En (),
-        .Inject_Bubble  (),
-        .Inject_Int     (),
+        .IF_ID_Write_En (cu_if_id_write_en),
+        .Inject_Bubble  (cu_inject_bubble),
+        .Inject_Int     (cu_inject_int),
         // Decode Control
         .RegWrite       (cu_reg_write),
         .RegDist        (cu_reg_dist),
@@ -87,7 +96,7 @@ module CPU_WrapperV2 (
         // Memory Control
         .MemToReg       (), // 2 Bits
         .MemWrite       (),
-        .MemRead        (),
+        .MemRead        (cu_mem_read),
         // Write-Back Control
         .IO_Write       ()
     );
@@ -102,7 +111,21 @@ module CPU_WrapperV2 (
 
 /*** Hazard Unit *****************************************************************************/
 
-    wire hu_pc_write_en;
+    //todo: All of these will be taken and given to register later
+    wire    hu_pc_write_en,
+            hu_if_id_write_en,
+            hu_flush;   // Currently Not used
+
+    HU hu_inst (
+        .if_id_ra      (IR[3:2]),  // 2 Bits
+        .if_id_rb      (IR[1:0]),  // 2 Bits
+        .id_ex_rd      (reg_dist),  // 2 Bits
+        .id_ex_mem_read(cu_mem_read),
+        .BT            (),  //todo: From Branch Unit
+        .pc_en         (hu_pc_write_en),
+        .if_id_en      (hu_if_id_write_en),
+        .flush         (hu_flush)
+    );
 
 /*** Register File *****************************************************************************/
 
@@ -127,5 +150,7 @@ module CPU_WrapperV2 (
         .sel    (cu_sp_sel),
         .out    (ra_mux_out)
     );
+
+/*** ALU ************************************************************************************/
 
 endmodule
