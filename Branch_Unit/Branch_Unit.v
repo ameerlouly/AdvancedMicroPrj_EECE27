@@ -63,7 +63,7 @@ module Branch_Unit(
                   
 				    default :begin 
 						B_TAKE = 1'b0;
-						PC_SRC= DataB;
+						PC_SRC= NORM;
 					end
                         
         endcase
