@@ -6,12 +6,39 @@ module CPU_WrapperV2 (
     output [7 : 0] O_Port
 );
 
+// RF outputs
+    wire [7 : 0]    ra_data_out,
+                    rb_data_out,
+                    rf_wd_mux_out;
+
+// Memory wires
+    wire [7 : 0]    mem_data_b_out;
+    wire    cu_mem_read,
+            cu_mem_write,
+            cu_isCall;
+
+// Branch Unit Wires
+    wire [1 : 0]    bu_bt;
+
+// ALU and CCR Wires
+    wire [7 : 0]    alu_a,
+                    alu_b,
+                    alu_out;
+
+    wire            alu_z,
+                    alu_n,
+                    alu_c,
+                    alu_v;
+
+    wire [3 : 0]    alu_flag_mask,
+                    ccr_reg_out;
+
 /*** Program Counter *****************************************************************************/
-    wire [7 : 0]    pc_next,    //* Completed
-                    pc_current, //* Completed
-                    pc_plus1; //* Completed
-    wire            pc_write; //* Completed
-    wire [1 : 0]    pc_src; //* Completed
+    wire [7 : 0]    pc_next,
+                    pc_current,
+                    pc_plus1;
+    wire            pc_write; 
+    wire [1 : 0]    pc_src;
     
     Pc PC(
         .clk(clk),
@@ -22,8 +49,6 @@ module CPU_WrapperV2 (
     );
 
     assign pc_plus1 = pc_current + 1;
-    assign pc_write = cu_pc_write_en & hu_pc_write_en;
-    assign if_id_end = cu_if_id_write_en & hu_if_id_write_en;
 
     mux4to1 PC_MUX (
         .d0(pc_plus1),
@@ -38,7 +63,6 @@ module CPU_WrapperV2 (
     wire [7 : 0] IR;
 
     wire [7 : 0]    WriteD_mux_out;
-    wire [7 : 0]    mem_data_b_out;
 
     mux2to1 #(.WIDTH(8)) mem_writeD_b_mux2to1 (
         .d0     (rb_data_out),
@@ -80,9 +104,6 @@ module CPU_WrapperV2 (
     wire [2 : 0]    cu_btype;
 
     // Memory Wires
-    wire    cu_mem_read,
-            cu_mem_write,
-            cu_isCall;
     wire [1 : 0]    cu_memtoreg;
 
     // Write-Back Control
@@ -145,11 +166,11 @@ module CPU_WrapperV2 (
         .flush         (hu_flush)
     );
 
-/*** Register File *****************************************************************************/
+/*** AND Gates *****************************************************************************/
+    assign pc_write = cu_pc_write_en & hu_pc_write_en;
+    assign if_id_en = cu_if_id_write_en & hu_if_id_write_en;
 
-    wire [7 : 0]    ra_data_out,
-                    rb_data_out,
-                    rf_wd_mux_out;
+/*** Register File *****************************************************************************/
   
     mux4to1 rf_wd_mux (
         .d0(alu_out),
@@ -158,6 +179,14 @@ module CPU_WrapperV2 (
         .d3(8'b0),
         .sel(cu_memtoreg),
         .out(rf_wd_mux_out)
+    );
+
+    wire [3 : 2]    ra_mux_out;
+    mux2to1 #(.WIDTH(2)) ra_mux (
+        .d0     (IR[3:2]),
+        .d1     (2'b11),
+        .sel    (cu_sp_sel),
+        .out    (ra_mux_out)
     );                 
 
     Register_file regfile_inst (
@@ -174,27 +203,7 @@ module CPU_WrapperV2 (
         .rb_date    (rb_data_out)
     );
 
-    wire [3 : 2]    ra_mux_out;
-    mux2to1 #(.WIDTH(2)) ra_mux (
-        .d0     (IR[3:2]),
-        .d1     (2'b11),
-        .sel    (cu_sp_sel),
-        .out    (ra_mux_out)
-    );
-
 /*** ALU ****************************************************************************************/
-
-    wire [7 : 0]    alu_a,
-                    alu_b,
-                    alu_out;
-
-    wire            alu_z,
-                    alu_n,
-                    alu_c,
-                    alu_v;
-
-    wire [3 : 0]    alu_flag_mask,
-                    ccr_reg_out;
 
     //todo: When doing Pipelined
     // mux4to1 alu_a_mux (
@@ -249,8 +258,6 @@ module CPU_WrapperV2 (
     );
 
 /*** Branch Unit ****************************************************************************************/
-    
-    wire [1 : 0]    bu_bt;
 
     Branch_Unit branch_inst (
         .flag_mask (alu_flag_mask), // 4 bits
