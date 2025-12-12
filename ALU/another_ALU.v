@@ -5,27 +5,28 @@ module ALU(
 	input wire cin,
 
 	output reg [7:0] out,
-	output reg Z, N, C, V	//flags are don't cares unless updated by the operation
+	output reg Z, N, C, V	//flags are kept the same unless explicitly updated by an operation
 );
 	// ALU encodings (localparam)
 	localparam ALU_NOP  = 4'b0000;
 
-	localparam ALU_PASS = 4'b0001; // MOV - pass source
 	localparam ALU_ADD  = 4'b0010;
 	localparam ALU_SUB  = 4'b0011;
 	localparam ALU_AND  = 4'b0100;
 	localparam ALU_OR   = 4'b0101;
-
 	localparam ALU_RLC  = 4'b0110;
 	localparam ALU_RRC  = 4'b0111;
-	localparam ALU_SETC = 4'b1000; // pseudo-op (set C flag)
-	localparam ALU_CLRC = 4'b1001; // pseudo-op (clear C)
 
-	localparam ALU_NOT  = 4'b1010;
-	localparam ALU_NEG  = 4'b1011;
+	localparam ALU_NOT    = 4'b1000;
+    localparam ALU_NEG    = 4'b1001;
+    localparam ALU_INC    = 4'b1010;
+    localparam ALU_DEC    = 4'b1011;
+    localparam ALU_SETC   = 4'b1100;
+    localparam ALU_CLRC   = 4'b1101;
 
-	localparam ALU_INC  = 4'b1100;
-	localparam ALU_DEC  = 4'b1101;
+	localparam ALU_PASS_B    = 4'b0001;	// Pass B (Used for MOV)
+    localparam ALU_PASS_A = 4'b1110;	// Pass A (Used for PUSH address)
+    localparam ALU_INC_A    = 4'b1111;	// A + 1  (Used for POP address)
 
 	reg [8:0] temp_wide;
 
@@ -37,7 +38,8 @@ module ALU(
 		C = 1'bx;
 		V = 1'bx;
 		case (sel)
-			ALU_PASS: out = B;		//none
+			ALU_PASS_B: out = B;		//none
+			ALU_PASS_A: out = A;		//none
 			ALU_ADD: begin
 				temp_wide = {1'b0, A} + {1'b0, B};	//all
 				out = temp_wide[7:0];
@@ -101,6 +103,11 @@ module ALU(
 				N = out[7];
 				V = (B == 8'h80) ? 1'b1 : 1'b0;
 				C = (B == 8'h00) ? 1'b1 : 1'b0;
+			end
+			ALU_INC_A: begin
+				out = A + 8'h01;	//none
+				//We can easily detect stack underflow here if needed
+				//if (A == 8'hFF) 
 			end
 
 			default: ; // NOP and unimplemented ops
