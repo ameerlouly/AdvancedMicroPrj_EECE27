@@ -1,7 +1,7 @@
 module Branch_Unit(
     input   reg [3:0]        flag_mask,     // [Z,N,C,V]
     input   reg [2:0]        BTYPE,
-	output  reg     		 B_TAKE
+	output  reg [1:0]    	 B_TAKE,PC_SRC
     );
 
 
@@ -14,19 +14,57 @@ module Branch_Unit(
     localparam BR_JMP  = 3'b110; // Used for JMP, CALL
     localparam BR_RET  = 3'b111; // THIS (New Type for RET/RTI)
 
+    localparam FW     = 2'b01;
+    localparam DataB  = 2'b10;
+    localparam NORM   = 2'b00;
 
 	always @* begin
         
         case(BTYPE)
-					BR_NONE: B_TAKE = 1'b0;
-            		BR_JZ:   B_TAKE = (flag_mask[0] == 1'b1) ? 1'b1: 1'b0;
-					BR_JN:   B_TAKE = (flag_mask[1] == 1'b1) ? 1'b1: 1'b0;
-					BR_JC:   B_TAKE = (flag_mask[2] == 1'b1) ? 1'b1: 1'b0;
-					BR_JV:   B_TAKE = (flag_mask[3] == 1'b1) ? 1'b1: 1'b0;
-					BR_LOOP: B_TAKE = (flag_mask[0] == 1'b0) ? 1'b1: 1'b0;
-					BR_JMP:  B_TAKE = 1'b1;
-					BR_RET:  B_TAKE = 1'b1;
-                    default : B_TAKE = 1'b0;
+					BR_NONE:begin
+						B_TAKE = 1'b0; 
+						PC_SRC= NORM;
+					end
+            	
+					BR_JZ:begin
+						B_TAKE = (flag_mask[0] == 1'b1) ? 1'b1: 1'b0; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+					
+					BR_JN:begin
+						B_TAKE = (flag_mask[1] == 1'b1) ? 1'b1: 1'b0; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+					
+					BR_JC:begin
+						B_TAKE = (flag_mask[2] == 1'b1) ? 1'b1: 1'b0; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+				
+					BR_JV:begin
+						B_TAKE = (flag_mask[3] == 1'b1) ? 1'b1: 1'b0; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+					
+					BR_LOOP:begin 
+						B_TAKE = (flag_mask[0] == 1'b0) ? 1'b1: 1'b0; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+					
+					BR_JMP:begin
+						B_TAKE = 1'b1; 
+						PC_SRC=  (B_TAKE == 1'b1) ? FW: NORM;
+					end
+					
+					BR_RET:begin
+						B_TAKE = 1'b1;
+					    PC_SRC= DataB;
+					end
+                  
+				    default :begin 
+						B_TAKE = 1'b0;
+						PC_SRC= DataB;
+					end
                         
         endcase
     end
