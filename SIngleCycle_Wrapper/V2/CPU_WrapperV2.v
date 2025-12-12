@@ -2,8 +2,7 @@ module CPU_WrapperV2 (
     input clk,
     input rstn,
     input [7 : 0] I_Port,
-    input [7 : 0] I_Port,
-    input intr_sig,
+    input int_sig,  // Interrupt Signal
     output [7 : 0] O_Port
 );
 
@@ -12,7 +11,7 @@ module CPU_WrapperV2 (
                     pc_current, //* Completed
                     pc_plus1; //* Completed
     wire            pc_write; //* Completed
-    wire [1 : 0]    pc_src; //todo
+    wire [1 : 0]    pc_src; //* Completed
     
     Pc PC(
         .clk(clk),
@@ -28,25 +27,35 @@ module CPU_WrapperV2 (
 
     mux4to1 PC_MUX (
         .d0(pc_plus1),
-        .d1(),  //todo FW
-        .d2(),  //todo DataB
-        .d3(8'b0),
+        .d1(rb_data_out), 
+        .d2(mem_data_b_out),
+        .d3(8'b00000000),
         .sel(pc_src),
         .out(pc_next)
     );
 
 /*** Memory *****************************************************************************/
     wire [7 : 0] IR;
-    
+
+    wire [7 : 0]    WriteD_mux_out;
+    wire [7 : 0]    mem_data_b_out;
+
+    mux2to1 #(.WIDTH(8)) mem_writeD_b_mux2to1 (
+        .d0     (rb_data_out),
+        .d1     (pc_plus1),
+        .sel    (cu_isCall),
+        .out    (WriteD_mux_out)
+    );
+
     memory mem_inst (
         .clk            (clk),
         .rst            (rstn),
         .addr_a         (pc_current),
         .data_out_a     (IR),
-        .addr_b         (), //todo: Mem Stage  
-        .data_out_b     (), //todo: Mem Stage
-        .we_b           (), //todo: Mem Stage
-        .write_data_b   ()  //todo: Mem Stage
+        .addr_b         (alu_out), 
+        .data_out_b     (mem_data_b_out), 
+        .we_b           (cu_mem_write), 
+        .write_data_b   (WriteD_mux_out)  
     );
 
 /*** Control Unit *****************************************************************************/
@@ -64,19 +73,25 @@ module CPU_WrapperV2 (
             cu_sp_sel,
             cu_reg_dist;
 
-    // Execut Wires
+    // Execute Wires
     wire    cu_alu_src;
     wire [3 : 0]    cu_alu_op;
     wire cu_flag_en;
+    wire [2 : 0]    cu_btype;
 
     // Memory Wires
     wire    cu_mem_read,
-            cu_mem_write;
+            cu_mem_write,
+            cu_isCall;
+    wire [1 : 0]    cu_memtoreg;
+
+    // Write-Back Control
+    wire cu_io_write;
 
     Control_unit ctrl_inst (
         .clk            (clk),
         .rst            (rstn),
-        .INTR           (intr_sig),
+        .INTR           (int_sig),
         .opcode         (IR[7:4]),
         .ra             (IR[3:2]),
         // Fetch Control
@@ -92,16 +107,16 @@ module CPU_WrapperV2 (
         .SP_OP          (cu_sp_op),
         // Execute Control
         .Alu_Op         (cu_alu_op), // 4 Bits
-        .BTYPE          (), // 3 Bits
+        .BTYPE          (cu_btype), // 3 Bits
         .Alu_src        (cu_alu_src),
         .UpdateFlags    (cu_flag_en),
         // Memory Control
-        .IS_CALL        (),
-        .MemToReg       (), // 2 Bits
-        .MemWrite       (),
+        .IS_CALL        (cu_isCall),
+        .MemToReg       (cu_memtoreg), // 2 Bits
+        .MemWrite       (cu_mem_write),
         .MemRead        (cu_mem_read),
         // Write-Back Control
-        .IO_Write       ()
+        .IO_Write       (cu_io_write)
     );
 
     wire reg_dist;
@@ -124,7 +139,7 @@ module CPU_WrapperV2 (
         .if_id_rb      (IR[1:0]),  // 2 Bits
         .id_ex_rd      (reg_dist),  // 2 Bits
         .id_ex_mem_read(cu_mem_read),
-        .BT            (),  //todo: From Branch Unit
+        .BT            (bu_bt),  //todo: From Branch Unit
         .pc_en         (hu_pc_write_en),
         .if_id_en      (hu_if_id_write_en),
         .flush         (hu_flush)
@@ -133,7 +148,17 @@ module CPU_WrapperV2 (
 /*** Register File *****************************************************************************/
 
     wire [7 : 0]    ra_data_out,
-                    rb_data_out;
+                    rb_data_out,
+                    rf_wd_mux_out;
+  
+    mux4to1 rf_wd_mux (
+        .d0(alu_out),
+        .d1(mem_data_b_out ), 
+        .d2(I_Port),
+        .d3(8'b0),
+        .sel(cu_memtoreg),
+        .out(rf_wd_mux_out)
+    );                 
 
     Register_file regfile_inst (
         .clk        (clk),
@@ -144,7 +169,7 @@ module CPU_WrapperV2 (
         .ra         (ra_mux_out),
         .rb         (IR[1:0]),
         .rd         (reg_dist), 
-        .write_data (),
+        .write_data (rf_wd_mux_out),
         .ra_date    (ra_data_out),
         .rb_date    (rb_data_out)
     );
@@ -223,5 +248,24 @@ module CPU_WrapperV2 (
         .CCR_reg   (ccr_reg_out)  // 4 bits
     );
 
+/*** Branch Unit ****************************************************************************************/
+    
+    wire [1 : 0]    bu_bt;
+
+    Branch_Unit branch_inst (
+        .flag_mask (alu_flag_mask), // 4 bits
+        .BTYPE     (cu_btype), // 3 bits
+        .B_TAKE    (bu_bt), // 2 bits
+        .PC_SRC    (pc_src)  // 2 bits
+    );
+
+/*** Output Port ****************************************************************************************/
+
+    mux2to1 #(.WIDTH(8)) output_port_mux (
+        .d0     (8'b00000000),
+        .d1     (rb_data_out),
+        .sel    (cu_io_write),
+        .out    (O_Port)
+    );
 
 endmodule
