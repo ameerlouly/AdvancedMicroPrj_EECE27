@@ -1,6 +1,6 @@
 module Branch_Unit(
-    input   reg [3:0]        flag_mask,     // [Z,N,C,V]
-    input   reg [2:0]        BTYPE,
+    input   wire [3:0]        flag_mask,     // [Z,N,C,V]
+    input   wire [2:0]        BTYPE,
 	output  reg [1:0]    	 B_TAKE,PC_SRC
     );
 
