@@ -116,7 +116,7 @@ module CPU_WrapperV2 (
         .opcode         (IR[7:4]),
         .ra             (IR[3:2]),
         // Fetch Control
-        .PC_Write_En    (cu_pc_write),
+        .PC_Write_En    (cu_pc_write_en),
         .IF_ID_Write_En (cu_if_id_write_en),
         .Inject_Bubble  (cu_inject_bubble),
         .Inject_Int     (cu_inject_int),
