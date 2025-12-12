@@ -23,7 +23,7 @@ module Branch_Unit(
 					BR_JN:   B_TAKE = (flag_mask[1] == 1'b1) ? 1'b1: 1'b0;
 					BR_JC:   B_TAKE = (flag_mask[2] == 1'b1) ? 1'b1: 1'b0;
 					BR_JV:   B_TAKE = (flag_mask[3] == 1'b1) ? 1'b1: 1'b0;
-					BR_LOOP: B_TAKE = (flag_mask[0] == 1'b1) ? 1'b1: 1'b0;
+					BR_LOOP: B_TAKE = (flag_mask[0] == 1'b0) ? 1'b1: 1'b0;
 					BR_JMP:  B_TAKE = 1'b1;
 					BR_RET:  B_TAKE = 1'b1;
                     default : B_TAKE = 1'b0;
