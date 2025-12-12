@@ -6,6 +6,7 @@ module ALU(
 
 	output reg [7:0] out,
 	output reg Z, N, C, V	//flags are kept the same unless explicitly updated by an operation
+	output reg [3:0] flag_mask; //[V C N Z]
 );
 	// ALU encodings (localparam)
 	localparam ALU_NOP  = 4'b0000;
@@ -37,6 +38,7 @@ module ALU(
 		N = 1'bx;
 		C = 1'bx;
 		V = 1'bx;
+		flag_mask = 4'b0000;
 		case (sel)
 			ALU_PASS_B: out = B;		//none
 			ALU_PASS_A: out = A;		//none
@@ -47,6 +49,7 @@ module ALU(
 				N = out[7];
 				C = temp_wide[8];
 				V = (A[7] == B[7]) && (out[7] != A[7]) ? 1'b1 : 1'b0;
+				flag_mask = 4'b1111;
 			end
 			ALU_SUB: begin
 				temp_wide = {1'b0, A} - {1'b0, B};	//all
@@ -55,39 +58,52 @@ module ALU(
 				N = out[7];
 				C = temp_wide[8];
 				V = (A[7] != B[7]) && (out[7] != A[7]) ? 1'b1 : 1'b0;
+				flag_mask = 4'b1111;
 			end
 			ALU_AND: begin
 				out = A & B;	//Z,N
 				Z = out == 8'h00 ? 1'b1 : 1'b0;
 				N = out[7];
+				flag_mask = 4'b0011;
 			end
 			ALU_OR: begin 
 				out = A | B;	//Z,N
 				Z = out == 8'h00 ? 1'b1 : 1'b0;
 				N = out[7];
+				flag_mask = 4'b0011;
 			end
 
 			ALU_RLC: begin 
 				out = {B[6:0], cin};
 				C = B[7];
+				flag_mask = 4'b0100;
 			end
 			ALU_RRC: begin 
 				out = {cin, B[7:1]};
 				C = B[0];
+				flag_mask = 4'b0100;
 			end
 
-			ALU_SETC: C = 1'b1;
-			ALU_CLRC: C = 1'b0;
+			ALU_SETC: begin
+				C = 1'b1;
+				flag_mask = 4'b0100;
+			end
+			ALU_CLRC: begin
+				C = 1'b0;
+				flag_mask = 4'b0100;
+			end	
 
 			ALU_NOT: begin
 				out = ~B;		//Z,N
 				Z = out == 8'h00 ? 1'b1 : 1'b0;
 				N = out[7];
+				flag_mask = 4'b0011;
 			end
 			ALU_NEG: begin
 				out = -B;		//Z,N
 				Z = out == 8'h00 ? 1'b1 : 1'b0;
 				N = out[7];
+				flag_mask = 4'b0011;
 			end
 
 			ALU_INC: begin
@@ -96,6 +112,7 @@ module ALU(
 				N = out[7];
 				V = (B == 8'h7F) ? 1'b1 : 1'b0;
 				C = (B == 8'hFF) ? 1'b1 : 1'b0;
+				flag_mask = 4'b1111;
 			end
 			ALU_DEC: begin 
 				out = B - 8'h01;	//all
@@ -103,11 +120,11 @@ module ALU(
 				N = out[7];
 				V = (B == 8'h80) ? 1'b1 : 1'b0;
 				C = (B == 8'h00) ? 1'b1 : 1'b0;
+				flag_mask = 4'b1111;
 			end
 			ALU_INC_A: begin
 				out = A + 8'h01;	//none
 				//We can easily detect stack underflow here if needed
-				//if (A == 8'hFF) 
 			end
 
 			default: ; // NOP and unimplemented ops
