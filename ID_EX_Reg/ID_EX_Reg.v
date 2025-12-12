@@ -1,12 +1,13 @@
 module id_ex_reg(
     input clk, rst,
     input flush,
+    input inject_bubble,
     input [7:0] pc_plus1,
     input [7:0] IP,
     input [7:0] imm,
 
     // ---------- Control inputs from ID stage ----------
-    input       [1:0] BType,
+    input       [2:0] BType,
     input       [1:0] MemToReg,
     input             RegWrite,
     input             MemWrite,
@@ -24,7 +25,7 @@ module id_ex_reg(
     input  [1:0] rb,            // address of rb
 
     // ---------- Control outputs to EX stage ----------
-    output reg       [1:0] BType_out,
+    output reg      [2:0] BType_out,
     output reg      [1:0] MemToReg_out,
     output reg             RegWrite_out,
     output reg             MemWrite_out,
@@ -68,7 +69,6 @@ module id_ex_reg(
             pc_plus1_out <= 0;
         end
         else if (flush) begin
-            pc_plus1_out <= pc_plus1;
             BType_out <= 0;
             MemToReg_out <= 0;
             RegWrite_out <= 0;
@@ -79,6 +79,16 @@ module id_ex_reg(
             ALU_src_out <= 0;
             ALU_op_out <= 0;
             IO_Write_out <= 0;
+            ra_val_out <= 0;
+            rb_val_out <= 0;
+            ra_out <= 0;
+            rb_out <= 0;
+            IP_out <= 0;
+            imm_out <= 0;
+            pc_plus1_out <= 0;
+        end
+        else if(inject_bubble) begin
+            ALU_op_out <= 0; // no op
         end
         else begin
             BType_out <= BType;

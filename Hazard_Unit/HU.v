@@ -4,10 +4,9 @@ module HU(
     input [1:0] id_ex_rd,
     input       id_ex_mem_read, // NEW: High if instruction in EX is LDD, LDI, or POP
     input       BT,             // Branch Taken
-    input [3:0] opcode,
     output reg  pc_en,
     output reg  if_id_en,
-    output reg  flush
+    output reg  flush,
 );
 
     always @(*) begin
@@ -21,15 +20,13 @@ module HU(
         if ((id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb))) begin
             pc_en = 0;      // Freeze PC
             if_id_en = 0;   // Freeze IF/ID Pipeline Reg
-            flush = 0;      
+            flush = 0;    
         end
 
         // 3. Control Hazard (Branching)
         // If a branch is taken, the instruction currently in Fetch/Decode is wrong.
         if (BT) begin
-            flush = 1;      // Flush the pipeline
-            // Note: If you have a Load-Use stall AND a Branch at the same time, 
-            // the flush usually takes priority or handles both. 
+            flush = 1;      // flush if/id, id/ex reg
         end
     end
 
