@@ -26,6 +26,8 @@ module Branch_Unit(
 					BR_LOOP: B_TAKE = (flag_mask[0] == 1'b1) ? 1'b1: 1'b0;
 					BR_JMP:  B_TAKE = 1'b1;
 					BR_RET:  B_TAKE = 1'b1;
+                    default : B_TAKE = 1'b0;
+                        
         endcase
     end
 
