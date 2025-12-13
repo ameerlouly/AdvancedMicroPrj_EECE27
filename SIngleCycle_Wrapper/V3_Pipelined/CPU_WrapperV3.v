@@ -282,7 +282,7 @@ module CPU_WrapperV3 (
     id_ex_reg id_ex_reg_inst (
         .clk            (clk), // 1 bit, input
         .rst            (rstn), // 1 bit, input
-        .flush          (hu_flush || cu_inject_bubble), // 1 bit, input
+        .flush          (hu_flush || cu_inject_bubble), // 1 bit, input //todo Might Need to remove
         .inject_bubble  (cu_inject_bubble), // 1 bit, input
 
         // ---------- Data inputs ----------
