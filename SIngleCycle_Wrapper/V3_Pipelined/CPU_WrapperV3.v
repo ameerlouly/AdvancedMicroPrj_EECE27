@@ -33,6 +33,31 @@ module CPU_WrapperV3 (
     wire [3 : 0]    alu_flag_mask,
                     ccr_reg_out;
 
+// Ex-mem output wires
+    wire [7:0] exmem_pc_plus1;    // output [7:0]
+    wire [7:0] exmem_Rd2;         // output [7:0]
+    wire       exmem_IO_Write;    // output [0:0]
+    wire [1:0] exmem_RegDistidx;  // output [1:0]
+    wire [7:0] exmem_ALU_res;     // output [7:0]
+    wire [7:0] exmem_FW_value;    // output [7:0]
+    wire       exmem_MemWrite;    // output [0:0]
+    wire [1:0] exmem_MemToReg;    // output [1:0]
+    wire       exmem_RegWrite;    // output [0:0]
+    wire [7:0] exmem_IP;          // output [7:0]
+    wire       exmem_isCall;      // output [0:0]
+
+// Mem-WB Output Wires
+    wire [7:0] memwb_pc_plus1;    // output [7:0]
+    wire [1:0] memwb_RegDistidx;  // output [1:0]
+    wire [7:0] memwb_Rd2;         // output [7:0]
+    wire [7:0] memwb_ALU_res;     // output [7:0]
+    wire [7:0] memwb_data_B;      // output [7:0]
+    wire [1:0] memwb_MemToReg;    // output [1:0]
+    wire       memwb_RegWrite;    // output [0:0]
+    wire [7:0] memwb_IP;          // output [7:0]
+    wire       memwb_IO_Write;
+
+
 /*** Program Counter *****************************************************************************/
     wire [7 : 0]    pc_next,
                     pc_current,
@@ -65,9 +90,9 @@ module CPU_WrapperV3 (
     wire [7 : 0]    WriteD_mux_out;
 
     mux2to1 #(.WIDTH(8)) mem_writeD_b_mux2to1 (
-        .d0     (rb_data_out),
-        .d1     (pc_plus1),
-        .sel    (cu_isCall),
+        .d0     (exmem_FW_value),
+        .d1     (exmem_pc_plus1),
+        .sel    (exmem_isCall),
         .out    (WriteD_mux_out)
     );
 
@@ -76,9 +101,9 @@ module CPU_WrapperV3 (
         .rst            (rstn),
         .addr_a         (pc_current),
         .data_out_a     (IR),
-        .addr_b         (alu_out), 
+        .addr_b         (exmem_ALU_res), 
         .data_out_b     (mem_data_b_out), 
-        .we_b           (cu_mem_write), 
+        .we_b           (exmem_MemWrite), 
         .write_data_b   (WriteD_mux_out)  
     );
 
@@ -116,8 +141,8 @@ module CPU_WrapperV3 (
     // Fetch Wires
     wire    cu_pc_write_en,
             cu_if_id_write_en,
-            cu_inject_bubble, //todo: Currently Empty
-            cu_inject_int;  //todo: Currently Empty
+            cu_inject_bubble,
+            cu_inject_int;
 
     // Decode Wires
     wire    cu_sp_en,
@@ -201,11 +226,11 @@ module CPU_WrapperV3 (
 /*** Register File *****************************************************************************/
   
     mux4to1 rf_wd_mux (
-        .d0(alu_out),
-        .d1(mem_data_b_out), 
-        .d2(I_Port),
+        .d0(memwb_ALU_res),
+        .d1(memwb_data_B), 
+        .d2(memwb_IP),
         .d3(8'b0),
-        .sel(cu_memtoreg),
+        .sel(memwb_MemToReg),
         .out(rf_wd_mux_out)
     );
 
@@ -225,7 +250,7 @@ module CPU_WrapperV3 (
         .SP_OP      (cu_sp_op),
         .ra         (ra_mux_out),
         .rb         (IR[1:0]),
-        .rd         (reg_dist), 
+        .rd         (memwb_RegDistidx), 
         .write_data (rf_wd_mux_out),
         .ra_date    (ra_data_out),
         .rb_date    (rb_data_out)
@@ -243,6 +268,7 @@ module CPU_WrapperV3 (
     wire       idex_ALU_src;     // output [0:0]
     wire [3:0] idex_ALU_op;      // output [3:0]
     wire       idex_IO_Write;    // output [0:0]
+    wire       idex_isCall;
 
     wire [7:0] idex_ra_val;     // output [7:0]
     wire [7:0] idex_rb_val;     // output [7:0]
@@ -277,6 +303,7 @@ module CPU_WrapperV3 (
         .ALU_src        (cu_alu_src), // 1 bit, input
         .ALU_op         (cu_alu_op), // 4 bits, input
         .IO_Write       (cu_io_write), // 1 bit, input
+        .isCall         (cu_isCall),
 
         // ---------- Data inputs from ID stage ----------
         .ra_val_in      (ra_data_out), // 8 bits, input
@@ -295,6 +322,7 @@ module CPU_WrapperV3 (
         .ALU_src_out     (idex_ALU_src),     // 1 bit, output
         .ALU_op_out      (idex_ALU_op),      // 4 bits, output
         .IO_Write_out    (idex_IO_Write),     // 1 bit, output
+        .isCall_out      (idex_isCall),
 
         // ---------- Data outputs to EX stage ----------
         .ra_val_out   (idex_ra_val),   // 8 bits, output
@@ -315,13 +343,13 @@ module CPU_WrapperV3 (
 
     FU fu_inst (
         // ---------------- Control Signals ----------------
-        .RegWrite_Ex_MEM (), // 1 bit, input    exmem
+        .RegWrite_Ex_MEM (exmem_RegWrite), // 1 bit, input
 
         // ---------------- Register Addresses ----------------
-        .Rs_EX           (), // 2 bits, input   idex
-        .Rt_EX           (), // 2 bits, input   idex
-        .Rd_MEM          (), // 2 bits, input   exmem
-        .Rd_WB           (), // 2 bits, input   memwb
+        .Rs_EX           (idex_ra), // 2 bits, input   idex
+        .Rt_EX           (idex_rb), // 2 bits, input   idex
+        .Rd_MEM          (exmem_RegDistidx), // 2 bits, input 
+        .Rd_WB           (memwb_RegDistidx), // 2 bits, input
 
         // ---------------- Outputs to EX Stage ----------------
         .ForwardA        (fu_FWA), // 2 bits, output
@@ -330,11 +358,10 @@ module CPU_WrapperV3 (
 
 /*** ALU ****************************************************************************************/
 
-    //todo: When doing Pipelined
     mux4to1 alu_a_mux (
         .d0(idex_ra_val),
-        .d1(),  //todo ResWB    (FWD)
-        .d2(),  //todo ResMem   (FWD)
+        .d1(memwb_ALU_res),  //? Make sure its Correct
+        .d2(exmem_ALU_res),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWA),
         .out(alu_a)
@@ -343,8 +370,8 @@ module CPU_WrapperV3 (
     wire [7 : 0]    alu_b_mux_out;
     mux4to1 alu_b_mux4to1 (
         .d0(idex_rb_val),
-        .d1(),  //todo ResWB    (FWD)
-        .d2(),  //todo ResMem   (FWD)
+        .d1(memwb_ALU_res),  //? Make sure its Correct
+        .d2(exmem_ALU_res),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWB),
         .out(alu_b_mux_out)
@@ -393,12 +420,74 @@ module CPU_WrapperV3 (
         .PC_SRC    (pc_src)  // 2 bits
     );
 
+/*** EX-MEM Register ****************************************************************************************/
+
+    EX_MEM_reg ex_mem_reg_inst (
+        // ---------------- Inputs ----------------
+        .clk        (clk), // 1 bit, input
+        .rst        (rstn), // 1 bit, input
+        .pc_plus1   (idex_pc_plus1), // 8 bits, input
+        .Rd2        (idex_rb_val), // 8 bits, input //? Make sure its correct
+        .IO_Write   (idex_IO_Write), // 1 bit, input
+        .RegDistidx (idex_RegDistidx), // 2 bits, input
+        .ALU_res    (alu_out), // 8 bits, input
+        .FW_value   (alu_b_mux_out), // 8 bits, input
+        .MemWrite   (idex_MemWrite), // 1 bit, input
+        .MemToReg   (idex_MemToReg), // 2 bits, input
+        .RegWrite   (idex_RegWrite), // 1 bit, input
+        .IP         (idex_IP), // 8 bits, input
+        .isCall     (idex_isCall), // 1 bit, input
+
+        // ---------------- Outputs ----------------
+        .pc_plus1_out   (exmem_pc_plus1),    // 8 bits, output
+        .Rd2_out        (exmem_Rd2),         // 8 bits, output
+        .IO_Write_out   (exmem_IO_Write),    // 1 bit, output
+        .RegDistidx_out (exmem_RegDistidx),  // 2 bits, output
+        .ALU_res_out    (exmem_ALU_res),     // 8 bits, output
+        .FW_value_out   (exmem_FW_value),    // 8 bits, output
+        .MemWrite_out   (exmem_MemWrite),    // 1 bit, output
+        .MemToReg_out   (exmem_MemToReg),    // 2 bits, output
+        .RegWrite_out   (exmem_RegWrite),    // 1 bit, output
+        .IP_out         (exmem_IP),          // 8 bits, output
+        .isCall_out     (exmem_isCall)       // 1 bit, output
+    );
+
+/*** Mem-WB Register ****************************************************************************************/
+
+    MEM_WB_Reg mem_wb_reg_inst (
+        // ---------------- Inputs ----------------
+        .clk        (clk), // 1 bit, input
+        .rst        (rstn), // 1 bit, input
+        .pc_plus1   (exmem_pc_plus1), // 8 bits, input
+        .RegDistidx (exmem_RegDistidx), // 2 bits, input
+        .Rd2        (exmem_Rd2), // 8 bits, input
+        .ALU_res    (exmem_ALU_res), // 8 bits, input
+        .data_B     (mem_data_b_out), // 8 bits, input
+        .MemToReg   (exmem_MemToReg), // 2 bits, input
+        .RegWrite   (exmem_RegWrite), // 1 bit, input
+        .IP         (exmem_IP), // 8 bits, input
+        .IO_Write   (exmem_IO_Write), // 1 Bit, Input
+
+        // ---------------- Outputs ----------------
+        .pc_plus1_out   (memwb_pc_plus1),   // 8 bits, output
+        .RegDistidx_out (memwb_RegDistidx), // 2 bits, output
+        .Rd2_out        (memwb_Rd2),        // 8 bits, output
+        .ALU_res_out    (memwb_ALU_res),    // 8 bits, output
+        .data_B_out     (memwb_data_B),     // 8 bits, output
+        .MemToReg_out   (memwb_MemToReg),   // 2 bits, output
+        .RegWrite_out   (memwb_RegWrite),   // 1 bit, output
+        .IP_out         (memwb_IP),         // 8 bits, output
+        .IO_Write_out   (memwb_IO_Write)    // 1 Bit, output
+    );
+
+
+
 /*** Output Port ****************************************************************************************/
 
     mux2to1 #(.WIDTH(8)) output_port_mux (
         .d0     (8'b00000000),
-        .d1     (rb_data_out),
-        .sel    (cu_io_write),
+        .d1     (memwb_Rd2),
+        .sel    (memwb_IO_Write),
         .out    (O_Port)
     );
 
