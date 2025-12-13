@@ -87,6 +87,8 @@ module CPU_WrapperV3 (
                     ifid_IR,
                     ifid_immby,
                     ifid_IP;
+    // HU Wires
+    wire            hu_flush;
 
     IF_ID_Reg if_id_reg_inst (
         .clk            (clk), // 1 bit, input
@@ -179,8 +181,7 @@ module CPU_WrapperV3 (
 
     //todo: All of these will be taken and given to register later
     wire    hu_pc_write_en,
-            hu_if_id_write_en,
-            hu_flush;   // Currently Not used
+            hu_if_id_write_en;
 
     HU hu_inst (
         .if_id_ra      (ifid_IR[3:2]),  // 2 Bits

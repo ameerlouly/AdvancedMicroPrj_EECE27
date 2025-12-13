@@ -1,0 +1,353 @@
+m255
+K4
+z2
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dF:/questasim64_2021.1/examples
+vALU
+Z0 !s110 1765589474
+!i10b 1
+!s100 ^WaN]ePc0NDSOV4mNB6cG2
+IUQX^Bg@kj;U;Xloz`ZBUC3
+Z1 dD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined
+w1765574409
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
+!i122 0
+L0 1 133
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z4 !s108 1765589474.000000
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
+!i113 0
+Z5 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 tCvgOpt 0
+n@a@l@u
+vBranch_Unit
+R0
+!i10b 1
+!s100 @MjzZjX>T?RE:fE3l[Te81
+I0_5Z1HeA@Q@4KB2djWV6G0
+R1
+w1765576479
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
+!i122 1
+L0 1 72
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
+!i113 0
+R5
+R6
+n@branch_@unit
+vCCR
+R0
+!i10b 1
+!s100 <07_9IzizSJ6<C:LFhJUO3
+IdMn6MHHcaEP]Ol4`>EY083
+R1
+w1765040489
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
+!i122 2
+L0 1 28
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
+!i113 0
+R5
+R6
+n@c@c@r
+vControl_unit
+R0
+!i10b 1
+!s100 hZa?AQ5STn6R4MA@QWRB:0
+Izai?A3[aPY2c@I?6@<=@]1
+R1
+Z7 w1765559117
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
+!i122 3
+L0 1 371
+R2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
+!i113 0
+R5
+R6
+n@control_unit
+vCPU_WrapperV3
+!s110 1765589576
+!i10b 1
+!s100 ]5Y65Fd[7dl8=FZJFE<N_1
+IJ>CYKCU:Z_S30B:O>M[M71
+R1
+w1765589558
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
+!i122 15
+L0 1 307
+R2
+R3
+r1
+!s85 0
+31
+!s108 1765589576.000000
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v|
+!i113 0
+R5
+R6
+n@c@p@u_@wrapper@v3
+vCPU_WrapperV3_tb
+Z8 !s110 1765589475
+!i10b 1
+!s100 Gg>QRLgLCULUzO547XdBW3
+I`[bP6?7=jG?NO]]G`D`6;3
+R1
+w1765587752
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
+!i122 4
+Z9 L0 1 47
+R2
+R3
+r1
+!s85 0
+31
+Z10 !s108 1765589475.000000
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
+!i113 0
+R5
+R6
+n@c@p@u_@wrapper@v3_tb
+vFU
+R8
+!i10b 1
+!s100 e<MYUI9LjIhdL0UkCWc3b3
+IC8^2P:_4=EMknX7fjS9zO3
+R1
+R7
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+!i122 6
+L0 1 58
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
+!i113 0
+R5
+R6
+n@f@u
+vHU
+R8
+!i10b 1
+!s100 D?T5JFY^4C>VP@IS7P1`K1
+IhMjhXboBo_L>0Kek21?^b2
+R1
+w1765574380
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
+!i122 7
+L0 1 33
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
+!i113 0
+R5
+R6
+n@h@u
+vIF_ID_Reg
+R8
+!i10b 1
+!s100 8]Tk6ZDh]eQnPUnIz2J111
+IPf@?DfGIB`7QmTTSFLT=z3
+R1
+R7
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
+!i122 8
+L0 1 54
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
+!i113 0
+R5
+R6
+n@i@f_@i@d_@reg
+vmemory
+R8
+!i10b 1
+!s100 H>jklc8JT2Ce?aBfNcO<m1
+I[CQ@::0l8hdTc[S>J=K8Z3
+R1
+w1765574291
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
+!i122 9
+L0 1 55
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
+!i113 0
+R5
+R6
+vmux2to1
+R8
+!i10b 1
+!s100 ijKEI9QmoS`_A3b^OD@]j0
+I3J2@S^d7aEAl76IC;@F<]2
+R1
+w1765574356
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
+!i122 10
+Z11 L0 1 17
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
+!i113 0
+R5
+R6
+vmux4to1
+!s110 1765589566
+!i10b 1
+!s100 >eV?RQhKf_=A08j1[EVRg1
+I=QQMZaB43XN51o9N1gNSX2
+R1
+w1765574358
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
+!i122 14
+R11
+R2
+R3
+r1
+!s85 0
+31
+!s108 1765589566.000000
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
+!i113 0
+R5
+R6
+vPc
+R8
+!i10b 1
+!s100 Q?oFNB]z22h1gjmdBjFN;0
+I>3?I`VhPBIMgaFhTO]oYK3
+R1
+w1764664349
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
+!i122 12
+L0 1 21
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
+!i113 0
+R5
+R6
+n@pc
+vRegister_file
+R8
+!i10b 1
+!s100 [d]oJ`c1P0EhX1<@V8nmS2
+IY6^Wz4IWV]U^g]N5i>5KO1
+R1
+w1765579062
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
+!i122 13
+R9
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
+!i113 0
+R5
+R6
+n@register_file
+vtb_INST_TEST
+R8
+!i10b 1
+!s100 UzB;g<F:H>lH2Uh=4NLi81
+Il]ola]>QW6LzU41NzQf7@2
+R1
+w1765587758
+8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
+FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
+!i122 5
+L0 3 134
+R2
+R3
+r1
+!s85 0
+31
+R10
+!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
+!i113 0
+R5
+R6
+ntb_@i@n@s@t_@t@e@s@t
