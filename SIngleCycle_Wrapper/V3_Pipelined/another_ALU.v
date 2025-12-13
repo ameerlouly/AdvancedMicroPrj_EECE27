@@ -33,11 +33,11 @@ module ALU(
 
 	always @* begin
 		// giving default values to outputs
-		out = 8'hxx;
-		Z = 1'bx;
-		N = 1'bx;
-		C = 1'bx;
-		V = 1'bx;
+		out = 8'h00;
+		Z = 1'b0;
+		N = 1'b0;
+		C = 1'b0;
+		V = 1'b0;
 		flag_mask = 4'b0000;
 		case (sel)
 			ALU_PASS_B: out = B;		//none

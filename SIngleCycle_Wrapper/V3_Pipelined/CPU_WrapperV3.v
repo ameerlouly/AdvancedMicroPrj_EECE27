@@ -279,12 +279,10 @@ module CPU_WrapperV3 (
     wire [7:0] idex_IP;         // output [7:0]
     wire [7:0] idex_imm;        // output [7:0]
 
-
-
     id_ex_reg id_ex_reg_inst (
         .clk            (clk), // 1 bit, input
         .rst            (rstn), // 1 bit, input
-        .flush          (hu_flush), // 1 bit, input
+        .flush          (hu_flush || cu_inject_bubble), // 1 bit, input
         .inject_bubble  (cu_inject_bubble), // 1 bit, input
 
         // ---------- Data inputs ----------
@@ -414,7 +412,7 @@ module CPU_WrapperV3 (
 /*** Branch Unit ****************************************************************************************/
 
     Branch_Unit branch_inst (
-        .flag_mask (alu_flag_mask), // 4 bits
+        .flag_mask (ccr_reg_out), // 4 bits
         .BTYPE     (idex_BType), // 3 bits
         .B_TAKE    (bu_bt), // 2 bits
         .PC_SRC    (pc_src)  // 2 bits
