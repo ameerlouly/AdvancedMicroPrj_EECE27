@@ -1,6 +1,7 @@
 module FU (
     // Inputs from Pipeline Registers (Control Signals)
-    input wire RegWrite_Ex_MEM,    // Write Enable of instruction in MEM (from EX/MEM Reg)
+    input wire RegWrite_Ex_MEM,    // Write Enable of instruction in MEM
+    input wire RegWrite_Mem_WB,    // <--- ADDED THIS (Critical for WB checks)
 
     // Inputs from Pipeline Registers (Register Addresses)
     input wire [1:0] Rs_EX,          // Source Register 1 address from ID/EX
@@ -25,16 +26,14 @@ module FU (
         // ==========================================================
         
         // 1. Check for MEM -> EX Forwarding (Highest Priority)
-        // Checks if instruction in MEM will write a result (RegWrite_Ex_MEM)
-        // AND its destination (Rd_MEM) matches the EX stage source (Rs_EX)
+        // If the instruction in MEM is writing AND matches source A
         if (RegWrite_Ex_MEM && (Rd_MEM == Rs_EX)) begin
             ForwardA = 2'b10; // Forward from EX/MEM Register (ALU_Out)
         end
         
         // 2. Check for WB -> EX Forwarding (Lower Priority)
-        // Only check if MEM hasn't already been selected in the 'else if' block.
-        // The WB stage might still have the required data, but it's older.
-        else if (RegWrite_Ex_MEM && (Rd_WB == Rs_EX)) begin
+        // FIX: Changed check to 'RegWrite_Mem_WB' instead of 'RegWrite_Ex_MEM'
+        else if (RegWrite_Mem_WB && (Rd_WB == Rs_EX)) begin
             ForwardA = 2'b01; // Forward from MEM/WB Register (Final Result)
         end
 
@@ -49,7 +48,8 @@ module FU (
         end
         
         // 2. Check for WB -> EX Forwarding (Lower Priority)
-        else if (RegWrite_Ex_MEM && (Rd_WB == Rt_EX)) begin
+        // FIX: Changed check to 'RegWrite_Mem_WB' instead of 'RegWrite_Ex_MEM'
+        else if (RegWrite_Mem_WB && (Rd_WB == Rt_EX)) begin
             ForwardB = 2'b01; // Forward from MEM/WB Register (Final Result)
         end
 
