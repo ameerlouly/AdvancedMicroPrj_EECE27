@@ -108,7 +108,7 @@ module CPU_WrapperV3 (
         .PC_Plus_1_Out  (ifid_pc_plus1), // 8 bits, output
         .Instruction_Out(ifid_IR), // 8 bits, output
         .immbyout       (ifid_immby), // 8 bits, output
-        .IP_out         (ifid_IP)  // 8 bits, output
+        .IP_out         (ifid_I_Port)  // 8 bits, output
     );
 
 /*** Control Unit *****************************************************************************/
@@ -229,6 +229,83 @@ module CPU_WrapperV3 (
         .write_data (rf_wd_mux_out),
         .ra_date    (ra_data_out),
         .rb_date    (rb_data_out)
+    );
+
+/*** ID_EX Reg *****************************************************************************/
+    // IDEX Output Wires
+    wire [2:0] idex_BType;       // output [2:0]
+    wire [1:0] idex_MemToReg;    // output [1:0]
+    wire       idex_RegWrite;    // output [0:0]
+    wire       idex_MemWrite;    // output [0:0]
+    wire       idex_MemRead;     // output [0:0]
+    wire       idex_UpdateFlags; // output [0:0]
+    wire [1:0] idex_RegDistidx;  // output [1:0]
+    wire       idex_ALU_src;     // output [0:0]
+    wire [3:0] idex_ALU_op;      // output [3:0]
+    wire       idex_IO_Write;    // output [0:0]
+
+    wire [7:0] idex_ra_val;     // output [7:0]
+    wire [7:0] idex_rb_val;     // output [7:0]
+    wire [1:0] idex_ra;         // output [1:0]
+    wire [1:0] idex_rb;         // output [1:0]
+
+    wire [7:0] idex_pc_plus1;   // output [7:0]
+    wire [7:0] idex_IP;         // output [7:0]
+    wire [7:0] idex_imm;        // output [7:0]
+
+
+
+    id_ex_reg id_ex_reg_inst (
+        .clk            (clk), // 1 bit, input
+        .rst            (rstn), // 1 bit, input
+        .flush          (hu_flush), // 1 bit, input
+        .inject_bubble  (cu_inject_bubble), // 1 bit, input
+
+        // ---------- Data inputs ----------
+        .pc_plus1       (ifid_pc_plus1), // 8 bits, input
+        .IP             (ifid_I_Port), // 8 bits, input
+        .imm            (ifid_immby), // 8 bits, input
+
+        // ---------- Control inputs from ID stage ----------
+        .BType          (cu_btype), // 3 bits, input
+        .MemToReg       (cu_memtoreg), // 2 bits, input
+        .RegWrite       (cu_reg_write), // 1 bit, input
+        .MemWrite       (cu_mem_write), // 1 bit, input
+        .MemRead        (cu_mem_read), // 1 bit, input
+        .UpdateFlags    (cu_flag_en), // 1 bit, input
+        .RegDistidx     (reg_dist), // 2 bits, input
+        .ALU_src        (cu_alu_src), // 1 bit, input
+        .ALU_op         (cu_alu_op), // 4 bits, input
+        .IO_Write       (cu_io_write), // 1 bit, input
+
+        // ---------- Data inputs from ID stage ----------
+        .ra_val_in      (ra_data_out), // 8 bits, input
+        .rb_val_in      (rb_data_out), // 8 bits, input
+        .ra             (ifid_IR[3:2]), // 2 bits, input
+        .rb             (ifid_IR[1:0]), // 2 bits, input
+
+        // ---------- Control outputs to EX stage ----------
+        .BType_out       (idex_BType),       // 3 bits, output
+        .MemToReg_out    (idex_MemToReg),    // 2 bits, output
+        .RegWrite_out    (idex_RegWrite),    // 1 bit, output
+        .MemWrite_out    (idex_MemWrite),    // 1 bit, output
+        .MemRead_out     (idex_MemRead),     // 1 bit, output
+        .UpdateFlags_out (idex_UpdateFlags), // 1 bit, output
+        .RegDistidx_out  (idex_RegDistidx),  // 2 bits, output
+        .ALU_src_out     (idex_ALU_src),     // 1 bit, output
+        .ALU_op_out      (idex_ALU_op),      // 4 bits, output
+        .IO_Write_out    (idex_IO_Write),     // 1 bit, output
+
+        // ---------- Data outputs to EX stage ----------
+        .ra_val_out   (idex_ra_val),   // 8 bits, output
+        .rb_val_out   (idex_rb_val),   // 8 bits, output
+        .ra_out       (idex_ra),       // 2 bits, output
+        .rb_out       (idex_rb),       // 2 bits, output
+
+        // ---------- PC_plus1 out, IP_out, immediate ----------
+        .pc_plus1_out (idex_pc_plus1), // 8 bits, output
+        .IP_out       (idex_IP),       // 8 bits, output
+        .imm_out      (idex_imm)       // 8 bits, output
     );
 
 /*** ALU ****************************************************************************************/
