@@ -308,40 +308,61 @@ module CPU_WrapperV3 (
         .imm_out      (idex_imm)       // 8 bits, output
     );
 
+/*** Forwarding Unit ****************************************************************************************/
+
+    wire [1 : 0]    fu_FWA,
+                    fu_FWB;
+
+    FU fu_inst (
+        // ---------------- Control Signals ----------------
+        .RegWrite_Ex_MEM (), // 1 bit, input    exmem
+
+        // ---------------- Register Addresses ----------------
+        .Rs_EX           (), // 2 bits, input   idex
+        .Rt_EX           (), // 2 bits, input   idex
+        .Rd_MEM          (), // 2 bits, input   exmem
+        .Rd_WB           (), // 2 bits, input   memwb
+
+        // ---------------- Outputs to EX Stage ----------------
+        .ForwardA        (fu_FWA), // 2 bits, output
+        .ForwardB        (fu_FWB)  // 2 bits, output
+    );
+
 /*** ALU ****************************************************************************************/
 
     //todo: When doing Pipelined
-    // mux4to1 alu_a_mux (
-    //     .d0(ra_data_out),
-    //     .d1(),  //todo ResWB    (FWD)
-    //     .d2(),  //todo ResMem   (FWD)
-    //     .d3(8'b0),  
-    //     .sel(),
-    //     .out()
-    // );
+    mux4to1 alu_a_mux (
+        .d0(idex_ra_val),
+        .d1(),  //todo ResWB    (FWD)
+        .d2(),  //todo ResMem   (FWD)
+        .d3(8'b0),  
+        .sel(fu_FWA),
+        .out(alu_a)
+    );
 
-    // mux4to1 alu_b_mux4to1 (
-    //     .d0(ra_data_out),
-    //     .d1(),  //todo ResWB    (FWD)
-    //     .d2(),  //todo ResMem   (FWD)
-    //     .d3(8'b0),  
-    //     .sel(),
-    //     .out()
-    // );
+    wire [7 : 0]    alu_b_mux_out;
+    mux4to1 alu_b_mux4to1 (
+        .d0(idex_rb_val),
+        .d1(),  //todo ResWB    (FWD)
+        .d2(),  //todo ResMem   (FWD)
+        .d3(8'b0),  
+        .sel(fu_FWB),
+        .out(alu_b_mux_out)
+    );
 
-    assign alu_a = ra_data_out; // Temporarily untill Fwd is done
+    // assign alu_a = ra_data_out; // Temporarily untill Fwd is done
 
     mux2to1 #(.WIDTH(8)) alu_b_mux2to1 (
-        .d0     (rb_data_out),
-        .d1     (IR),
-        .sel    (cu_alu_src),
+        .d0     (alu_b_mux_out),
+        .d1     (idex_imm),
+        .sel    (idex_ALU_src),
         .out    (alu_b)
     );
 
     ALU alu_inst (
         .A         (alu_a),
         .B         (alu_b),
-        .sel       (cu_alu_op),
+        .sel       (idex_ALU_op),
         .cin       (ccr_reg_out[2]),
         .out       (alu_out),
         .Z         (alu_z),
@@ -367,7 +388,7 @@ module CPU_WrapperV3 (
 
     Branch_Unit branch_inst (
         .flag_mask (alu_flag_mask), // 4 bits
-        .BTYPE     (cu_btype), // 3 bits
+        .BTYPE     (idex_BType), // 3 bits
         .B_TAKE    (bu_bt), // 2 bits
         .PC_SRC    (pc_src)  // 2 bits
     );
