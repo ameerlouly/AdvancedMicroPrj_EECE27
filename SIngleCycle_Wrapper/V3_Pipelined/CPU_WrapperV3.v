@@ -18,7 +18,7 @@ module CPU_WrapperV3 (
             cu_isCall;
 
 // Branch Unit Wires
-    wire [1 : 0]    bu_bt;
+    wire            bu_bt;
 
 // ALU and CCR Wires
     wire [7 : 0]    alu_a,
@@ -133,7 +133,7 @@ module CPU_WrapperV3 (
         .PC_Plus_1_Out  (ifid_pc_plus1), // 8 bits, output
         .Instruction_Out(ifid_IR), // 8 bits, output
         .immbyout       (ifid_immby), // 8 bits, output
-        .IP_out         (ifid_I_Port)  // 8 bits, output
+        .IP_out         (ifid_IP)  // 8 bits, output
     );
 
 /*** Control Unit *****************************************************************************/
@@ -287,7 +287,7 @@ module CPU_WrapperV3 (
 
         // ---------- Data inputs ----------
         .pc_plus1       (ifid_pc_plus1), // 8 bits, input
-        .IP             (ifid_I_Port), // 8 bits, input
+        .IP             (ifid_IP), // 8 bits, input
         .imm            (ifid_immby), // 8 bits, input
 
         // ---------- Control inputs from ID stage ----------
@@ -358,7 +358,7 @@ module CPU_WrapperV3 (
 
     mux4to1 alu_a_mux (
         .d0(idex_ra_val),
-        .d1(memwb_ALU_res),  //? Make sure its Correct
+        .d1(rf_wd_mux_out),  //? Make sure its Correct
         .d2(exmem_ALU_res),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWA),
@@ -368,7 +368,7 @@ module CPU_WrapperV3 (
     wire [7 : 0]    alu_b_mux_out;
     mux4to1 alu_b_mux4to1 (
         .d0(idex_rb_val),
-        .d1(memwb_ALU_res),  //? Make sure its Correct
+        .d1(rf_wd_mux_out),  //? Make sure its Correct
         .d2(exmem_ALU_res),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWB),
