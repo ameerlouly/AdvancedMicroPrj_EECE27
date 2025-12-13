@@ -170,6 +170,29 @@ module CPU_WrapperV3 (
     assign pc_write = cu_pc_write_en & hu_pc_write_en;
     assign if_id_en = cu_if_id_write_en & hu_if_id_write_en;
 
+/*** IF_ID_Reg *****************************************************************************/
+
+    IF_ID_Reg if_id_reg_inst (
+        .clk            (clk), // 1 bit, input
+        .rst            (rstn), // 1 bit, input
+
+        // CONTROL INPUTS
+        .IF_ID_EN       (if_id_en), // 1 bit, input (Active Low Enable)
+        .Flush          (hu_flush), // 1 bit, input (Active High Reset)
+
+        // DATA INPUTS
+        .PC_Plus_1_In   (pc_plus1), // 8 bits, input
+        .Instruction_In (IR), // 8 bits, input
+        .immby          (IR), // 8 bits, input
+        .IP             (I_Port), // 8 bits, input
+
+        // DATA OUTPUTS
+        .PC_Plus_1_Out  (), // 8 bits, output
+        .Instruction_Out(), // 8 bits, output
+        .immbyout       (), // 8 bits, output
+        .IP_out         ()  // 8 bits, output
+    );
+
 /*** Register File *****************************************************************************/
   
     mux4to1 rf_wd_mux (
