@@ -236,7 +236,7 @@ module CPU_WrapperV3 (
 
     wire [3 : 2]    ra_mux_out;
     mux2to1 #(.WIDTH(2)) ra_mux (
-        .d0     (IR[3:2]),
+        .d0     (ifid_IR[3:2]),
         .d1     (2'b11),
         .sel    (cu_sp_sel),
         .out    (ra_mux_out)
@@ -245,11 +245,11 @@ module CPU_WrapperV3 (
     Register_file regfile_inst (
         .clk        (clk),
         .rst        (rstn),
-        .wenabel    (cu_reg_write),
+        .wenabel    (memwb_RegWrite),
         .SP_EN      (cu_sp_en),
         .SP_OP      (cu_sp_op),
         .ra         (ra_mux_out),
-        .rb         (IR[1:0]),
+        .rb         (ifid_IR[1:0]),
         .rd         (memwb_RegDistidx), 
         .write_data (rf_wd_mux_out),
         .ra_date    (ra_data_out),
