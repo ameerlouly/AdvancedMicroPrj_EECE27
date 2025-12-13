@@ -82,6 +82,33 @@ module CPU_WrapperV3 (
         .write_data_b   (WriteD_mux_out)  
     );
 
+/*** IF_ID_Reg *****************************************************************************/
+    wire [7 : 0]    ifid_pc_plus1,
+                    ifid_IR,
+                    ifid_immby,
+                    ifid_IP;
+
+    IF_ID_Reg if_id_reg_inst (
+        .clk            (clk), // 1 bit, input
+        .rst            (rstn), // 1 bit, input
+
+        // CONTROL INPUTS
+        .IF_ID_EN       (if_id_en), // 1 bit, input (Active Low Enable)
+        .Flush          (hu_flush), // 1 bit, input (Active High Reset)
+
+        // DATA INPUTS
+        .PC_Plus_1_In   (pc_plus1), // 8 bits, input
+        .Instruction_In (IR), // 8 bits, input
+        .immby          (IR), // 8 bits, input
+        .IP             (I_Port), // 8 bits, input
+
+        // DATA OUTPUTS
+        .PC_Plus_1_Out  (ifid_pc_plus1), // 8 bits, output
+        .Instruction_Out(ifid_IR), // 8 bits, output
+        .immbyout       (ifid_immby), // 8 bits, output
+        .IP_out         (ifid_IP)  // 8 bits, output
+    );
+
 /*** Control Unit *****************************************************************************/
     
     // Fetch Wires
@@ -113,8 +140,8 @@ module CPU_WrapperV3 (
         .clk            (clk),
         .rst            (rstn),
         .INTR           (int_sig),
-        .opcode         (IR[7:4]),
-        .ra             (IR[3:2]),
+        .opcode         (ifid_IR[7:4]),
+        .ra             (ifid_IR[3:2]),
         // Fetch Control
         .PC_Write_En    (cu_pc_write_en),
         .IF_ID_Write_En (cu_if_id_write_en),
@@ -142,8 +169,8 @@ module CPU_WrapperV3 (
 
     wire [1:0]  reg_dist;
     mux2to1 #(.WIDTH(2)) reg_dist_mux (
-        .d0     (IR[3:2]),
-        .d1     (IR[1:0]),
+        .d0     (ifid_IR[3:2]),
+        .d1     (ifid_IR[1:0]),
         .sel    (cu_reg_dist),
         .out    (reg_dist)
     );
@@ -156,11 +183,11 @@ module CPU_WrapperV3 (
             hu_flush;   // Currently Not used
 
     HU hu_inst (
-        .if_id_ra      (IR[3:2]),  // 2 Bits
-        .if_id_rb      (IR[1:0]),  // 2 Bits
+        .if_id_ra      (ifid_IR[3:2]),  // 2 Bits
+        .if_id_rb      (ifid_IR[1:0]),  // 2 Bits
         .id_ex_rd      (reg_dist),  // 2 Bits
         .id_ex_mem_read(cu_mem_read),
-        .BT            (bu_bt),  //todo: From Branch Unit
+        .BT            (bu_bt),
         .pc_en         (hu_pc_write_en),
         .if_id_en      (hu_if_id_write_en),
         .flush         (hu_flush)
@@ -169,29 +196,6 @@ module CPU_WrapperV3 (
 /*** AND Gates *****************************************************************************/
     assign pc_write = cu_pc_write_en & hu_pc_write_en;
     assign if_id_en = cu_if_id_write_en & hu_if_id_write_en;
-
-/*** IF_ID_Reg *****************************************************************************/
-
-    IF_ID_Reg if_id_reg_inst (
-        .clk            (clk), // 1 bit, input
-        .rst            (rstn), // 1 bit, input
-
-        // CONTROL INPUTS
-        .IF_ID_EN       (if_id_en), // 1 bit, input (Active Low Enable)
-        .Flush          (hu_flush), // 1 bit, input (Active High Reset)
-
-        // DATA INPUTS
-        .PC_Plus_1_In   (pc_plus1), // 8 bits, input
-        .Instruction_In (IR), // 8 bits, input
-        .immby          (IR), // 8 bits, input
-        .IP             (I_Port), // 8 bits, input
-
-        // DATA OUTPUTS
-        .PC_Plus_1_Out  (), // 8 bits, output
-        .Instruction_Out(), // 8 bits, output
-        .immbyout       (), // 8 bits, output
-        .IP_out         ()  // 8 bits, output
-    );
 
 /*** Register File *****************************************************************************/
   
