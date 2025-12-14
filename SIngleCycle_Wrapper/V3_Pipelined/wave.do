@@ -97,24 +97,24 @@ add wave -noupdate -group Ex-Mem /tb_Advanced_Instructions/uut/ex_mem_reg_inst/M
 add wave -noupdate -group Ex-Mem /tb_Advanced_Instructions/uut/ex_mem_reg_inst/RegWrite_out
 add wave -noupdate -group Ex-Mem /tb_Advanced_Instructions/uut/ex_mem_reg_inst/IP_out
 add wave -noupdate -group Ex-Mem /tb_Advanced_Instructions/uut/ex_mem_reg_inst/isCall_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/pc_plus1
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegDistidx
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/Rd2
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/ALU_res
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/data_B
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/MemToReg
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegWrite
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IP
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IO_Write
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/pc_plus1_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegDistidx_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/Rd2_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/ALU_res_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/data_B_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/MemToReg_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegWrite_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IP_out
-add wave -noupdate -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IO_Write_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/pc_plus1
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegDistidx
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/Rd2
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/ALU_res
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/data_B
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/MemToReg
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegWrite
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IP
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IO_Write
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/pc_plus1_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegDistidx_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/Rd2_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/ALU_res_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/data_B_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/MemToReg_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/RegWrite_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IP_out
+add wave -noupdate -expand -group MEM-WB /tb_Advanced_Instructions/uut/mem_wb_reg_inst/IO_Write_out
 add wave -noupdate -group Mem /tb_Advanced_Instructions/uut/mem_inst/addr_a
 add wave -noupdate -group Mem /tb_Advanced_Instructions/uut/mem_inst/data_out_a
 add wave -noupdate -group Mem /tb_Advanced_Instructions/uut/mem_inst/addr_b
@@ -154,8 +154,16 @@ add wave -noupdate -expand -group PC_MUX /tb_Advanced_Instructions/uut/PC_MUX/d2
 add wave -noupdate -expand -group PC_MUX /tb_Advanced_Instructions/uut/PC_MUX/d3
 add wave -noupdate -expand -group PC_MUX /tb_Advanced_Instructions/uut/PC_MUX/sel
 add wave -noupdate -expand -group PC_MUX /tb_Advanced_Instructions/uut/PC_MUX/out
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/if_id_ra
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/if_id_rb
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/id_ex_rd
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/id_ex_mem_read
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/BT
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/pc_en
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/if_id_en
+add wave -noupdate -expand -group HU /tb_Advanced_Instructions/uut/hu_inst/flush
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {100694 ps} 0}
+WaveRestoreCursors {{Cursor 1} {23083 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 225
 configure wave -valuecolwidth 100
