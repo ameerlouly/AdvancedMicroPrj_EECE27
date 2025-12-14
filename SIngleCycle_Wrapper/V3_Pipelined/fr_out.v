@@ -44,11 +44,15 @@ module tb_OutputPort;
         I_Port = 0;
         int_sig = 0;
 
+        #20 rstn = 1;
+
+
+        uut.mem_inst.mem[0] = 8'h00;
         // --- 1. PREPARE DATA IN REGISTER R1 ---
         // We first load 0x55 (01010101) into R1 using LDM.
         // Op=12(1100), ra=0, rb=1 -> 0xC1
-        uut.mem_inst.mem[0] = 8'hC1;
-        uut.mem_inst.mem[1] = 8'h55; // The pattern we want to see on Output
+        uut.mem_inst.mem[1] = 8'hC1;
+        uut.mem_inst.mem[2] = 8'h55; // The pattern we want to see on Output
 
 
         // --- 2. THE OUT INSTRUCTION ---
@@ -57,14 +61,14 @@ module tb_OutputPort;
         // If IN R1 is 0x7D (Op=7, ra=3, rb=1)...
         // OUT R1 might be Op=7, ra=1, rb=1? -> 0x75? 
         // **REPLACE 8'h75 WITH YOUR EXACT 'OUT R1' OPCODE IF DIFFERENT**
-        uut.mem_inst.mem[2] = 8'h75; 
+        uut.mem_inst.mem[3] = 8'h75; 
 
         // Addr 3: Halt/NOP
-        uut.mem_inst.mem[3] = 8'h00;
+        uut.mem_inst.mem[4] = 8'h00;
 
 
         // --- Release Reset ---
-        #20 rstn = 1;
+        
 
         // --- Run Simulation ---
         // LDM takes 5 cycles. OUT usually takes 3-5 cycles.
