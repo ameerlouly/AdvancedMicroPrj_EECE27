@@ -1,69 +1,49 @@
-module HU (
-    // Inputs from ID Stage (Current Instruction)
-    input  wire [3:0] opcode,       // Current Opcode
-    input  wire [1:0] if_id_ra,     // Source A
-    input  wire [1:0] if_id_rb,     // Source B (Used as Target for Branches)
-
-    // Inputs from EX Stage (Previous Instruction)
-    input  wire [1:0] id_ex_rd,     // Dest Register
-    input  wire       id_ex_mem_read, // Load Instruction?
-    input  wire       id_ex_reg_write,// NEW: Does EX instruction write to reg?
-
-    // Inputs from MEM Stage (Instruction 2 cycles ago)
-    input  wire [1:0] ex_mem_rd,    // NEW: Dest Register in MEM
-    input  wire       ex_mem_reg_write, // NEW: Does MEM instruction write?
-
-    // Inputs from Logic
-    input  wire       branch_take,  // Branch Taken
-
-    // Outputs
-    output reg        pc_en,
-    output reg        if_id_en,
-    output reg        flush,
-    output reg        bubble
+module HU(
+    input [1:0] if_id_ra,
+    input [1:0] if_id_rb,
+    input [1:0] id_ex_rd,
+    input       id_ex_mem_read,
+    input [3:0] opcode,
+    input       BT,
+    
+    output reg  pc_en,
+    output reg  if_id_en,
+    output reg  flush,
+    output reg  control_zero // <--- YOU NEED THIS
 );
 
     always @(*) begin
-        // 1. Defaults
-        pc_en    = 1'b1;
-        if_id_en = 1'b1;
-        flush    = 1'b0;
-        bubble   = 1'b0;
+        // 1. Set Defaults
+        pc_en        = 1;
+        if_id_en     = 1;
+        flush        = 0;
+        control_zero = 0; // Default: let control signals pass
 
-        // ----------------------------------------------------
-        // 2. Control Hazard (Branch Taken)
-        // ----------------------------------------------------
-        if (branch_take) begin
-            flush = 1'b1; 
+        // 2. Load-Use Hazard Detection
+        if(opcode=='d12)
+        begin
+            if (id_ex_mem_read && (id_ex_rd == if_id_rb)) begin
+            pc_en        = 0;   // Freeze PC
+            if_id_en     = 0;   // Freeze IF/ID (Keep instr in Decode)
+            control_zero = 1;   // <--- INSERT BUBBLE into ID/EX
+            flush        = 0;   // Do NOT flush IF/ID (we need to save the instr)
+        end
+        end
+        else 
+        begin
+        if (id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb)) begin
+            pc_en        = 0;   // Freeze PC
+            if_id_en     = 0;   // Freeze IF/ID (Keep instr in Decode)
+            control_zero = 1;   // <--- INSERT BUBBLE into ID/EX
+            flush        = 0;   // Do NOT flush IF/ID (we need to save the instr)
+        end
         end
 
-        // ----------------------------------------------------
-        // 3. Load-Use Hazard (Standard Data Dependency)
-        // ----------------------------------------------------
-        else if (id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb)) begin
-            pc_en    = 1'b0;
-            if_id_en = 1'b0;
-            bubble   = 1'b1;
+        // 3. Control Hazard (Branching)
+        if (BT) begin
+            flush = 1;          // Kill the instruction in Fetch/Decode
+            // No need to stall, just kill.
         end
-
-        // ----------------------------------------------------
-        // 4. Branch-Target Hazard (NEW CRITICAL FIX)
-        // ----------------------------------------------------
-        // If we are branching (JZ, LOOP, JMP, CALL, etc) and the Target Register (Rb)
-        // is being written by an instruction in EX or MEM, we must STALL.
-        // Opcodes: 9 (Jumps), 10 (LOOP), 11 (JMP/CALL)
-        else if ((opcode == 9 || opcode == 10 || opcode == 11) && 
-                 ( (id_ex_reg_write && id_ex_rd == if_id_rb) || 
-                   (ex_mem_reg_write && ex_mem_rd == if_id_rb) )) begin
-             
-             // Exception: CALL/RET/RTI (Op 11) might not use Rb or use Stack. 
-             // But assuming JMP/CALL use Rb, stalling is safe.
-             
-             pc_en    = 1'b0; // Wait for writeback
-             if_id_en = 1'b0;
-             bubble   = 1'b1; // Insert NOP
-        end
-
     end
 
 endmodule

@@ -1,69 +1,28 @@
-module HU (
+module HU(
     // Inputs from ID Stage (Current Instruction)
-    input  wire [3:0] opcode,       // Current Opcode
     input  wire [1:0] if_id_ra,     // Source A
-    input  wire [1:0] if_id_rb,     // Source B (Used as Target for Branches)
+    input  wire [1:0] if_id_rb,     // Source B
 
     // Inputs from EX Stage (Previous Instruction)
-    input  wire [1:0] id_ex_rd,     // Dest Register
-    input  wire       id_ex_mem_read, // Load Instruction?
-    input  wire       id_ex_reg_write,// NEW: Does EX instruction write to reg?
-
-    // Inputs from MEM Stage (Instruction 2 cycles ago)
-    input  wire [1:0] ex_mem_rd,    // NEW: Dest Register in MEM
-    input  wire       ex_mem_reg_write, // NEW: Does MEM instruction write?
+    input  wire [1:0] id_ex_rd,     // Dest Register in EX
+    input  wire       id_ex_mem_read, // Load Instruction in EX?
 
     // Inputs from Logic
-    input  wire       branch_take,  // Branch Taken
+    input  wire [1:0] BT,           // Branch Taken (from Branch Unit)
 
     // Outputs
-    output reg        pc_en,
-    output reg        if_id_en,
-    output reg        flush,
-    output reg        bubble
+    output reg        pc_en,        // PC write enable
+    output reg        if_id_en,     // IF/ID register write enable
+    output reg        flush         // Flush signal for control hazards
 );
 
     always @(*) begin
-        // 1. Defaults
-        pc_en    = 1'b1;
-        if_id_en = 1'b1;
-        flush    = 1'b0;
-        bubble   = 1'b0;
 
-        // ----------------------------------------------------
-        // 2. Control Hazard (Branch Taken)
-        // ----------------------------------------------------
-        if (branch_take) begin
-            flush = 1'b1; 
-        end
+@@ -17,7 +18,7 @@ module HU(
 
-        // ----------------------------------------------------
-        // 3. Load-Use Hazard (Standard Data Dependency)
-        // ----------------------------------------------------
-        else if (id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb)) begin
-            pc_en    = 1'b0;
-            if_id_en = 1'b0;
-            bubble   = 1'b1;
-        end
-
-        // ----------------------------------------------------
-        // 4. Branch-Target Hazard (NEW CRITICAL FIX)
-        // ----------------------------------------------------
-        // If we are branching (JZ, LOOP, JMP, CALL, etc) and the Target Register (Rb)
-        // is being written by an instruction in EX or MEM, we must STALL.
-        // Opcodes: 9 (Jumps), 10 (LOOP), 11 (JMP/CALL)
-        else if ((opcode == 9 || opcode == 10 || opcode == 11) && 
-                 ( (id_ex_reg_write && id_ex_rd == if_id_rb) || 
-                   (ex_mem_reg_write && ex_mem_rd == if_id_rb) )) begin
-             
-             // Exception: CALL/RET/RTI (Op 11) might not use Rb or use Stack. 
-             // But assuming JMP/CALL use Rb, stalling is safe.
-             
-             pc_en    = 1'b0; // Wait for writeback
-             if_id_en = 1'b0;
-             bubble   = 1'b1; // Insert NOP
-        end
-
-    end
-
-endmodule
+        // 2. Load-Use Hazard Detection
+        // Stall only if the instruction in EX is a Load AND it writes to a register we need now.
+        if ((id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb))) begin
+            pc_en = 0;      // Freeze PC
+            if_id_en = 0;   // Freeze IF/ID Pipeline Reg
+            flush = 0;   
