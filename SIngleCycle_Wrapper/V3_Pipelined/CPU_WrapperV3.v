@@ -34,17 +34,19 @@ module CPU_WrapperV3 (
                     ccr_reg_out;
 
 // Ex-mem output wires
-    wire [7:0] exmem_pc_plus1;    // output [7:0]
-    wire [7:0] exmem_Rd2;         // output [7:0]
-    wire       exmem_IO_Write;    // output [0:0]
-    wire [1:0] exmem_RegDistidx;  // output [1:0]
-    wire [7:0] exmem_ALU_res;     // output [7:0]
-    wire [7:0] exmem_FW_value;    // output [7:0]
-    wire       exmem_MemWrite;    // output [0:0]
-    wire [1:0] exmem_MemToReg;    // output [1:0]
-    wire       exmem_RegWrite;    // output [0:0]
-    wire [7:0] exmem_IP;          // output [7:0]
-    wire       exmem_isCall;      // output [0:0]
+    wire [7:0]      exmem_pc_plus1;    // output [7:0]
+    wire [7:0]      exmem_Rd2;         // output [7:0]
+    wire            exmem_IO_Write;    // output [0:0]
+    wire [1:0]      exmem_RegDistidx;  // output [1:0]
+    wire [7:0]      exmem_ALU_res;     // output [7:0]
+    wire [7:0]      exmem_FW_value;    // output [7:0]
+    wire            exmem_MemWrite;    // output [0:0]
+    wire [1:0]      exmem_MemToReg;    // output [1:0]
+    wire            exmem_RegWrite;    // output [0:0]
+    wire [7:0]      exmem_IP;          // output [7:0]
+    wire            exmem_isCall;      // output [0:0]
+
+    wire [7 : 0]    exmem_IP_mux_out;
 
 // Mem-WB Output Wires
     wire [7:0] memwb_pc_plus1;    // output [7:0]
@@ -101,7 +103,7 @@ module CPU_WrapperV3 (
         .rst            (rstn),
         .addr_a         (pc_current),
         .data_out_a     (IR),
-        .addr_b         (exmem_ALU_res), 
+        .addr_b         (exmem_IP_mux_out), 
         .data_out_b     (mem_data_b_out), 
         .we_b           (exmem_MemWrite), 
         .write_data_b   (WriteD_mux_out)  
@@ -360,7 +362,7 @@ module CPU_WrapperV3 (
     mux4to1 alu_a_mux (
         .d0(idex_ra_val),
         .d1(rf_wd_mux_out),  //? Make sure its Correct
-        .d2(exmem_ALU_res),  //? Make sure its Correct
+        .d2(exmem_IP_mux_out),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWA),
         .out(alu_a)
@@ -370,7 +372,7 @@ module CPU_WrapperV3 (
     mux4to1 alu_b_mux4to1 (
         .d0(idex_rb_val),
         .d1(rf_wd_mux_out),  //? Make sure its Correct
-        .d2(exmem_ALU_res),  //? Make sure its Correct
+        .d2(exmem_IP_mux_out),  //? Make sure its Correct
         .d3(8'b0),  
         .sel(fu_FWB),
         .out(alu_b_mux_out)
@@ -405,7 +407,7 @@ module CPU_WrapperV3 (
         .N         (alu_n),
         .C         (alu_c),
         .V         (alu_v),
-        .flag_en   (cu_flag_en),
+        .flag_en   (idex_UpdateFlags),
         .flag_mask (alu_flag_mask), // 4 bits
         .CCR_reg   (ccr_reg_out)  // 4 bits
     );
@@ -449,6 +451,17 @@ module CPU_WrapperV3 (
         .RegWrite_out   (exmem_RegWrite),    // 1 bit, output
         .IP_out         (exmem_IP),          // 8 bits, output
         .isCall_out     (exmem_isCall)       // 1 bit, output
+    );
+
+    //! New to Architecture
+    //** New Addition **//
+    mux4to1 exmem_IP_mux (
+        .d0(exmem_ALU_res),
+        .d1(exmem_ALU_res),  //? Make sure its Correct
+        .d2(exmem_IP),  //? Make sure its Correct
+        .d3(exmem_ALU_res),  
+        .sel(exmem_MemToReg),
+        .out(exmem_IP_mux_out)
     );
 
 /*** Mem-WB Register ****************************************************************************************/
