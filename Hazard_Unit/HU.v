@@ -8,7 +8,6 @@ module HU (
     input  wire [1:0] id_ex_rd,     // Dest Register
     input  wire       id_ex_mem_read, // Load Instruction?
     input  wire       id_ex_reg_write,// NEW: Does EX instruction write to reg?
-    input  wire [3:0] id_ex_opcode, // Opcode in EX (for 2-byte flush)
 
     // Inputs from MEM Stage (Instruction 2 cycles ago)
     input  wire [1:0] ex_mem_rd,    // NEW: Dest Register in MEM
@@ -30,7 +29,6 @@ module HU (
         if_id_en = 1'b1;
         flush    = 1'b0;
         bubble   = 1'b0;
-        stall    = 1'b0;
 
         // ----------------------------------------------------
         // 2. Control Hazard (Branch Taken)
@@ -64,13 +62,6 @@ module HU (
              pc_en    = 1'b0; // Wait for writeback
              if_id_en = 1'b0;
              bubble   = 1'b1; // Insert NOP
-        end
-
-        // ----------------------------------------------------
-        // 5. 2-Byte Instruction Handling
-        // ----------------------------------------------------
-        else if (id_ex_opcode == 4'd12) begin
-            bubble = 1'b1; // Flush operand
         end
 
     end
