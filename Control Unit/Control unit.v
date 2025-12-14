@@ -19,7 +19,7 @@ module Control_unit (
     // Execute
     output reg [3:0] Alu_Op,
     output reg [2:0] BTYPE,
-    output reg       Alu_src,
+    output reg [1:0] Alu_src,
     output reg       IS_CALL,
     output reg       UpdateFlags,
     // Memory
@@ -288,6 +288,7 @@ module Control_unit (
             RegDist     = 'd0;
             UpdateFlags = 'd1;
             Alu_Op      = OP_DEC;
+            ALU_src     = 'd2;
         end
         4'b1011:
         begin

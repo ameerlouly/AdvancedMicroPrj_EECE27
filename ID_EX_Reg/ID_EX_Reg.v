@@ -14,7 +14,7 @@ module id_ex_reg(
     input             MemRead,
     input             UpdateFlags,
     input       [1:0] RegDistidx,
-    input             ALU_src,
+    input       [1:0]     ALU_src,
     input       [3:0] ALU_op,
     input             IO_Write,    
 
@@ -32,7 +32,7 @@ module id_ex_reg(
     output reg             MemRead_out,
     output reg             UpdateFlags_out,
     output reg       [1:0] RegDistidx_out,
-    output reg             ALU_src_out,
+    output reg       [1:0] ALU_src_out,
     output reg       [3:0] ALU_op_out,
     output reg             IO_Write_out,  
 
