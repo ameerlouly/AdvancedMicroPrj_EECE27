@@ -54,6 +54,7 @@ module CPU_WrapperV3 (
     wire [7:0] idex_pc_plus1;   // output [7:0]
     wire [7:0] idex_IP;         // output [7:0]
     wire [7:0] idex_imm;        // output [7:0]
+    wire       idex_loop_sel;
 
 
 
@@ -103,7 +104,7 @@ module CPU_WrapperV3 (
 
     mux4to1 PC_MUX (
         .d0(pc_plus1),
-        .d1(idex_rb_val), 
+        .d1(alu_b_mux_out), 
         .d2(mem_data_b_out),
         .d3(8'b00000000),
         .sel(pc_src),
@@ -188,7 +189,7 @@ module CPU_WrapperV3 (
 
     // Write-Back Control
     wire cu_io_write;
-    wire loop_sel;
+    wire cu_loop_sel;
 
     Control_unit ctrl_inst (
         .clk            (clk),
@@ -212,7 +213,7 @@ module CPU_WrapperV3 (
         .BTYPE          (cu_btype), // 3 Bits
         .Alu_src        (cu_alu_src),
         .UpdateFlags    (cu_flag_en),
-        .loop_sel       (loop_sel),
+        .loop_sel       (cu_loop_sel),
         // Memory Control
         .IS_CALL        (cu_isCall),
         .MemToReg       (cu_memtoreg), // 2 Bits
@@ -232,7 +233,6 @@ module CPU_WrapperV3 (
 
 /*** Hazard Unit *****************************************************************************/
 
-    //todo: All of these will be taken and given to register later
     wire    hu_pc_write_en,
             hu_if_id_write_en;
     wire    hu_bubble;
@@ -246,19 +246,14 @@ module CPU_WrapperV3 (
         // EX Stage inputs
         .id_ex_rd      (idex_RegDistidx),  // 2 Bits
         .id_ex_mem_read(idex_MemRead),
-        .id_ex_reg_write(idex_RegWrite),
-
-        //Inputs from MEM
-        .ex_mem_rd(exmem_RegDistidx),
-        .ex_mem_reg_write(exmem_RegWrite),
 
         // Inputs from Logic
-        .branch_take   (bu_bt),
+        .BT            (bu_bt),
 
         .pc_en         (hu_pc_write_en),
         .if_id_en      (hu_if_id_write_en),
         .flush         (hu_flush),
-        .bubble        (hu_bubble)
+        .control_zero  (hu_bubble)
     );
 
 /*** LOGIC Gates *****************************************************************************/
@@ -327,6 +322,7 @@ module CPU_WrapperV3 (
         .ALU_op         (cu_alu_op), // 4 bits, input
         .IO_Write       (cu_io_write), // 1 bit, input
         .isCall         (cu_isCall),
+        .loop_sel       (cu_loop_sel),
 
         // ---------- Data inputs from ID stage ----------
         .ra_val_in      (ra_data_out), // 8 bits, input
@@ -346,6 +342,7 @@ module CPU_WrapperV3 (
         .ALU_op_out      (idex_ALU_op),      // 4 bits, output
         .IO_Write_out    (idex_IO_Write),     // 1 bit, output
         .isCall_out      (idex_isCall),
+        .loop_sel_out    (idex_loop_sel),
 
         // ---------- Data outputs to EX stage ----------
         .ra_val_out   (idex_ra_val),   // 8 bits, output
@@ -445,9 +442,18 @@ module CPU_WrapperV3 (
     );
 
 /*** Branch Unit ****************************************************************************************/
+    
+    wire [3 : 0]    loop_sel_mux_out;
+    mux2to1 #(.WIDTH(4)) loop_sel_mux (
+        .d0     (ccr_reg_out),
+        .d1     ({alu_v,alu_c,alu_n,alu_z}),
+        .sel    (idex_loop_sel),
+        .out    (loop_sel_mux_out)
+    );   
+
 
     Branch_Unit branch_inst (
-        .flag_mask (ccr_reg_out), // 4 bits
+        .flag_mask (loop_sel_mux_out), // 4 bits
         .BTYPE     (idex_BType), // 3 bits
         .B_TAKE    (bu_bt), // 2 bits
         .PC_SRC    (pc_src)  // 2 bits
