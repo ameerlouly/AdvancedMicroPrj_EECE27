@@ -44,7 +44,7 @@ module tb_CPU_FormatA_B;
     initial begin
         // --- Initialize Inputs ---
         rstn = 0;
-        I_Port = 8'h00;
+        I_Port = 8'h05;
         int_sig = 0;
 
         // --- Load Machine Code into Memory (Backdoor) ---
@@ -56,46 +56,48 @@ module tb_CPU_FormatA_B;
         $display("[%0t] Reset Released.", $time);
 
         // --- Main Program Starts at 0x10 ---
+        uut.mem_inst.mem[0] = 8'h00;
+        uut.mem_inst.mem[1] = 8'h00;
 
         // 1. IN R0 (Load R0 from Input Port) [Format A]
         // Op:7 (0111), ra:3 (11), rb:0 (00) -> 0x7C
-        uut.mem_inst.mem[0] = 8'h7C;
+        uut.mem_inst.mem[2] = 8'h7C;
 
         // 2. IN R1 (Load R1 from Input Port) [Format A]
         // Op:7 (0111), ra:3 (11), rb:1 (01) -> 0x7D
-        uut.mem_inst.mem[1] = 8'h7D;
+        uut.mem_inst.mem[3] = 8'h7D;
 
         // 3. ADD R0, R1 (R0 = R0 + R1) [Format A]
         // Op:2 (0010), ra:0 (00), rb:1 (01) -> 0x21
-        uut.mem_inst.mem[2] = 8'h21;
+        uut.mem_inst.mem[4] = 8'h21;
 
         // 4. OUT R0 (Output result to O_Port) [Format A]
         // Op:7 (0111), ra:2 (10), rb:0 (00) -> 0x78
-        uut.mem_inst.mem[3] = 8'h78;
+        uut.mem_inst.mem[5] = 8'h78;
 
         // 5. IN R2 (Load Jump Target address into R2) [Format A]
         // Op:7 (0111), ra:3 (11), rb:2 (10) -> 0x7E
-        uut.mem_inst.mem[4] = 8'h7E;
+        uut.mem_inst.mem[6] = 8'h7E;
 
         // 6. JMP R2 (Unconditional Jump to address in R2) [Format B]
         // Op:11 (1011), brx:0 (00), rb:2 (10) -> 0xB2
-        uut.mem_inst.mem[5] = 8'hB2;
+        uut.mem_inst.mem[7] = 8'hB2;
 
         // 7. INC R1 (Skipped Instruction - Should NOT execute) [Format A]
         // This is at 0x22 (decimal 34). If executed, R1 changes.
-        uut.mem_inst.mem[6] = 8'h89;
+        uut.mem_inst.mem[8] = 8'h89;
 
         // 8. SUB R0, R1 (Target of Jump: R0 = R0 - R1) [Format A]
         // This is at 0x23 (decimal 35).
         // Op:3 (0011), ra:0 (00), rb:1 (01) -> 0x31
-        uut.mem_inst.mem[7] = 8'h31;
+        uut.mem_inst.mem[9] = 8'h31;
 
         // 9. OUT R0 (Output final result) [Format A]
         // Op:7 (0111), ra:2 (10), rb:0 (00) -> 0x78
-        uut.mem_inst.mem[8] = 8'h78;
+        uut.mem_inst.mem[10] = 8'h78;
 
         // 10. Loop Forever (JMP R2 where R2 still holds 0x23)
-        uut.mem_inst.mem[9] = 8'hB2;
+        uut.mem_inst.mem[11] = 8'hB2;
 
 
         // --- Simulation Execution Control ---
@@ -103,21 +105,20 @@ module tb_CPU_FormatA_B;
 
         // 2. Drive I_Port for "IN R0" (Executes at 0x10)
         // We set value 5. 
-        @(posedge clk);
+        wait(PC == 8'h02)
         I_Port = 8'd5;
         $display("[%0t] I_Port set to 5 for R0", $time);
 
         // 3. Drive I_Port for "IN R1" (Executes at 0x11)
         // We set value 3.
-        wait(PC == 8'h1);
-        @(posedge clk);
+        wait(PC == 8'h3);
         I_Port = 8'd3;
         $display("[%0t] I_Port set to 3 for R1", $time);
 
         // 4. Drive I_Port for "IN R2" (Executes at 0x14 / decimal 20)
         // We set target address 7 (0x07).
         wait(PC == 8'h4);
-        I_Port = 8'h07; // Target address for JMP
+        I_Port = 8'h09; // Target address for JMP
         $display("[%0t] I_Port set to 0x07 for R2 (Jump Target)", $time);
 
         // Run until completion
