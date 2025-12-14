@@ -216,6 +216,7 @@ module CPU_WrapperV3 (
         .id_ex_rd      (reg_dist),  // 2 Bits
         .id_ex_mem_read(cu_mem_read),
         .BT            (bu_bt),
+        .opcode        (ifid_IR[7:4]),
         .pc_en         (hu_pc_write_en),
         .if_id_en      (hu_if_id_write_en),
         .flush         (hu_flush)
