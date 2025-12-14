@@ -4,7 +4,7 @@ module HU (
     input [1:0] id_ex_rd,
     input       id_ex_mem_read, // NEW: High if instruction in EX is LDD, LDI, or POP
     input       BT,             // Branch Taken
-    input       opcode,
+    input [3:0] opcode,
     output reg  pc_en,
     output reg  if_id_en,
     output reg  flush
