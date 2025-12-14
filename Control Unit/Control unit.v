@@ -27,7 +27,7 @@ module Control_unit (
     output reg       MemWrite,
     output reg       MemRead,
 
-    output reg loop_sel,
+    output reg loop_sel,    // loop selction 
     //Write Back
     output reg       IO_Write  
 );
@@ -379,3 +379,4 @@ module Control_unit (
     end
 
 endmodule
+
