@@ -61,7 +61,7 @@ module tb_OutputPort;
         // If IN R1 is 0x7D (Op=7, ra=3, rb=1)...
         // OUT R1 might be Op=7, ra=1, rb=1? -> 0x75? 
         // **REPLACE 8'h75 WITH YOUR EXACT 'OUT R1' OPCODE IF DIFFERENT**
-        uut.mem_inst.mem[3] = 8'h75; 
+        uut.mem_inst.mem[3] = 8'h79; 
 
         // Addr 3: Halt/NOP
         uut.mem_inst.mem[4] = 8'h00;
