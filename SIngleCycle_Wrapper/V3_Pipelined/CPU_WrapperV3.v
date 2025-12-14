@@ -33,6 +33,30 @@ module CPU_WrapperV3 (
     wire [3 : 0]    alu_flag_mask,
                     ccr_reg_out;
 
+// IDEX Output Wires
+    wire [2:0] idex_BType;       // output [2:0]
+    wire [1:0] idex_MemToReg;    // output [1:0]
+    wire       idex_RegWrite;    // output [0:0]
+    wire       idex_MemWrite;    // output [0:0]
+    wire       idex_MemRead;     // output [0:0]
+    wire       idex_UpdateFlags; // output [0:0]
+    wire [1:0] idex_RegDistidx;  // output [1:0]
+    wire [1:0] idex_ALU_src;     // output [0:0]
+    wire [3:0] idex_ALU_op;      // output [3:0]
+    wire       idex_IO_Write;    // output [0:0]
+    wire       idex_isCall;
+
+    wire [7:0] idex_ra_val;     // output [7:0]
+    wire [7:0] idex_rb_val;     // output [7:0]
+    wire [1:0] idex_ra;         // output [1:0]
+    wire [1:0] idex_rb;         // output [1:0]
+
+    wire [7:0] idex_pc_plus1;   // output [7:0]
+    wire [7:0] idex_IP;         // output [7:0]
+    wire [7:0] idex_imm;        // output [7:0]
+
+
+
 // Ex-mem output wires
     wire [7:0]      exmem_pc_plus1;    // output [7:0]
     wire [7:0]      exmem_Rd2;         // output [7:0]
@@ -79,7 +103,7 @@ module CPU_WrapperV3 (
 
     mux4to1 PC_MUX (
         .d0(pc_plus1),
-        .d1(rb_data_out), 
+        .d1(idex_rb_val), 
         .d2(mem_data_b_out),
         .d3(8'b00000000),
         .sel(pc_src),
@@ -209,22 +233,39 @@ module CPU_WrapperV3 (
     //todo: All of these will be taken and given to register later
     wire    hu_pc_write_en,
             hu_if_id_write_en;
+    wire    hu_bubble;
 
     HU hu_inst (
+        // ID Stage inputs
+        .opcode        (ifid_IR[7:4]),
         .if_id_ra      (ifid_IR[3:2]),  // 2 Bits
         .if_id_rb      (ifid_IR[1:0]),  // 2 Bits
-        .id_ex_rd      (reg_dist),  // 2 Bits
-        .id_ex_mem_read(cu_mem_read),
-        .BT            (bu_bt),
-        .opcode        (ifid_IR[7:4]),
+
+        // EX Stage inputs
+        .id_ex_rd      (idex_RegDistidx),  // 2 Bits
+        .id_ex_mem_read(idex_MemRead),
+        .id_ex_reg_write(idex_RegWrite),
+
+        //Inputs from MEM
+        .ex_mem_rd(exmem_RegDistidx),
+        .ex_mem_reg_write(exmem_RegWrite),
+
+        // Inputs from Logic
+        .branch_take   (bu_bt),
+
         .pc_en         (hu_pc_write_en),
         .if_id_en      (hu_if_id_write_en),
-        .flush         (hu_flush)
+        .flush         (hu_flush),
+        .bubble        (hu_bubble)
     );
 
-/*** AND Gates *****************************************************************************/
+/*** LOGIC Gates *****************************************************************************/
+    wire    bubble_wire;
+
     assign pc_write = cu_pc_write_en & hu_pc_write_en;
     assign if_id_en = cu_if_id_write_en & hu_if_id_write_en;
+
+    assign bubble_wire = hu_bubble | cu_inject_bubble;
 
 /*** Register File *****************************************************************************/
   
@@ -260,33 +301,12 @@ module CPU_WrapperV3 (
     );
 
 /*** ID_EX Reg *****************************************************************************/
-    // IDEX Output Wires
-    wire [2:0] idex_BType;       // output [2:0]
-    wire [1:0] idex_MemToReg;    // output [1:0]
-    wire       idex_RegWrite;    // output [0:0]
-    wire       idex_MemWrite;    // output [0:0]
-    wire       idex_MemRead;     // output [0:0]
-    wire       idex_UpdateFlags; // output [0:0]
-    wire [1:0] idex_RegDistidx;  // output [1:0]
-    wire [1:0] idex_ALU_src;     // output [0:0]
-    wire [3:0] idex_ALU_op;      // output [3:0]
-    wire       idex_IO_Write;    // output [0:0]
-    wire       idex_isCall;
-
-    wire [7:0] idex_ra_val;     // output [7:0]
-    wire [7:0] idex_rb_val;     // output [7:0]
-    wire [1:0] idex_ra;         // output [1:0]
-    wire [1:0] idex_rb;         // output [1:0]
-
-    wire [7:0] idex_pc_plus1;   // output [7:0]
-    wire [7:0] idex_IP;         // output [7:0]
-    wire [7:0] idex_imm;        // output [7:0]
 
     id_ex_reg id_ex_reg_inst (
         .clk            (clk), // 1 bit, input
         .rst            (rstn), // 1 bit, input
         .flush          (hu_flush || cu_inject_bubble), // 1 bit, input //todo Might Need to remove
-        .inject_bubble  (cu_inject_bubble), // 1 bit, input
+        .inject_bubble  (bubble_wire), // 1 bit, input
 
         // ---------- Data inputs ----------
         .pc_plus1       (ifid_pc_plus1), // 8 bits, input
