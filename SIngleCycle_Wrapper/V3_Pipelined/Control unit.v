@@ -19,7 +19,7 @@ module Control_unit (
     // Execute
     output reg [3:0] Alu_Op,
     output reg [2:0] BTYPE,
-    output reg       Alu_src,
+    output reg [1:0] Alu_src,
     output reg       IS_CALL,
     output reg       UpdateFlags,
     // Memory
@@ -270,12 +270,17 @@ module Control_unit (
             2'b01: Alu_Op = OP_NEG;
             2'b10: Alu_Op = OP_INC;
             2'b11: Alu_Op = OP_DEC;
+            
+            
             endcase
         end 
         4'b1001:
         begin
             case(ra)
-            2'b00: BTYPE = BR_JZ;
+            2'b00: 
+            begin 
+                BTYPE = BR_JZ;
+            end
             2'b01: BTYPE = BR_JN;
             2'b10: BTYPE = BR_JC;
             2'b11: BTYPE = BR_JV;
@@ -288,6 +293,7 @@ module Control_unit (
             RegDist     = 'd0;
             UpdateFlags = 'd1;
             Alu_Op      = OP_DEC;
+            Alu_src     = 'd2;
         end
         4'b1011:
         begin
