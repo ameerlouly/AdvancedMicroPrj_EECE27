@@ -114,10 +114,10 @@ module tb_CPU_FormatA_B;
         $display("[%0t] I_Port set to 3 for R1", $time);
 
         // 4. Drive I_Port for "IN R2" (Executes at 0x14 / decimal 20)
-        // We set target address 35 (0x23).
+        // We set target address 7 (0x07).
         wait(PC == 8'h4);
         I_Port = 8'h07; // Target address for JMP
-        $display("[%0t] I_Port set to 0x23 for R2 (Jump Target)", $time);
+        $display("[%0t] I_Port set to 0x07 for R2 (Jump Target)", $time);
 
         // Run until completion
         #400; 
