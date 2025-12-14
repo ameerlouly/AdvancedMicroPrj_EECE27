@@ -16,7 +16,8 @@ module id_ex_reg(
     input       [1:0] RegDistidx,
     input       [1:0]     ALU_src,
     input       [3:0] ALU_op,
-    input             IO_Write,    
+    input             IO_Write,
+    input             isCall,    
 
     // ---------- Data inputs from ID stage ----------
     input  [7:0] ra_val_in,    // value of R[ra]
@@ -34,7 +35,8 @@ module id_ex_reg(
     output reg       [1:0] RegDistidx_out,
     output reg       [1:0] ALU_src_out,
     output reg       [3:0] ALU_op_out,
-    output reg             IO_Write_out,  
+    output reg             IO_Write_out,
+    output reg             isCall_out,  
 
     // ---------- Data outputs to EX stage ----------
     output reg  [7:0] ra_val_out,
@@ -67,6 +69,7 @@ module id_ex_reg(
             IP_out <= 0;
             imm_out <= 0;
             pc_plus1_out <= 0;
+            isCall_out <= 0;
         end
         else if (flush) begin
             BType_out <= 0;
@@ -86,6 +89,7 @@ module id_ex_reg(
             IP_out <= 0;
             imm_out <= 0;
             pc_plus1_out <= 0;
+            isCall_out <= 0;
         end
         else if(inject_bubble) begin
             ALU_op_out <= 0; // no op
@@ -108,6 +112,7 @@ module id_ex_reg(
             pc_plus1_out <= pc_plus1;    
             IP_out <= IP;   
             imm_out <= imm;     
+            isCall_out <= isCall;
         end
     end
 

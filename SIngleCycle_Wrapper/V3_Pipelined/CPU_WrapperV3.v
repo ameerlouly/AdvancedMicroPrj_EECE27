@@ -154,7 +154,7 @@ module CPU_WrapperV3 (
             cu_reg_dist;
 
     // Execute Wires
-    wire    cu_alu_src;
+    wire [1 : 0]   cu_alu_src;
     wire [3 : 0]    cu_alu_op;
     wire cu_flag_en;
     wire [2 : 0]    cu_btype;
@@ -267,7 +267,7 @@ module CPU_WrapperV3 (
     wire       idex_MemRead;     // output [0:0]
     wire       idex_UpdateFlags; // output [0:0]
     wire [1:0] idex_RegDistidx;  // output [1:0]
-    wire       idex_ALU_src;     // output [0:0]
+    wire [1:0] idex_ALU_src;     // output [0:0]
     wire [3:0] idex_ALU_op;      // output [3:0]
     wire       idex_IO_Write;    // output [0:0]
     wire       idex_isCall;
@@ -379,12 +379,21 @@ module CPU_WrapperV3 (
     );
 
     // assign alu_a = ra_data_out; // Temporarily untill Fwd is done
+    //! Old Arch MUX
+    // mux2to1 #(.WIDTH(8)) alu_b_mux2to1 (
+    //     .d0     (alu_b_mux_out),
+    //     .d1     (idex_imm),
+    //     .sel    (idex_ALU_src),
+    //     .out    (alu_b)
+    // );
 
-    mux2to1 #(.WIDTH(8)) alu_b_mux2to1 (
-        .d0     (alu_b_mux_out),
-        .d1     (idex_imm),
-        .sel    (idex_ALU_src),
-        .out    (alu_b)
+    mux4to1 alu_b_src_mux (
+        .d0(alu_b_mux_out),
+        .d1(idex_imm), 
+        .d2(alu_a),
+        .d3(8'b00000000),
+        .sel(idex_ALU_src),
+        .out(alu_b)
     );
 
     ALU alu_inst (
@@ -415,7 +424,7 @@ module CPU_WrapperV3 (
 /*** Branch Unit ****************************************************************************************/
 
     Branch_Unit branch_inst (
-        .flag_mask (ccr_reg_out), // 4 bits
+        .flag_mask ([alu_v,alu_c,alu_n,alu_z]), // 4 bits
         .BTYPE     (idex_BType), // 3 bits
         .B_TAKE    (bu_bt), // 2 bits
         .PC_SRC    (pc_src)  // 2 bits
