@@ -14,7 +14,7 @@ module id_ex_reg(
     input             MemRead,
     input             UpdateFlags,
     input       [1:0] RegDistidx,
-    input       [1:0] ALU_src,
+    input       [1:0]     ALU_src,
     input       [3:0] ALU_op,
     input             IO_Write,
     input             isCall,    
@@ -35,8 +35,8 @@ module id_ex_reg(
     output reg       [1:0] RegDistidx_out,
     output reg       [1:0] ALU_src_out,
     output reg       [3:0] ALU_op_out,
-    output reg             IO_Write_out,  
-    output reg             isCall_out,
+    output reg             IO_Write_out,
+    output reg             isCall_out,  
 
     // ---------- Data outputs to EX stage ----------
     output reg  [7:0] ra_val_out,
@@ -59,7 +59,7 @@ module id_ex_reg(
             MemRead_out <= 0;
             UpdateFlags_out <= 0;
             RegDistidx_out <= 0;
-            ALU_src_out <= 'd0;
+            ALU_src_out <= 0;
             ALU_op_out <= 0;
             IO_Write_out <= 0;
             ra_val_out <= 0;
@@ -79,7 +79,7 @@ module id_ex_reg(
             MemRead_out <= 0;
             UpdateFlags_out <= 0;
             RegDistidx_out <= 0;
-            ALU_src_out <= 'd0;
+            ALU_src_out <= 0;
             ALU_op_out <= 0;
             IO_Write_out <= 0;
             ra_val_out <= 0;
@@ -111,8 +111,8 @@ module id_ex_reg(
             rb_out <= rb;
             pc_plus1_out <= pc_plus1;    
             IP_out <= IP;   
-            imm_out <= imm;
-            isCall_out <= isCall;     
+            imm_out <= imm;     
+            isCall_out <= isCall;
         end
     end
 

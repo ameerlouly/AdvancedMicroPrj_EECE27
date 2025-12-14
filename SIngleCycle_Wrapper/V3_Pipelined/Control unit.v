@@ -288,7 +288,7 @@ module Control_unit (
             RegDist     = 'd0;
             UpdateFlags = 'd1;
             Alu_Op      = OP_DEC;
-            ALU_src     = 'd2;
+            Alu_src     = 'd2;
         end
         4'b1011:
         begin

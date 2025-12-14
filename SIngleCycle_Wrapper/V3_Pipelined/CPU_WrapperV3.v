@@ -424,7 +424,7 @@ module CPU_WrapperV3 (
 /*** Branch Unit ****************************************************************************************/
 
     Branch_Unit branch_inst (
-        .flag_mask ([alu_v,alu_c,alu_n,alu_z]), // 4 bits
+        .flag_mask (ccr_reg_out), // 4 bits
         .BTYPE     (idex_BType), // 3 bits
         .B_TAKE    (bu_bt), // 2 bits
         .PC_SRC    (pc_src)  // 2 bits
