@@ -84,6 +84,7 @@ module CPU_WrapperV3 (
     wire       memwb_RegWrite;    // output [0:0]
     wire [7:0] memwb_IP;          // output [7:0]
     wire       memwb_IO_Write;
+    wire [7:0] memwb_FW_val;
 
 
 /*** Program Counter *****************************************************************************/
@@ -517,6 +518,7 @@ module CPU_WrapperV3 (
         .RegWrite   (exmem_RegWrite), // 1 bit, input
         .IP         (exmem_IP), // 8 bits, input
         .IO_Write   (exmem_IO_Write), // 1 Bit, Input
+        .FW_val     (exmem_FW_value),
 
         // ---------------- Outputs ----------------
         .pc_plus1_out   (memwb_pc_plus1),   // 8 bits, output
@@ -527,7 +529,8 @@ module CPU_WrapperV3 (
         .MemToReg_out   (memwb_MemToReg),   // 2 bits, output
         .RegWrite_out   (memwb_RegWrite),   // 1 bit, output
         .IP_out         (memwb_IP),         // 8 bits, output
-        .IO_Write_out   (memwb_IO_Write)    // 1 Bit, output
+        .IO_Write_out   (memwb_IO_Write),    // 1 Bit, output
+        .FW_val_out   (memwb_FW_val)
     );
 
 
@@ -536,7 +539,7 @@ module CPU_WrapperV3 (
 
     mux2to1 #(.WIDTH(8)) output_port_mux (
         .d0     (8'b00000000),
-        .d1     (memwb_Rd2),
+        .d1     (memwb_FW_val),
         .sel    (memwb_IO_Write),
         .out    (O_Port)
     );

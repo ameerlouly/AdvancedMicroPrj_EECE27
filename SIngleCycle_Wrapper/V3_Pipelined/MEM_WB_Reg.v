@@ -9,6 +9,7 @@ module MEM_WB_Reg(
     input       RegWrite,
     input [7:0] IP,
     input       IO_Write,
+    input [7:0] FW_val,
 
     output reg [7:0] pc_plus1_out,
     output reg [1:0] RegDistidx_out,
@@ -18,7 +19,8 @@ module MEM_WB_Reg(
     output reg [1:0] MemToReg_out,
     output reg       RegWrite_out,
     output reg [7:0] IP_out,
-    output reg       IO_Write_out
+    output reg       IO_Write_out,
+    output reg [7:0] FW_val_out
 );
 
 always @(posedge clk or negedge rst) begin
@@ -32,6 +34,7 @@ always @(posedge clk or negedge rst) begin
      RegWrite_out <= 0;
      IP_out        <= 0;
      IO_Write_out <= 0;
+     FW_val_out <= 0;
     end
 
     else begin
@@ -44,6 +47,7 @@ always @(posedge clk or negedge rst) begin
         RegWrite_out <= RegWrite;
         IP_out <= IP;
         IO_Write_out <= IO_Write;
+        FW_val_out <= FW_val;
     end
 end
     
