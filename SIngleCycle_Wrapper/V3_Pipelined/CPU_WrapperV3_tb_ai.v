@@ -46,6 +46,9 @@ module tb_INST_TEST;
         I_Port = 8'h00;
         int_sig = 0;
 
+        // --- Release Reset ---
+        #20 rstn = 1;
+
         // --- Load Machine Code into Memory (Backdoor) ---
         $display("Loading 'INST_TEST.txt' into Memory...");
 
@@ -109,9 +112,6 @@ module tb_INST_TEST;
         // Let's just put NOPs
         uut.mem_inst.mem[16] = 8'h00; 
         uut.mem_inst.mem[17] = 8'h00; 
-
-        // --- Release Reset ---
-        #20 rstn = 1;
         
         // --- Run Simulation ---
         #300; // Run enough time for all instructions

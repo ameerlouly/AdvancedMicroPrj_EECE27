@@ -51,6 +51,10 @@ module tb_CPU_FormatA_B;
         // Note: Reset Vector is at M[0]. We set it to jump to 0x10.
         $display("Loading Format A & B Test Code into Memory...");
 
+        // 1. Reset Pulse
+        #20 rstn = 1;
+        $display("[%0t] Reset Released.", $time);
+
         // --- Main Program Starts at 0x10 ---
 
         // 1. IN R0 (Load R0 from Input Port) [Format A]
@@ -96,9 +100,6 @@ module tb_CPU_FormatA_B;
 
         // --- Simulation Execution Control ---
         
-        // 1. Reset Pulse
-        #20 rstn = 1;
-        $display("[%0t] Reset Released.", $time);
 
         // 2. Drive I_Port for "IN R0" (Executes at 0x10)
         // We set value 5. 

@@ -46,6 +46,9 @@ module tb_Advanced_Instructions;
         int_sig = 0;
 
         $display("Loading Advanced Instruction Test into Memory...");
+
+        // 5. Release Reset and Run
+        #20 rstn = 1;
         
         // --------------------------------------------------------------------
         // SECTION 1: LOOP TEST (R0 = Counter, R1 = Target Address)
@@ -143,9 +146,6 @@ module tb_Advanced_Instructions;
         // Stop
         uut.mem_inst.mem[42] = 8'h00;
 
-
-        // 5. Release Reset and Run
-        #20 rstn = 1;
         
         // Run long enough to finish loops and jumps
         #500;

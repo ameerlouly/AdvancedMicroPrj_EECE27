@@ -12,20 +12,6 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	CPU_WrapperV3_tb
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module tb_CPU_FormatA_B
-
-Top level modules:
-	tb_CPU_FormatA_B
-
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module tb_INST_TEST
-
-Top level modules:
-	tb_INST_TEST
-
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module mux2to1
@@ -96,12 +82,12 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	Register_file
 
-} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v}
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module Control_unit
+-- Compiling module tb_LDD_Only
 
 Top level modules:
-	Control_unit
+	tb_LDD_Only
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -110,12 +96,12 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	memory
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
+} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v}
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module tb_Advanced_Instructions
+-- Compiling module Control_unit
 
 Top level modules:
-	tb_Advanced_Instructions
+	Control_unit
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021

@@ -48,6 +48,10 @@ module tb_LDD_Only;
         // integer i;
         // for (i=0; i<256; i=i+1) uut.mem_inst.mem[i] = 8'h00;
 
+
+        // --- Release Reset ---
+        #20 rstn = 1;
+
         // -----------------------------------------------------------------
         // TEST PROGRAM: LDD R1, [0xF0]
         // -----------------------------------------------------------------
@@ -70,10 +74,6 @@ module tb_LDD_Only;
         // 3. Load the DATA at the Target Address (0xF0)
         // This is the value we expect to see in R1 later.
         uut.mem_inst.mem[240] = 8'hAA; // 0xAA = 10101010
-
-
-        // --- Release Reset ---
-        #20 rstn = 1;
         
         // --- Run Simulation ---
         // LDD is a 2-byte instruction. 
