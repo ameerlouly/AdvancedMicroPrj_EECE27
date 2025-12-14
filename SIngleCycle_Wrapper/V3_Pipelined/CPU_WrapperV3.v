@@ -341,7 +341,8 @@ module CPU_WrapperV3 (
 
     FU fu_inst (
         // ---------------- Control Signals ----------------
-        .RegWrite_Ex_MEM (exmem_RegWrite), // 1 bit, input
+        .RegWrite_Ex_MEM (exmem_RegWrite),   // 1 bit, input
+        .RegWrite_Mem_WB (memwb_RegWrite),   // 1 bit, Input
 
         // ---------------- Register Addresses ----------------
         .Rs_EX           (idex_ra), // 2 bits, input   idex
