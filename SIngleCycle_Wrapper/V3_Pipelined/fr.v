@@ -51,14 +51,21 @@ module tb_LDD_Only;
         // -----------------------------------------------------------------
         // TEST PROGRAM: LDD R1, [0xF0]
         // -----------------------------------------------------------------
-        
+        uut.mem_inst.mem[0] = 8'h00;
+        uut.mem_inst.mem[1] = 8'h00;
+
         // 1. Load the Instruction at Address 0
         // Opcode 12 (1100), ra=1 (LDD mode), rb=1 (Dest R1) -> 11000101 -> 0xC5
-        uut.mem_inst.mem[0] = 8'hC5; 
+        uut.mem_inst.mem[2] = 8'hC5; 
         
         // 2. Load the Memory Address Operand at Address 1
         // We want to read from address 0xF0 (240)
-        uut.mem_inst.mem[1] = 8'hF0; 
+        uut.mem_inst.mem[3] = 8'hF0; 
+
+        uut.mem_inst.mem[4] = 8'h00;
+        uut.mem_inst.mem[5] = 8'h00;
+        uut.mem_inst.mem[6] = 8'h00;
+        uut.mem_inst.mem[7] = 8'h00;
 
         // 3. Load the DATA at the Target Address (0xF0)
         // This is the value we expect to see in R1 later.
