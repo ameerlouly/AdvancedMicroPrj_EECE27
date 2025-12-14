@@ -4,6 +4,7 @@ module HU (
     input [1:0] id_ex_rd,
     input       id_ex_mem_read, // NEW: High if instruction in EX is LDD, LDI, or POP
     input       BT,             // Branch Taken
+    input [3:0] opcode,
     output reg  pc_en,
     output reg  if_id_en,
     output reg  flush
@@ -17,7 +18,7 @@ module HU (
 
         // 2. Load-Use Hazard Detection
         // Stall only if the instruction in EX is a Load AND it writes to a register we need now.
-        if ((id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb))) begin
+        if ((id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb)) || (opcode == 12 && if_id_ra == 0)) begin
             pc_en = 0;      // Freeze PC
             if_id_en = 0;   // Freeze IF/ID Pipeline Reg
             flush = 0;    
