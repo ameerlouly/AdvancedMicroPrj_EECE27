@@ -32,6 +32,7 @@ module CPU_WrapperV3 (
 
     wire [3 : 0]    alu_flag_mask,
                     ccr_reg_out;
+    wire [7 : 0]    alu_b_mux_out;
 
 // IDEX Output Wires
     wire [2:0] idex_BType;       // output [2:0]
@@ -388,7 +389,6 @@ module CPU_WrapperV3 (
         .out(alu_a)
     );
 
-    wire [7 : 0]    alu_b_mux_out;
     mux4to1 alu_b_mux4to1 (
         .d0(idex_rb_val),
         .d1(rf_wd_mux_out),  //? Make sure its Correct
