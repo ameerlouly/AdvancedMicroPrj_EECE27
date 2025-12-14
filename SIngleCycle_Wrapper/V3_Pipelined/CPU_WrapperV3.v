@@ -188,6 +188,7 @@ module CPU_WrapperV3 (
 
     // Write-Back Control
     wire cu_io_write;
+    wire loop_sel;
 
     Control_unit ctrl_inst (
         .clk            (clk),
@@ -211,6 +212,7 @@ module CPU_WrapperV3 (
         .BTYPE          (cu_btype), // 3 Bits
         .Alu_src        (cu_alu_src),
         .UpdateFlags    (cu_flag_en),
+        .loop_sel       (loop_sel),
         // Memory Control
         .IS_CALL        (cu_isCall),
         .MemToReg       (cu_memtoreg), // 2 Bits
