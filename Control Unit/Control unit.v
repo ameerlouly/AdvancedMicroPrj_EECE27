@@ -26,6 +26,8 @@ module Control_unit (
     output reg [1:0] MemToReg,            // 00=ALU, 01=Mem, 10=Input Port.
     output reg       MemWrite,
     output reg       MemRead,
+
+    output reg loop_sel,
     //Write Back
     output reg       IO_Write  
 );
@@ -140,6 +142,7 @@ module Control_unit (
         MemToReg       = 'd0;
         MemRead        = 'd0;
         MemWrite       = 'd0;
+        loop_sel       = 'd0;
         IO_Write       = 'd0;
 
         if (current_state == S_INTR) 
@@ -270,12 +273,17 @@ module Control_unit (
             2'b01: Alu_Op = OP_NEG;
             2'b10: Alu_Op = OP_INC;
             2'b11: Alu_Op = OP_DEC;
+            
+            
             endcase
         end 
         4'b1001:
         begin
             case(ra)
-            2'b00: BTYPE = BR_JZ;
+            2'b00: 
+            begin 
+                BTYPE = BR_JZ;
+            end
             2'b01: BTYPE = BR_JN;
             2'b10: BTYPE = BR_JC;
             2'b11: BTYPE = BR_JV;
@@ -288,7 +296,8 @@ module Control_unit (
             RegDist     = 'd0;
             UpdateFlags = 'd1;
             Alu_Op      = OP_DEC;
-            ALU_src     = 'd2;
+            Alu_src     = 'd2;
+            loop_sel    = 'd1;
         end
         4'b1011:
         begin
