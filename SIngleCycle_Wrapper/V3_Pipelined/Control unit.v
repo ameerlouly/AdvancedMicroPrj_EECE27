@@ -302,8 +302,6 @@ module Control_unit (
         4'b1011:
         begin
             case(ra)
-            2'b00: BTYPE = BR_JMP;
-            2'b01:
             begin
                    BTYPE    = BR_JMP ;
                    Alu_Op   = OP_PASS_A;

@@ -1,0 +1,680 @@
+# Compile of another_ALU.v was successful.
+# Compile of Branch_Unit.v was successful.
+# Compile of CCR.v was successful.
+# Compile of Control unit.v was successful.
+# Compile of CPU_Advanced_tb_ai.v was successful.
+# Compile of CPU_AnBonly_tb.v was successful.
+# Compile of CPU_Kareem_tb.v was successful.
+# Compile of CPU_WrapperV3.v was successful.
+# Compile of CPU_WrapperV3_tb.v was successful.
+# Compile of CPU_WrapperV3_tb_ai.v was successful.
+# Compile of Ex_Mem.v was successful.
+# Compile of fr.v was successful.
+# Compile of fr_out.v was successful.
+# Compile of frcall.v was successful.
+# Compile of FU.v was successful.
+# Compile of HU.v was successful.
+# Compile of ID_EX_Reg.v was successful.
+# Compile of IF_ID_reg.v was successful.
+# Compile of MEM_WB_Reg.v was successful.
+# Compile of Memory.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of Mux4to1.v was successful.
+# Compile of Pc.v was successful.
+# Compile of Register_file.v was successful.
+# 24 compiles, 0 failed with no errors.
+vsim -gui work.tb_OutputPort
+# vsim -gui work.tb_OutputPort 
+# Start time: 23:07:21 on Dec 15,2025
+# Loading work.tb_OutputPort
+# Loading work.CPU_WrapperV3
+# Loading work.Pc
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.memory
+# Loading work.IF_ID_Reg
+# Loading work.Control_unit
+# Loading work.HU
+# Loading work.Register_file
+# Loading work.id_ex_reg
+# Loading work.FU
+# Loading work.ALU
+# Loading work.CCR
+# Loading work.Branch_Unit
+# Loading work.EX_MEM_reg
+# Loading work.MEM_WB_Reg
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/tb_OutputPort/uut/PC/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: test  Hostname: AMEERLOULY  ProcessID: 34912
+#           Attempting to use alternate WLF file "./wlfti312a8".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfti312a8
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/PC_MUX/d0 \
+sim:/tb_OutputPort/uut/PC_MUX/d1 \
+sim:/tb_OutputPort/uut/PC_MUX/d2 \
+sim:/tb_OutputPort/uut/PC_MUX/d3 \
+sim:/tb_OutputPort/uut/PC_MUX/sel \
+sim:/tb_OutputPort/uut/PC_MUX/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/if_id_reg_inst/clk \
+sim:/tb_OutputPort/uut/if_id_reg_inst/rst \
+sim:/tb_OutputPort/uut/if_id_reg_inst/IF_ID_EN \
+sim:/tb_OutputPort/uut/if_id_reg_inst/Flush \
+sim:/tb_OutputPort/uut/if_id_reg_inst/PC_Plus_1_In \
+sim:/tb_OutputPort/uut/if_id_reg_inst/Instruction_In \
+sim:/tb_OutputPort/uut/if_id_reg_inst/immby \
+sim:/tb_OutputPort/uut/if_id_reg_inst/IP \
+sim:/tb_OutputPort/uut/if_id_reg_inst/PC_Plus_1_Out \
+sim:/tb_OutputPort/uut/if_id_reg_inst/Instruction_Out \
+sim:/tb_OutputPort/uut/if_id_reg_inst/immbyout \
+sim:/tb_OutputPort/uut/if_id_reg_inst/IP_out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/mem_inst/clk \
+sim:/tb_OutputPort/uut/mem_inst/rst \
+sim:/tb_OutputPort/uut/mem_inst/addr_a \
+sim:/tb_OutputPort/uut/mem_inst/data_out_a \
+sim:/tb_OutputPort/uut/mem_inst/addr_b \
+sim:/tb_OutputPort/uut/mem_inst/data_out_b \
+sim:/tb_OutputPort/uut/mem_inst/we_b \
+sim:/tb_OutputPort/uut/mem_inst/write_data_b \
+sim:/tb_OutputPort/uut/mem_inst/mem
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/ctrl_inst/clk \
+sim:/tb_OutputPort/uut/ctrl_inst/rst \
+sim:/tb_OutputPort/uut/ctrl_inst/INTR \
+sim:/tb_OutputPort/uut/ctrl_inst/opcode \
+sim:/tb_OutputPort/uut/ctrl_inst/ra \
+sim:/tb_OutputPort/uut/ctrl_inst/PC_Write_En \
+sim:/tb_OutputPort/uut/ctrl_inst/IF_ID_Write_En \
+sim:/tb_OutputPort/uut/ctrl_inst/Inject_Bubble \
+sim:/tb_OutputPort/uut/ctrl_inst/Inject_Int \
+sim:/tb_OutputPort/uut/ctrl_inst/RegWrite \
+sim:/tb_OutputPort/uut/ctrl_inst/RegDist \
+sim:/tb_OutputPort/uut/ctrl_inst/SP_SEL \
+sim:/tb_OutputPort/uut/ctrl_inst/SP_EN \
+sim:/tb_OutputPort/uut/ctrl_inst/SP_OP \
+sim:/tb_OutputPort/uut/ctrl_inst/Alu_Op \
+sim:/tb_OutputPort/uut/ctrl_inst/BTYPE \
+sim:/tb_OutputPort/uut/ctrl_inst/Alu_src \
+sim:/tb_OutputPort/uut/ctrl_inst/IS_CALL \
+sim:/tb_OutputPort/uut/ctrl_inst/UpdateFlags \
+sim:/tb_OutputPort/uut/ctrl_inst/MemToReg \
+sim:/tb_OutputPort/uut/ctrl_inst/MemWrite \
+sim:/tb_OutputPort/uut/ctrl_inst/MemRead \
+sim:/tb_OutputPort/uut/ctrl_inst/loop_sel \
+sim:/tb_OutputPort/uut/ctrl_inst/IO_Write \
+sim:/tb_OutputPort/uut/ctrl_inst/current_state \
+sim:/tb_OutputPort/uut/ctrl_inst/next_state
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/clk \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/rst \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/flush \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/inject_bubble \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/pc_plus1 \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/IP \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/imm \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/BType \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemToReg \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/RegWrite \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemWrite \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemRead \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/UpdateFlags \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/RegDistidx \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ALU_src \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ALU_op \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/IO_Write \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/isCall \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/loop_sel \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ra_val_in \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/rb_val_in \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ra \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/rb \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/BType_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemToReg_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/RegWrite_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemWrite_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/MemRead_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/UpdateFlags_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/RegDistidx_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ALU_src_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ALU_op_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/IO_Write_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/isCall_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/loop_sel_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ra_val_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/rb_val_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/ra_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/rb_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/pc_plus1_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/IP_out \
+sim:/tb_OutputPort/uut/id_ex_reg_inst/imm_out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/regfile_inst/clk \
+sim:/tb_OutputPort/uut/regfile_inst/rst \
+sim:/tb_OutputPort/uut/regfile_inst/wenabel \
+sim:/tb_OutputPort/uut/regfile_inst/SP_EN \
+sim:/tb_OutputPort/uut/regfile_inst/SP_OP \
+sim:/tb_OutputPort/uut/regfile_inst/ra \
+sim:/tb_OutputPort/uut/regfile_inst/rb \
+sim:/tb_OutputPort/uut/regfile_inst/rd \
+sim:/tb_OutputPort/uut/regfile_inst/write_data \
+sim:/tb_OutputPort/uut/regfile_inst/ra_date \
+sim:/tb_OutputPort/uut/regfile_inst/rb_date \
+sim:/tb_OutputPort/uut/regfile_inst/regs
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/ra_mux/WIDTH \
+sim:/tb_OutputPort/uut/ra_mux/d0 \
+sim:/tb_OutputPort/uut/ra_mux/d1 \
+sim:/tb_OutputPort/uut/ra_mux/sel \
+sim:/tb_OutputPort/uut/ra_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/hu_inst/if_id_ra \
+sim:/tb_OutputPort/uut/hu_inst/if_id_rb \
+sim:/tb_OutputPort/uut/hu_inst/id_ex_rd \
+sim:/tb_OutputPort/uut/hu_inst/id_ex_mem_read \
+sim:/tb_OutputPort/uut/hu_inst/opcode \
+sim:/tb_OutputPort/uut/hu_inst/BT \
+sim:/tb_OutputPort/uut/hu_inst/pc_en \
+sim:/tb_OutputPort/uut/hu_inst/if_id_en \
+sim:/tb_OutputPort/uut/hu_inst/flush \
+sim:/tb_OutputPort/uut/hu_inst/control_zero
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/alu_inst/A \
+sim:/tb_OutputPort/uut/alu_inst/B \
+sim:/tb_OutputPort/uut/alu_inst/sel \
+sim:/tb_OutputPort/uut/alu_inst/cin \
+sim:/tb_OutputPort/uut/alu_inst/out \
+sim:/tb_OutputPort/uut/alu_inst/Z \
+sim:/tb_OutputPort/uut/alu_inst/N \
+sim:/tb_OutputPort/uut/alu_inst/C \
+sim:/tb_OutputPort/uut/alu_inst/V \
+sim:/tb_OutputPort/uut/alu_inst/flag_mask \
+sim:/tb_OutputPort/uut/alu_inst/temp_wide
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/fu_inst/RegWrite_Ex_MEM \
+sim:/tb_OutputPort/uut/fu_inst/RegWrite_Mem_WB \
+sim:/tb_OutputPort/uut/fu_inst/Rs_EX \
+sim:/tb_OutputPort/uut/fu_inst/Rt_EX \
+sim:/tb_OutputPort/uut/fu_inst/Rd_MEM \
+sim:/tb_OutputPort/uut/fu_inst/Rd_WB \
+sim:/tb_OutputPort/uut/fu_inst/ForwardA \
+sim:/tb_OutputPort/uut/fu_inst/ForwardB
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/alu_a_mux/d0 \
+sim:/tb_OutputPort/uut/alu_a_mux/d1 \
+sim:/tb_OutputPort/uut/alu_a_mux/d2 \
+sim:/tb_OutputPort/uut/alu_a_mux/d3 \
+sim:/tb_OutputPort/uut/alu_a_mux/sel \
+sim:/tb_OutputPort/uut/alu_a_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/d0 \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/d1 \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/d2 \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/d3 \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/sel \
+sim:/tb_OutputPort/uut/alu_b_mux4to1/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/alu_b_src_mux/d0 \
+sim:/tb_OutputPort/uut/alu_b_src_mux/d1 \
+sim:/tb_OutputPort/uut/alu_b_src_mux/d2 \
+sim:/tb_OutputPort/uut/alu_b_src_mux/d3 \
+sim:/tb_OutputPort/uut/alu_b_src_mux/sel \
+sim:/tb_OutputPort/uut/alu_b_src_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/ccr_inst/clk \
+sim:/tb_OutputPort/uut/ccr_inst/rst \
+sim:/tb_OutputPort/uut/ccr_inst/Z \
+sim:/tb_OutputPort/uut/ccr_inst/N \
+sim:/tb_OutputPort/uut/ccr_inst/C \
+sim:/tb_OutputPort/uut/ccr_inst/V \
+sim:/tb_OutputPort/uut/ccr_inst/flag_en \
+sim:/tb_OutputPort/uut/ccr_inst/flag_mask \
+sim:/tb_OutputPort/uut/ccr_inst/CCR_reg
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/branch_inst/flag_mask \
+sim:/tb_OutputPort/uut/branch_inst/BTYPE \
+sim:/tb_OutputPort/uut/branch_inst/PC_SRC \
+sim:/tb_OutputPort/uut/branch_inst/B_TAKE
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/loop_sel_mux/d0 \
+sim:/tb_OutputPort/uut/loop_sel_mux/d1 \
+sim:/tb_OutputPort/uut/loop_sel_mux/sel \
+sim:/tb_OutputPort/uut/loop_sel_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/clk \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/rst \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/pc_plus1 \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/Rd2 \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/IO_Write \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/RegDistidx \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/ALU_res \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/FW_value \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/MemWrite \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/MemToReg \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/RegWrite \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/IP \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/isCall \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/pc_plus1_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/Rd2_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/IO_Write_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/RegDistidx_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/ALU_res_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/FW_value_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/MemWrite_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/MemToReg_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/RegWrite_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/IP_out \
+sim:/tb_OutputPort/uut/ex_mem_reg_inst/isCall_out
+add wave -position insertpoint sim:/tb_OutputPort/uut/exmem_IP_mux/*
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/clk \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/rst \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/pc_plus1 \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/RegDistidx \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/Rd2 \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/ALU_res \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/data_B \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/MemToReg \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/RegWrite \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/IP \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/IO_Write \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/FW_val \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/pc_plus1_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/RegDistidx_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/Rd2_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/ALU_res_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/data_B_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/MemToReg_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/RegWrite_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/IP_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/IO_Write_out \
+sim:/tb_OutputPort/uut/mem_wb_reg_inst/FW_val_out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/output_port_mux/d0 \
+sim:/tb_OutputPort/uut/output_port_mux/d1 \
+sim:/tb_OutputPort/uut/output_port_mux/sel \
+sim:/tb_OutputPort/uut/output_port_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/reg_dist_mux/d0 \
+sim:/tb_OutputPort/uut/reg_dist_mux/d1 \
+sim:/tb_OutputPort/uut/reg_dist_mux/sel \
+sim:/tb_OutputPort/uut/reg_dist_mux/out
+add wave -position insertpoint  \
+sim:/tb_OutputPort/uut/rf_wd_mux/d0 \
+sim:/tb_OutputPort/uut/rf_wd_mux/d1 \
+sim:/tb_OutputPort/uut/rf_wd_mux/d2 \
+sim:/tb_OutputPort/uut/rf_wd_mux/d3 \
+sim:/tb_OutputPort/uut/rf_wd_mux/sel \
+sim:/tb_OutputPort/uut/rf_wd_mux/out
+run -all
+# -------------------------------------------------------------
+# OUTPUT PORT TEST
+# -------------------------------------------------------------
+# Register R1 Value : 55 (Expected 55)
+# Output Port Value : 00 (Expected 55)
+# [FAILURE] O_Port is 00 (Expected 0x55). Check Opcode.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(92)
+#    Time: 120 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 92
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/wave.do}
+# Compile of Control unit.v failed with 1 errors.
+# Compile of Control unit.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.Control_unit
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# OUTPUT PORT TEST
+# -------------------------------------------------------------
+# Register R1 Value : 55 (Expected 55)
+# Output Port Value : 00 (Expected 55)
+# [FAILURE] O_Port is 00 (Expected 0x55). Check Opcode.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(92)
+#    Time: 120 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 92
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R2 (Loaded)     : 20 (Expected 20)
+# R3 (Final Sum)  : ff (Expected 10)
+# [FAILURE] R3 is ff (Expected 30).
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(104)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 104
+# Compile of fr_out.v failed with 1 errors.
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+# ** Error: (vsim-8220) This or another usage of 'uut.regfile_inst.regs' inconsistent with 'array' object.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_OutputPort File: F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v Line: 15
+# Compile of fr_out.v was successful.
+restart -f
+# No Design Loaded!
+restart -f
+# No Design Loaded!
+# Compile of fr_out.v was successful.
+restart -f
+# No Design Loaded!
+# Break key hit
+# Break key hit
+vsim -gui work.tb_OutputPort
+# vsim -gui work.tb_OutputPort 
+# Start time: 23:07:21 on Dec 15,2025
+# Loading work.tb_OutputPort
+# Loading work.CPU_WrapperV3
+# Loading work.Pc
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.memory
+# Loading work.IF_ID_Reg
+# Loading work.Control_unit
+# Loading work.HU
+# Loading work.Register_file
+# Loading work.id_ex_reg
+# Loading work.FU
+# Loading work.ALU
+# Loading work.CCR
+# Loading work.Branch_Unit
+# Loading work.EX_MEM_reg
+# Loading work.MEM_WB_Reg
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: test  Hostname: AMEERLOULY  ProcessID: 34912
+#           Attempting to use alternate WLF file "./wlftg4mq22".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftg4mq22
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R2 (Loaded)     : 20 (Expected 20)
+# R3 (Final Sum)  : ff (Expected 10)
+# [FAILURE] R3 is ff (Expected 30).
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(103)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 103
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R2 (Loaded)     : 20 (Expected 20)
+# R3 (Final Sum)  : 14 (Expected 10)
+# [FAILURE] R3 is 14 (Expected 30).
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(104)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 104
+restart -f
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R2 (Loaded)     : 20 (Expected 20)
+# R3 (Final Sum)  : 24 (Expected 10)
+# [FAILURE] R3 is 24 (Expected 30).
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(104)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 104
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R2 (Loaded)     : 20 (Expected 20)
+# R3 (Final Sum)  : 24 (Expected 24)
+# [SUCCESS] Logic handled correctly.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(104)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 104
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# HAZARD TEST (Instructions Loaded AFTER Reset)
+# -------------------------------------------------------------
+# R1 (Loaded)     : 10 (Expected 10)
+# R3 (Final Sum)  : 24 (Expected 24)
+# [SUCCESS] Logic handled correctly.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(101)
+#    Time: 220 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 101
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# CALL INSTRUCTION TEST
+# -------------------------------------------------------------
+# Final PC        : 01 (Expected 20)
+# Final SP        : f0 (Expected EF)
+# Stack[0xF0] Val : 00 (Expected 02 if Post-Dec)
+# Stack[0xEF] Val : 00 (Expected 02 if Pre-Dec)
+# [FAILURE] PC is 01 (Did not jump).
+# [FAILURE] Return Address not saved to Stack.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(113)
+#    Time: 121 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 113
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# CALL REGISTER (Indirect) TEST
+# -------------------------------------------------------------
+# Final PC        : 29 (Expected 20 or 21)
+# Final SP        : ef (Expected EF)
+# Stack[0xF0] Val :   0 (Expected 3)
+# [FAILURE] PC did not jump correctly.
+# [FAILURE] Return Address missing. Found: 00
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(112)
+#    Time: 171 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 112
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# CALL REGISTER (Indirect) TEST
+# -------------------------------------------------------------
+# Final PC        : 28 (Expected 20 or 21)
+# Final SP        : ef (Expected EF)
+# Stack[0xF0] Val :   0 (Expected 3)
+# [FAILURE] PC did not jump correctly.
+# [FAILURE] Return Address missing. Found: 00
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(112)
+#    Time: 171 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 112
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# -------------------------------------------------------------
+# CALL REGISTER (Indirect) TEST
+# -------------------------------------------------------------
+# Final PC        : 2a (Expected 20 or 21)
+# Final SP        : ef (Expected EF)
+# Stack[0xF0] Val :   0 (Expected 3)
+# [FAILURE] PC did not jump correctly.
+# [FAILURE] Return Address missing. Found: 00
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(112)
+#    Time: 171 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 112
+# Compile of Control unit.v was successful.
+# Compile of fr_out.v was successful.
+# 2 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+# Loading work.Control_unit
+# ** Warning: (vsim-3008) [CNNODP] - Component name (CCR) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_OutputPort File: F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v Line: 21
+# ** Error: (vsim-3043) Unresolved reference to 'CCR' in uut.CCR.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_OutputPort File: F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v Line: 21
+# Compile of fr_out.v was successful.
+restart -f
+# No Design Loaded!
+vsim -gui work.tb_OutputPort
+# vsim -gui work.tb_OutputPort 
+# Start time: 23:07:21 on Dec 15,2025
+# Loading work.tb_OutputPort
+# Loading work.CPU_WrapperV3
+# Loading work.Pc
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.memory
+# Loading work.IF_ID_Reg
+# Loading work.Control_unit
+# Loading work.HU
+# Loading work.Register_file
+# Loading work.id_ex_reg
+# Loading work.FU
+# Loading work.ALU
+# Loading work.CCR
+# Loading work.Branch_Unit
+# Loading work.EX_MEM_reg
+# Loading work.MEM_WB_Reg
+# ** Error: (vsim-8220) This or another usage of 'uut.ccr_inst' inconsistent with 'module' object.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_OutputPort File: F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v Line: 21
+# Error loading design
+# End time: 01:05:40 on Dec 16,2025, Elapsed time: 1:58:19
+# Errors: 2, Warnings: 3
+# Compile of fr_out.v was successful.
+vsim -gui work.tb_OutputPort
+# vsim -gui work.tb_OutputPort 
+# Start time: 01:06:33 on Dec 16,2025
+# Loading work.tb_OutputPort
+# Loading work.CPU_WrapperV3
+# Loading work.Pc
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.memory
+# Loading work.IF_ID_Reg
+# Loading work.Control_unit
+# Loading work.HU
+# Loading work.Register_file
+# Loading work.id_ex_reg
+# Loading work.FU
+# Loading work.ALU
+# Loading work.CCR
+# Loading work.Branch_Unit
+# Loading work.EX_MEM_reg
+# Loading work.MEM_WB_Reg
+# ** Error: (vsim-3043) Unresolved reference to 'ccr_inst'.
+#    Time: 0 ps  Iteration: 0  Instance: /tb_OutputPort File: F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v Line: 21
+# Error loading design
+# End time: 01:06:34 on Dec 16,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
+# Compile of fr_out.v was successful.
+vsim -gui work.tb_OutputPort
+# vsim -gui work.tb_OutputPort 
+# Start time: 01:07:25 on Dec 16,2025
+# Loading work.tb_OutputPort
+# Loading work.CPU_WrapperV3
+# Loading work.Pc
+# Loading work.mux4to1
+# Loading work.mux2to1
+# Loading work.memory
+# Loading work.IF_ID_Reg
+# Loading work.Control_unit
+# Loading work.HU
+# Loading work.Register_file
+# Loading work.id_ex_reg
+# Loading work.FU
+# Loading work.ALU
+# Loading work.CCR
+# Loading work.Branch_Unit
+# Loading work.EX_MEM_reg
+# Loading work.MEM_WB_Reg
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: test  Hostname: AMEERLOULY  ProcessID: 34912
+#           Attempting to use alternate WLF file "./wlftzvhnaa".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftzvhnaa
+run -all
+# -------------------------------------------------------------
+# ALU OPERATIONS TEST REPORT
+# -------------------------------------------------------------
+# R3 (Final Value): f0 (Expected F0)
+# R2 (After RLC)  : 03 (Expected 03)
+# R1 (After RRC)  : 78 (Expected 78)
+# -------------------------------------------------------------
+# [SUCCESS] All ALU operations executed correctly.
+# ** Note: $finish    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(142)
+#    Time: 271 ns  Iteration: 0  Instance: /tb_OutputPort
+# 1
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 142

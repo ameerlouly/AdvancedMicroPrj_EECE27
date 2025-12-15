@@ -1,0 +1,162 @@
+{F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v} {1 {vlog -work work -stats=none {F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\Control unit.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Control_unit
+
+Top level modules:
+	Control_unit
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module memory
+
+Top level modules:
+	memory
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_PROJECT_ASM
+
+Top level modules:
+	tb_PROJECT_ASM
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CPU_WrapperV3
+
+Top level modules:
+	CPU_WrapperV3
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux4to1
+
+Top level modules:
+	mux4to1
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FU
+
+Top level modules:
+	FU
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_Advanced_Instructions
+
+Top level modules:
+	tb_Advanced_Instructions
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Register_file
+
+Top level modules:
+	Register_file
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module MEM_WB_Reg
+
+Top level modules:
+	MEM_WB_Reg
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_CALL_Only
+
+Top level modules:
+	tb_CALL_Only
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module HU
+
+Top level modules:
+	HU
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CPU_WrapperV3_tb
+
+Top level modules:
+	CPU_WrapperV3_tb
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_CPU_FormatA_B
+
+Top level modules:
+	tb_CPU_FormatA_B
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Pc
+
+Top level modules:
+	Pc
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module EX_MEM_reg
+
+Top level modules:
+	EX_MEM_reg
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Branch_Unit
+
+Top level modules:
+	Branch_Unit
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module id_ex_reg
+
+Top level modules:
+	id_ex_reg
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_INST_TEST
+
+Top level modules:
+	tb_INST_TEST
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module mux2to1
+
+Top level modules:
+	mux2to1
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module IF_ID_Reg
+
+Top level modules:
+	IF_ID_Reg
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module CCR
+
+Top level modules:
+	CCR
+
+} {} {}} {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v} {1 {vlog -work work -stats=none {F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module tb_LDD_Only
+
+Top level modules:
+	tb_LDD_Only
+
+} {} {}}
