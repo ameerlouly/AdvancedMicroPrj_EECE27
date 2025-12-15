@@ -253,6 +253,7 @@ module Control_unit (
             2'b10: //OUT
             begin
             IO_Write    = 'd1;
+            Alu_Op      = 'b0001;
             end
             2'b11: //IN
             begin
@@ -302,6 +303,8 @@ module Control_unit (
         4'b1011:
         begin
             case(ra)
+            2'b00: BTYPE = BR_JMP; //jmp
+            2'b01: //  call
             begin
                    BTYPE    = BR_JMP ;
                    Alu_Op   = OP_PASS_A;
