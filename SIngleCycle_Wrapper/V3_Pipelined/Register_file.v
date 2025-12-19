@@ -29,14 +29,16 @@ module Register_file (
             // Initialize SP (R3) to 255 according to project ISA
             regs[3] <= 8'd255;    // SP = 255
         end
-        else if (wenabel) begin
+        else begin
+            if (wenabel) begin
             // Write operation: write_data → R[rd]
             regs[rd] <= write_data;
         end
-
-        if(SP_EN) begin
-        regs[3] <= (SP_OP == 1'b1)? regs[3] + 1 : regs[3] - 1;
+            if(SP_EN) begin
+            regs[3] <= (SP_OP == 1'b1)? regs[3] + 1 : regs[3] - 1;
         end
+        end
+
         
     end
 
