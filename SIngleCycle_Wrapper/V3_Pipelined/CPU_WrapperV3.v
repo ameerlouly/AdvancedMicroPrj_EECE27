@@ -59,6 +59,7 @@ module CPU_WrapperV3 (
     wire [7:0] idex_IP;         // output [7:0]
     wire [7:0] idex_imm;        // output [7:0]
     wire       idex_loop_sel;
+    wire       idex_ret_sel;
 
 
 
@@ -76,6 +77,8 @@ module CPU_WrapperV3 (
     wire            exmem_isCall;      // output [0:0]
 
     wire [7 : 0]    exmem_IP_mux_out;
+
+    wire [7 : 0]    ret_mux_out;
 
 // Mem-WB Output Wires
     wire [7:0] memwb_pc_plus1;    // output [7:0]
@@ -126,6 +129,7 @@ module CPU_WrapperV3 (
     .sel({int_sig,rstn}),
     .out(interrupt_mux_out)
    );
+
    interrupt_reg u_interrupt_reg
    (
     .clk(clk),
@@ -151,7 +155,7 @@ module CPU_WrapperV3 (
         .rst            (rstn),
         .addr_a         (interrupt_mux_out),
         .data_out_a     (IR),
-        .addr_b         (exmem_IP_mux_out), 
+        .addr_b         (ret_mux_out), 
         .data_out_b     (mem_data_b_out), 
         .we_b           (exmem_MemWrite), 
         .write_data_b   (WriteD_mux_out)  
@@ -200,6 +204,7 @@ module CPU_WrapperV3 (
             cu_reg_write,
             cu_sp_sel,
             cu_reg_dist;
+    wire    cu_ret_sel;
 
     // Execute Wires
     wire [1 : 0]   cu_alu_src;
@@ -242,6 +247,7 @@ module CPU_WrapperV3 (
         .MemToReg       (cu_memtoreg), // 2 Bits
         .MemWrite       (cu_mem_write),
         .MemRead        (cu_mem_read),
+        .Ret_sel        (cu_ret_sel),
         // Write-Back Control
         .IO_Write       (cu_io_write)
     );
@@ -346,6 +352,7 @@ module CPU_WrapperV3 (
         .IO_Write       (cu_io_write), // 1 bit, input
         .isCall         (cu_isCall),
         .loop_sel       (cu_loop_sel),
+        .Ret_sel        (cu_ret_sel),
 
         // ---------- Data inputs from ID stage ----------
         .ra_val_in      (ra_data_out), // 8 bits, input
@@ -366,6 +373,7 @@ module CPU_WrapperV3 (
         .IO_Write_out    (idex_IO_Write),     // 1 bit, output
         .isCall_out      (idex_isCall),
         .loop_sel_out    (idex_loop_sel),
+        .Ret_sel_out     (idex_ret_sel),
 
         // ---------- Data outputs to EX stage ----------
         .ra_val_out   (idex_ra_val),   // 8 bits, output
@@ -460,7 +468,7 @@ module CPU_WrapperV3 (
         .V         (alu_v),
         .flag_en   (idex_UpdateFlags),
         .flag_mask (alu_flag_mask), // 4 bits
-        .CCR_reg   (ccr_reg_out)  // 4 bits
+        .CCR   (ccr_reg_out)  // 4 bits
     );
 
 /*** Branch Unit ****************************************************************************************/
@@ -517,12 +525,20 @@ module CPU_WrapperV3 (
     //** New Addition **//
     mux4to1 exmem_IP_mux (
         .d0(exmem_ALU_res),
-        .d1(exmem_ALU_res),  //? Make sure its Correct
-        .d2(exmem_IP),  //? Make sure its Correct
+        .d1(exmem_ALU_res),
+        .d2(exmem_IP),
         .d3(exmem_ALU_res),  
         .sel(exmem_MemToReg),
         .out(exmem_IP_mux_out)
     );
+
+    //! Return Logic
+    mux2to1 #(.WIDTH(8)) ret_mux (
+        .d0     (exmem_IP_mux_out),
+        .d1     (alu_out),
+        .sel    (idex_ret_sel),
+        .out    (ret_mux_out)
+    );    
 
 /*** Mem-WB Register ****************************************************************************************/
 
