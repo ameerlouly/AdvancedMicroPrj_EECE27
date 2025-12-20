@@ -26,6 +26,7 @@ module Control_unit (
     output reg [1:0] MemToReg,            // 00=ALU, 01=Mem, 10=Input Port.
     output reg       MemWrite,
     output reg       MemRead,
+    output reg       Ret_sel,
 
     output reg loop_sel,    // loop selction 
     //Write Back
@@ -103,17 +104,21 @@ module Control_unit (
         end
         FETCH: 
         begin
+            /*
             if(INTR)
             begin
                 Inject_Int = 'd1;
                 next_state = S_INTR;
             end
-            else if(opcode=='d12)
+            */
+            if(opcode=='d12)
             begin
                 IF_ID_Write_En ='d0;
                 Inject_Bubble  = 1;  // No Execute
                 next_state     = FETCH_IMM;
             end
+            else
+            next_state     = FETCH;
         end
         FETCH_IMM:
         begin
@@ -238,6 +243,12 @@ module Control_unit (
             SP_OP       = 'd0;
             SP_SEL      = 'd1;
             MemWrite    = 'd1;
+            if(INTR) //interrupt
+            begin
+               IS_CALL  = 'd1; 
+            end
+            else
+                IS_CALL  = 'd0;
             end 
             2'b01: //POP
             begin
@@ -314,7 +325,7 @@ module Control_unit (
                    IS_CALL  = 'd1;
                    MemWrite = 'd1;
             end 
-            2'b10: 
+            2'b10: //RET
             begin
                    BTYPE    = BR_RET ;
                    Alu_Op   = OP_POP;
@@ -322,8 +333,9 @@ module Control_unit (
                    SP_OP    = 'd1;
                    SP_SEL   = 'd1;
                    MemRead  = 'd1;
+                   Ret_sel  = 'd1;
             end
-            2'b11:
+            2'b11: //RTI
             begin
                    BTYPE    = BR_RET ;
                    Alu_Op   = OP_POP;
@@ -331,6 +343,7 @@ module Control_unit (
                    SP_OP    = 'd1;
                    SP_SEL   = 'd1;
                    MemRead  = 'd1;
+                   Ret_sel  = 'd1;
             end
             endcase
         end 

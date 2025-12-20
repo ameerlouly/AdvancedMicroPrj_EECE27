@@ -13,6 +13,9 @@ module CPU_WrapperV3 (
 
 // Memory wires
     wire [7 : 0]    mem_data_b_out;
+    wire [7 : 0]    IR;
+    wire [7 : 0]    interrupt_mux_out; //input port of addr_a
+    wire int_sig_regout; //input delayed control unit
     wire    cu_mem_read,
             cu_mem_write,
             cu_isCall;
@@ -104,17 +107,35 @@ module CPU_WrapperV3 (
 
     assign pc_plus1 = pc_current + 1;
 
-    mux4to1 PC_MUX (
+    mux4to1pc PC_MUX (
         .d0(pc_plus1),
         .d1(alu_b_mux_out), 
         .d2(mem_data_b_out),
-        .d3(8'b00000000),
+        .d3(IR), //M[0] , M[1]
         .sel(pc_src),
+        .int_sig(int_sig),
         .out(pc_next)
     );
+/*** MUX FOR INTERRUPT *****************************************************************************/
+   mux4to1 u_interruptmux
+   (
+    .d0(8'd0),
+    .d1(pc_current),
+    .d2(8'd0), 
+    .d3(8'd1),
+    .sel({int_sig,rstn}),
+    .out(interrupt_mux_out)
+   );
+   interrupt_reg u_interrupt_reg
+   (
+    .clk(clk),
+    .rst(rstn),
+    .int_sig(int_sig),
+    .int_sig_reg(int_sig_regout)
+   );
 
 /*** Memory *****************************************************************************/
-    wire [7 : 0] IR;
+    
 
     wire [7 : 0]    WriteD_mux_out;
 
@@ -128,7 +149,7 @@ module CPU_WrapperV3 (
     memory mem_inst (
         .clk            (clk),
         .rst            (rstn),
-        .addr_a         (pc_current),
+        .addr_a         (interrupt_mux_out),
         .data_out_a     (IR),
         .addr_b         (exmem_IP_mux_out), 
         .data_out_b     (mem_data_b_out), 
@@ -196,7 +217,7 @@ module CPU_WrapperV3 (
     Control_unit ctrl_inst (
         .clk            (clk),
         .rst            (rstn),
-        .INTR           (int_sig),
+        .INTR           (int_sig_regout),
         .opcode         (ifid_IR[7:4]),
         .ra             (ifid_IR[3:2]),
         // Fetch Control
