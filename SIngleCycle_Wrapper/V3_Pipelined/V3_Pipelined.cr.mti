@@ -47,13 +47,6 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	IF_ID_Reg
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module CCR
-
-Top level modules:
-	CCR
-
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module CPU_WrapperV3
@@ -82,19 +75,19 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	mux4to1
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module EX_MEM_reg
-
-Top level modules:
-	EX_MEM_reg
-
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module Pc
 
 Top level modules:
 	Pc
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module EX_MEM_reg
+
+Top level modules:
+	EX_MEM_reg
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -110,13 +103,6 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	tb_LDD_Only
 
-} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v}
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module Control_unit
-
-Top level modules:
-	Control_unit
-
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module memory
@@ -124,12 +110,12 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 Top level modules:
 	memory
 
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+} {} {}} {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v} {1 {vlog -work work -vopt -stats=none {D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v}
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module FU
+-- Compiling module Control_unit
 
 Top level modules:
-	FU
+	Control_unit
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -137,6 +123,13 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 
 Top level modules:
 	tb_Advanced_Instructions
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module FU
+
+Top level modules:
+	FU
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -151,12 +144,5 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 
 Top level modules:
 	Branch_Unit
-
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module HU
-
-Top level modules:
-	HU
 
 } {} {}}
