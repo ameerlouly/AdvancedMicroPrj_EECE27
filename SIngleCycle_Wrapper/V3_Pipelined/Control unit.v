@@ -21,6 +21,7 @@ module Control_unit (
     output reg [2:0] BTYPE,
     output reg [1:0] Alu_src,
     output reg       IS_CALL,
+    output reg       ISNOT_RET,
     output reg       UpdateFlags,
     // Memory
     output reg [1:0] MemToReg,            // 00=ALU, 01=Mem, 10=Input Port.
@@ -152,6 +153,7 @@ module Control_unit (
         IO_Write       = 'd0;
         Ret_sel        = 'd0;
         Rti_sel        = 'd0;
+        ISNOT_RET      = 'd1;
 
         if (current_state == S_INTR) 
             begin
@@ -337,6 +339,7 @@ module Control_unit (
                    SP_SEL   = 'd1;
                    MemRead  = 'd1;
                    Ret_sel  = 'd1;
+                   ISNOT_RET= 'd0;
             end
             2'b11: //RTI
             begin
@@ -347,6 +350,7 @@ module Control_unit (
                    SP_SEL   = 'd1;
                    MemRead  = 'd1;
                    Rti_sel  = 'd1;
+                   ISNOT_RET= 'd0;
             end
             endcase
         end 
