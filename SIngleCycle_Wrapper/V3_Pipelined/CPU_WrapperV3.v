@@ -95,6 +95,12 @@ module CPU_WrapperV3 (
     wire       memwb_IO_Write;
     wire [7:0] memwb_FW_val;
 
+// FU Outputs
+    wire [1 : 0]    fu_FWA,
+                    fu_FWB;
+    wire    fu_FWDA,
+            fu_FWDB;
+
 
 /*** Program Counter *****************************************************************************/
     wire [7 : 0]    pc_next,
@@ -356,6 +362,22 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .rb_date    (rb_data_out)
     );
 
+    wire [7 : 0]    rf_ra_fwd_mux_out;
+    mux2to1 #(.WIDTH(8)) rf_ra_fwd_mux (
+        .d0     (ra_data_out),
+        .d1     (rf_wd_mux_out),
+        .sel    (fu_FWDA),
+        .out    (rf_ra_fwd_mux_out)
+    );  
+
+    wire [7 : 0]    rf_rb_fwd_mux_out;
+    mux2to1 #(.WIDTH(8)) rf_rb_fwd_mux (
+        .d0     (rb_data_out),
+        .d1     (rf_wd_mux_out),
+        .sel    (fu_FWDB),
+        .out    (rf_rb_fwd_mux_out)
+    );  
+
 /*** ID_EX Reg *****************************************************************************/
 
     id_ex_reg id_ex_reg_inst (
@@ -387,8 +409,8 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .int_signal     (int_sig_regout),
 
         // ---------- Data inputs from ID stage ----------
-        .ra_val_in      (ra_data_out), // 8 bits, input
-        .rb_val_in      (rb_data_out), // 8 bits, input
+        .ra_val_in      (rf_ra_fwd_mux_out), // 8 bits, input
+        .rb_val_in      (rf_rb_fwd_mux_out), // 8 bits, input
         .ra             (ifid_IR[3:2]), // 2 bits, input
         .rb             (ifid_IR[1:0]), // 2 bits, input
 
@@ -421,10 +443,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .imm_out      (idex_imm)       // 8 bits, output
     );
 
-/*** Forwarding Unit ****************************************************************************************/
-
-    wire [1 : 0]    fu_FWA,
-                    fu_FWB;
+/*** Forwarding Unit *****************************************************************************************/
 
     FU fu_inst (
         // ---------------- Control Signals ----------------
@@ -436,10 +455,14 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .Rt_EX           (idex_rb), // 2 bits, input   idex
         .Rd_MEM          (exmem_RegDistidx), // 2 bits, input 
         .Rd_WB           (memwb_RegDistidx), // 2 bits, input
+        .Rs_ID           (ifid_IR[3:2]),
+        .Rt_ID           (ifid_IR[1:0]),
 
         // ---------------- Outputs to EX Stage ----------------
         .ForwardA        (fu_FWA), // 2 bits, output
-        .ForwardB        (fu_FWB)  // 2 bits, output
+        .ForwardB        (fu_FWB),  // 2 bits, output
+        .Forward_ID_A    (fu_FWDA),
+        .Forward_ID_B    (fu_FWDB)
     );
 
 /*** ALU ****************************************************************************************/
