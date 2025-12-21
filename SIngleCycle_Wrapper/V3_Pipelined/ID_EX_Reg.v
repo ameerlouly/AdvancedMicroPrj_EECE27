@@ -1,31 +1,32 @@
 module id_ex_reg(
-    input clk, rst,
-    input flush,
-    input inject_bubble,
-    input [7:0] pc_plus1,
-    input [7:0] IP,
-    input [7:0] imm,
+    input wire clk, rst,
+    input wire flush,
+    input wire inject_bubble,
+    input wire [7:0] pc_plus1,
+    input wire [7:0] IP,
+    input wire [7:0] imm,
 
     // ---------- Control inputs from ID stage ----------
-    input       [2:0] BType,
-    input       [1:0] MemToReg,
-    input             RegWrite,
-    input             MemWrite,
-    input             MemRead,
-    input             UpdateFlags,
-    input       [1:0] RegDistidx,
-    input       [1:0]     ALU_src,
-    input       [3:0] ALU_op,
-    input             IO_Write,
-    input             isCall,    
-    input             loop_sel,
-    input             Ret_sel,
+    input wire      [2:0] BType,
+    input wire      [1:0] MemToReg,
+    input wire            RegWrite,
+    input wire            MemWrite,
+    input wire            MemRead,
+    input wire            UpdateFlags,
+    input wire      [1:0] RegDistidx,
+    input wire      [1:0] ALU_src,
+    input wire      [3:0] ALU_op,
+    input wire            IO_Write,
+    input wire            isCall,    
+    input wire            loop_sel,
+    input wire            Ret_sel,
+    input wire            int_signal, //interrupt signal 
 
     // ---------- Data inputs from ID stage ----------
-    input  [7:0] ra_val_in,    // value of R[ra]
-    input  [7:0] rb_val_in,    // value of R[rb]
-    input  [1:0] ra,           // address of ra
-    input  [1:0] rb,            // address of rb
+    input wire  [7:0] ra_val_in,    // value of R[ra]
+    input wire  [7:0] rb_val_in,    // value of R[rb]
+    input wire  [1:0] ra,           // address of ra
+    input wire  [1:0] rb,            // address of rb
 
     // ---------- Control outputs to EX stage ----------
     output reg      [2:0] BType_out,
@@ -41,6 +42,7 @@ module id_ex_reg(
     output reg             isCall_out,  
     output reg             loop_sel_out,
     output reg             Ret_sel_out,
+    output reg             int_signal_out,
 
     // ---------- Data outputs to EX stage ----------
     output reg  [7:0] ra_val_out,
@@ -76,6 +78,7 @@ module id_ex_reg(
             isCall_out <= 0;
             loop_sel_out <= 0;
             Ret_sel_out <= 0;
+            int_signal_out<=0;
         end
         else if (flush) begin
             BType_out <= 0;
@@ -98,6 +101,7 @@ module id_ex_reg(
             isCall_out <= 0;
             loop_sel_out <= 0;
             Ret_sel_out <= 0;
+            int_signal_out<=0;
         end
         else if(inject_bubble) begin
             ALU_op_out <= 0; // no op
@@ -123,6 +127,7 @@ module id_ex_reg(
             isCall_out <= isCall;
             loop_sel_out <= loop_sel;
             Ret_sel_out <= Ret_sel;
+            int_signal_out<=int_signal;
         end
     end
 

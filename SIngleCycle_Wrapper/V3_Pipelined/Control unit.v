@@ -149,6 +149,7 @@ module Control_unit (
         MemWrite       = 'd0;
         loop_sel       = 'd0;
         IO_Write       = 'd0;
+        Ret_sel        = 'd0;
 
         if (current_state == S_INTR) 
             begin

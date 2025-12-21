@@ -17,9 +17,6 @@ module tb_OutputPort;
     wire [7:0] R3 = uut.regfile_inst.regs[3];
     wire [7:0] PC = uut.PC.pc_current;
     
-    // Check flags (Assuming CCR bit 0=Z, bit 1=N, bit 2=C, etc. Adjust if needed)
-    wire Flag_C = uut.ccr_inst.CCR_reg[0]; // Example: Check your specific CCR bit mapping!
-
     // ========================================================================
     // 2. DUT Instantiation
     // ========================================================================
@@ -54,18 +51,20 @@ module tb_OutputPort;
         
         // 2. ADD R1, R2   (Op=2, ra=1, rb=2 -> 0010 11 10 -> 0x2E)
         // R3 = F0 + 01 = F1.
-        uut.mem_inst.mem[8'h70] = 8'h26;
-        uut.mem_inst.mem[8'h2] = 8'h26;
+        uut.mem_inst.mem[8'h80] = 8'h26;
+        uut.mem_inst.mem[8'h2 ] = 8'h26;
+        uut.mem_inst.mem[8'h81] = 8'h26;
+        uut.mem_inst.mem[8'h82] = 8'h26;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
         int_sig = 1;
-        uut.mem_inst.mem[1] = 8'h70; //interrupt
+        uut.mem_inst.mem[1] = 8'h80; //interrupt
         @(posedge clk);
         int_sig = 0;
         #1;
         uut.mem_inst.mem[0] = 8'h00; 
-
+       
         
 
         // 10. HALT
@@ -87,12 +86,12 @@ module tb_OutputPort;
         // but we can infer success if the chain worked or checking specific regs.
         // Let's rely on the final state of R3 (from the OR operation)
         // Last R3 op was OR 00, F0 -> F0.
-        $display("R1 (Final Value): %d (Expected 7)", R1);
+        $display("R1 (Final Value): %d (Expected 22)", R1);
         
 
         $display("-------------------------------------------------------------");
 
-        if ( R1 == 8'd12)
+        if ( R1 == 8'd22)
             $display("[SUCCESS] All ALU operations executed correctly.");
         else
             $display("[FAILURE] One or more results are incorrect.");

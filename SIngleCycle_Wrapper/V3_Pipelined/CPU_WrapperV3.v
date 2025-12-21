@@ -15,7 +15,7 @@ module CPU_WrapperV3 (
     wire [7 : 0]    mem_data_b_out;
     wire [7 : 0]    IR;
     wire [7 : 0]    interrupt_mux_out; //input port of addr_a
-    wire int_sig_regout; //input delayed control unit
+    wire int_sig_regout; //interrupt delayed control unit
     wire    cu_mem_read,
             cu_mem_write,
             cu_isCall;
@@ -60,6 +60,7 @@ module CPU_WrapperV3 (
     wire [7:0] idex_imm;        // output [7:0]
     wire       idex_loop_sel;
     wire       idex_ret_sel;
+    wire       idex_int_signal;
 
 
 
@@ -75,6 +76,7 @@ module CPU_WrapperV3 (
     wire            exmem_RegWrite;    // output [0:0]
     wire [7:0]      exmem_IP;          // output [7:0]
     wire            exmem_isCall;      // output [0:0]
+    wire            exmem_int_signal;
 
     wire [7 : 0]    exmem_IP_mux_out;
 
@@ -141,14 +143,21 @@ module CPU_WrapperV3 (
 /*** Memory *****************************************************************************/
     
 
-    wire [7 : 0]    WriteD_mux_out;
-
-    mux2to1 #(.WIDTH(8)) mem_writeD_b_mux2to1 (
+    wire [7 : 0]    Write_b_interrupt; //before interrupt
+    wire [7 : 0]    Write_data_a_interrupt; //after interrupt
+    mux2to1 #(.WIDTH(8)) mem_writeD_b_mux (
         .d0     (exmem_FW_value),
         .d1     (exmem_pc_plus1),
         .sel    (exmem_isCall),
-        .out    (WriteD_mux_out)
+        .out    (Write_b_interrupt)
     );
+    mux2to1 #(.WIDTH(8)) mem_writeD_b_mux2to1 (
+        .d0     (Write_b_interrupt),
+        .d1     (exmem_pc_plus1-1'b1),
+        .sel    (exmem_int_signal),
+        .out    (Write_data_a_interrupt)
+    );
+
 
     memory mem_inst (
         .clk            (clk),
@@ -158,7 +167,7 @@ module CPU_WrapperV3 (
         .addr_b         (ret_mux_out), 
         .data_out_b     (mem_data_b_out), 
         .we_b           (exmem_MemWrite), 
-        .write_data_b   (WriteD_mux_out)  
+        .write_data_b   (Write_data_a_interrupt)  
     );
 
 /*** IF_ID_Reg *****************************************************************************/
@@ -189,6 +198,23 @@ module CPU_WrapperV3 (
         .immbyout       (ifid_immby), // 8 bits, output
         .IP_out         (ifid_IP)  // 8 bits, output
     );
+/*** Interrupt muxes before Control Unit ********************************************************/
+wire [3:0] opcode_interrupt;
+mux2to1 #(.WIDTH(4))u_interrupt_opcode_mux
+(
+    .d0(ifid_IR[7:4]),
+    .d1(4'b0111),
+    .sel(int_sig_regout),
+    .out(opcode_interrupt)
+);
+wire [1:0] ra_interrupt;
+mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
+(
+    .d0(ifid_IR[3:2]),
+    .d1(2'b00),
+    .sel(int_sig_regout),
+    .out(ra_interrupt)
+);
 
 /*** Control Unit *****************************************************************************/
     
@@ -223,8 +249,8 @@ module CPU_WrapperV3 (
         .clk            (clk),
         .rst            (rstn),
         .INTR           (int_sig_regout),
-        .opcode         (ifid_IR[7:4]),
-        .ra             (ifid_IR[3:2]),
+        .opcode         (opcode_interrupt), // modify due to interrupt mux
+        .ra             (ra_interrupt),     // modify due to interrupt mux
         // Fetch Control
         .PC_Write_En    (cu_pc_write_en),
         .IF_ID_Write_En (cu_if_id_write_en),
@@ -353,6 +379,7 @@ module CPU_WrapperV3 (
         .isCall         (cu_isCall),
         .loop_sel       (cu_loop_sel),
         .Ret_sel        (cu_ret_sel),
+        .int_signal     (int_sig_regout),
 
         // ---------- Data inputs from ID stage ----------
         .ra_val_in      (ra_data_out), // 8 bits, input
@@ -374,6 +401,7 @@ module CPU_WrapperV3 (
         .isCall_out      (idex_isCall),
         .loop_sel_out    (idex_loop_sel),
         .Ret_sel_out     (idex_ret_sel),
+        .int_signal_out  (idex_int_signal),
 
         // ---------- Data outputs to EX stage ----------
         .ra_val_out   (idex_ra_val),   // 8 bits, output
@@ -506,6 +534,7 @@ module CPU_WrapperV3 (
         .RegWrite   (idex_RegWrite), // 1 bit, input
         .IP         (idex_IP), // 8 bits, input
         .isCall     (idex_isCall), // 1 bit, input
+        .int_signal (idex_int_signal),
 
         // ---------------- Outputs ----------------
         .pc_plus1_out   (exmem_pc_plus1),    // 8 bits, output
@@ -518,11 +547,12 @@ module CPU_WrapperV3 (
         .MemToReg_out   (exmem_MemToReg),    // 2 bits, output
         .RegWrite_out   (exmem_RegWrite),    // 1 bit, output
         .IP_out         (exmem_IP),          // 8 bits, output
-        .isCall_out     (exmem_isCall)       // 1 bit, output
+        .isCall_out     (exmem_isCall),       // 1 bit, output
+        .int_signal_out (exmem_int_signal)
     );
 
     //! New to Architecture
-    //** New Addition **//
+    //** New Addition **// //forward when input instruction
     mux4to1 exmem_IP_mux (
         .d0(exmem_ALU_res),
         .d1(exmem_ALU_res),
