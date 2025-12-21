@@ -593,13 +593,23 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .out(exmem_IP_mux_out)
     );
 
+    //! Call Mux
+    wire [7 : 0]    call_mux_out;
+    mux2to1 #(.WIDTH(8)) call_mux (
+        .d0     (exmem_IP_mux_out),
+        .d1     (exmem_RegDistidx),
+        .sel    (exmem_isCall & ),  //todo Add the isnot_ret
+        .out    (call_mux_out)
+    );      
+
     //! Return Logic
     mux2to1 #(.WIDTH(8)) ret_mux (
-        .d0     (exmem_IP_mux_out),
+        .d0     (call_mux_out),
         .d1     (alu_out),
         .sel    (idex_ret_sel | idex_rti_sel),
         .out    (ret_mux_out)
-    );    
+    );  
+
 
 /*** Mem-WB Register ****************************************************************************************/
 

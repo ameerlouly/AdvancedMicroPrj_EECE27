@@ -1,4 +1,11 @@
-D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
+D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module tb_ALU_Sequence
+
+Top level modules:
+	tb_ALU_Sequence
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module id_ex_reg
 
@@ -53,13 +60,6 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 
 Top level modules:
 	IF_ID_Reg
-
-} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module CPU_WrapperV3
-
-Top level modules:
-	CPU_WrapperV3
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
@@ -116,6 +116,20 @@ QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 
 Top level modules:
 	mux4to1pc
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module tb_MemOps
+
+Top level modules:
+	tb_MemOps
+
+} {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v
+QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+-- Compiling module tb_Comprehensive_ALU
+
+Top level modules:
+	tb_Comprehensive_ALU
 
 } {} {}} D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v {1 {vlog -work work -vopt -stats=none D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
