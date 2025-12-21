@@ -21,7 +21,8 @@ module id_ex_reg(
     input wire            loop_sel,
     input wire            Ret_sel,
     input wire            Rti_sel,
-    input wire            int_signal, //interrupt signal 
+    input wire            int_signal, //interrupt signal
+    input wire            isNotRet, 
 
     // ---------- Data inputs from ID stage ----------
     input wire  [7:0] ra_val_in,    // value of R[ra]
@@ -45,6 +46,7 @@ module id_ex_reg(
     output reg             Ret_sel_out,
     output reg             Rti_sel_out,
     output reg             int_signal_out,
+    output reg             isNotRet_out,
 
     // ---------- Data outputs to EX stage ----------
     output reg  [7:0] ra_val_out,
@@ -82,6 +84,7 @@ module id_ex_reg(
             Ret_sel_out <= 0;
             int_signal_out<=0;
             Rti_sel_out <= 0;
+            isNotRet_out    <= 0;
         end
         else if (flush) begin
             BType_out <= 0;
@@ -106,6 +109,7 @@ module id_ex_reg(
             Ret_sel_out <= 0;
             int_signal_out<=0;
             Rti_sel_out <= 0;
+            isNotRet_out <= 0;
         end
         else if(inject_bubble) begin
             ALU_op_out <= 0; // no op
@@ -133,6 +137,7 @@ module id_ex_reg(
             Ret_sel_out <= Ret_sel;
             int_signal_out<=int_signal;
             Rti_sel_out <= Rti_sel;
+            isNotRet_out    <= isNotRet;
         end
     end
 

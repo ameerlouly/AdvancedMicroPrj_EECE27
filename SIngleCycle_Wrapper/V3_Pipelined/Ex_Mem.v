@@ -12,6 +12,7 @@ module EX_MEM_reg (
     input wire [7:0] IP,
     input wire       isCall,
     input wire       int_signal,
+    input wire       isNotRet,
 
     output reg [7:0] pc_plus1_out,
     output reg [7:0] Rd2_out,
@@ -24,7 +25,8 @@ module EX_MEM_reg (
     output reg       RegWrite_out,
     output reg [7:0] IP_out,
     output reg       int_signal_out,
-    output reg       isCall_out
+    output reg       isCall_out,
+    output reg       isNotRet_out
 );
 
     // Sequential logic: update on clock
@@ -42,6 +44,7 @@ module EX_MEM_reg (
             IP_out <= 0;
             isCall_out <= 0;
             int_signal_out<=0;
+            isNotRet_out <= 0;
         end
         else begin
             pc_plus1_out <= pc_plus1;
@@ -56,6 +59,7 @@ module EX_MEM_reg (
             IP_out <= IP;
             isCall_out <= isCall;
             int_signal_out<=int_signal;
+            isNotRet_out <= isNotRet;
         end
     end
 

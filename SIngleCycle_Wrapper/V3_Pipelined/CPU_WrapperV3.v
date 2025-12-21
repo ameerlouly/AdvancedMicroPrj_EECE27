@@ -19,6 +19,7 @@ module CPU_WrapperV3 (
     wire    cu_mem_read,
             cu_mem_write,
             cu_isCall;
+    wire cu_isNotRet;
 
 // Branch Unit Wires
     wire            bu_bt;
@@ -62,6 +63,7 @@ module CPU_WrapperV3 (
     wire       idex_ret_sel;
     wire       idex_int_signal;
     wire       idex_rti_sel;
+    wire       idex_isNotRet;
 
 
 
@@ -78,6 +80,7 @@ module CPU_WrapperV3 (
     wire [7:0]      exmem_IP;          // output [7:0]
     wire            exmem_isCall;      // output [0:0]
     wire            exmem_int_signal;
+    wire            exmem_isNotRet;
 
     wire [7 : 0]    exmem_IP_mux_out;
 
@@ -279,6 +282,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .loop_sel       (cu_loop_sel),
         // Memory Control
         .IS_CALL        (cu_isCall),
+        .ISNOT_RET      (cu_isNotRet),
         .MemToReg       (cu_memtoreg), // 2 Bits
         .MemWrite       (cu_mem_write),
         .MemRead        (cu_mem_read),
@@ -403,6 +407,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .ALU_op         (cu_alu_op), // 4 bits, input
         .IO_Write       (cu_io_write), // 1 bit, input
         .isCall         (cu_isCall),
+        .isNotRet       (cu_isNotRet),
         .loop_sel       (cu_loop_sel),
         .Ret_sel        (cu_ret_sel),
         .Rti_sel        (cu_rti_sel),
@@ -430,6 +435,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .Ret_sel_out     (idex_ret_sel),
         .Rti_sel_out     (idex_rti_sel),
         .int_signal_out  (idex_int_signal),
+        .isNotRet_out    (idex_isNotRet),
 
         // ---------- Data outputs to EX stage ----------
         .ra_val_out   (idex_ra_val),   // 8 bits, output
@@ -566,6 +572,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .IP         (idex_IP), // 8 bits, input
         .isCall     (idex_isCall), // 1 bit, input
         .int_signal (idex_int_signal),
+        .isNotRet   (idex_isNotRet),
 
         // ---------------- Outputs ----------------
         .pc_plus1_out   (exmem_pc_plus1),    // 8 bits, output
@@ -579,7 +586,8 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .RegWrite_out   (exmem_RegWrite),    // 1 bit, output
         .IP_out         (exmem_IP),          // 8 bits, output
         .isCall_out     (exmem_isCall),       // 1 bit, output
-        .int_signal_out (exmem_int_signal)
+        .int_signal_out (exmem_int_signal),
+        .isNotRet_out   (exmem_isNotRet)
     );
 
     //! New to Architecture
@@ -593,18 +601,19 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .out(exmem_IP_mux_out)
     );
 
-    //! Call Mux
-    wire [7 : 0]    call_mux_out;
-    mux2to1 #(.WIDTH(8)) call_mux (
-        .d0     (exmem_IP_mux_out),
-        .d1     (exmem_RegDistidx),
-        .sel    (exmem_isCall & ),  //todo Add the isnot_ret
-        .out    (call_mux_out)
-    );      
+    //todo for Farhan to edit
+    // //! Call Mux
+    // wire [7 : 0]    call_mux_out;
+    // mux2to1 #(.WIDTH(8)) call_mux (
+    //     .d0     (exmem_IP_mux_out),
+    //     .d1     (exmem_Rd2),
+    //     .sel    (exmem_isCall & exmem_isNotRet),
+    //     .out    (call_mux_out)
+    // );      
 
     //! Return Logic
     mux2to1 #(.WIDTH(8)) ret_mux (
-        .d0     (call_mux_out),
+        .d0     (exmem_IP_mux_out),
         .d1     (alu_out),
         .sel    (idex_ret_sel | idex_rti_sel),
         .out    (ret_mux_out)
