@@ -55,6 +55,8 @@ module tb_OutputPort;
         uut.mem_inst.mem[8'h2 ] = 8'h26;
         uut.mem_inst.mem[8'h81] = 8'h26;
         uut.mem_inst.mem[8'h82] = 8'h26;
+        uut.mem_inst.mem[8'h3] = 8'h26;
+        uut.mem_inst.mem[8'h83] = 8'hbc;
         @(posedge clk);
         @(posedge clk);
         @(posedge clk);
@@ -86,12 +88,12 @@ module tb_OutputPort;
         // but we can infer success if the chain worked or checking specific regs.
         // Let's rely on the final state of R3 (from the OR operation)
         // Last R3 op was OR 00, F0 -> F0.
-        $display("R1 (Final Value): %d (Expected 22)", R1);
+        $display("R1 (Final Value): %d (Expected 27)", R1);
         
 
         $display("-------------------------------------------------------------");
 
-        if ( R1 == 8'd22)
+        if ( R1 == 8'd27)
             $display("[SUCCESS] All ALU operations executed correctly.");
         else
             $display("[FAILURE] One or more results are incorrect.");

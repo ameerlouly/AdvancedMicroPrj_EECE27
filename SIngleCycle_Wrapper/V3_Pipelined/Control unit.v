@@ -27,6 +27,7 @@ module Control_unit (
     output reg       MemWrite,
     output reg       MemRead,
     output reg       Ret_sel,
+    output reg       Rti_sel,
 
     output reg loop_sel,    // loop selction 
     //Write Back
@@ -150,6 +151,7 @@ module Control_unit (
         loop_sel       = 'd0;
         IO_Write       = 'd0;
         Ret_sel        = 'd0;
+        Rti_sel        = 'd0;
 
         if (current_state == S_INTR) 
             begin
@@ -344,7 +346,7 @@ module Control_unit (
                    SP_OP    = 'd1;
                    SP_SEL   = 'd1;
                    MemRead  = 'd1;
-                   Ret_sel  = 'd1;
+                   Rti_sel  = 'd1;
             end
             endcase
         end 
