@@ -94,21 +94,22 @@ module tb_Comprehensive_ALU;
         
         // 0x10: PUSH R2 (Store R2 on stack, SP--) -> Op:7, brx:00, rb:2 -> 0xB2
         uut.mem_inst.mem[16] = 8'h72;
+        uut.mem_inst.mem[17] = 6'h00;
         
         // 0x11: DEC R2 (Decrement R2) -> Op:8, ra:3, rb:2 -> 0x82
-        uut.mem_inst.mem[17] = 8'h8E;
-        
-        // 0x12: DEC R2
         uut.mem_inst.mem[18] = 8'h8E;
         
+        // 0x12: DEC R2
+        uut.mem_inst.mem[19] = 8'h8E;
+        
         // 0x13: POP R2 (Restore R2 from stack, SP++) -> Op:11, brx:02, rb:2 -> 0xBA
-        uut.mem_inst.mem[19] = 8'h76;
+        uut.mem_inst.mem[20] = 8'h76;
         
         // 0x14: NOT R0 (R0 = ~20) -> Op:4, ra:3, rb:0 -> 0x4C (NOT is ra=11, rb=dest)
-        uut.mem_inst.mem[20] = 8'h80;
+        uut.mem_inst.mem[21] = 8'h80;
 
         // 0x15: STOP
-        uut.mem_inst.mem[21] = 8'h00;
+        uut.mem_inst.mem[22] = 8'h00;
 
         
 
