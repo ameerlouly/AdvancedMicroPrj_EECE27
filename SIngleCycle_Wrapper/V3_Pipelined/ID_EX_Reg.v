@@ -20,6 +20,7 @@ module id_ex_reg(
     input wire            isCall,    
     input wire            loop_sel,
     input wire            Ret_sel,
+    input wire            Rti_sel,
     input wire            int_signal, //interrupt signal 
 
     // ---------- Data inputs from ID stage ----------
@@ -42,6 +43,7 @@ module id_ex_reg(
     output reg             isCall_out,  
     output reg             loop_sel_out,
     output reg             Ret_sel_out,
+    output reg             Rti_sel_out,
     output reg             int_signal_out,
 
     // ---------- Data outputs to EX stage ----------
@@ -79,6 +81,7 @@ module id_ex_reg(
             loop_sel_out <= 0;
             Ret_sel_out <= 0;
             int_signal_out<=0;
+            Rti_sel_out <= 0;
         end
         else if (flush) begin
             BType_out <= 0;
@@ -102,6 +105,7 @@ module id_ex_reg(
             loop_sel_out <= 0;
             Ret_sel_out <= 0;
             int_signal_out<=0;
+            Rti_sel_out <= 0;
         end
         else if(inject_bubble) begin
             ALU_op_out <= 0; // no op
@@ -128,6 +132,7 @@ module id_ex_reg(
             loop_sel_out <= loop_sel;
             Ret_sel_out <= Ret_sel;
             int_signal_out<=int_signal;
+            Rti_sel_out <= Rti_sel;
         end
     end
 

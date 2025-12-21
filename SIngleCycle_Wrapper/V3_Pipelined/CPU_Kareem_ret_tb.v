@@ -68,19 +68,21 @@ module tb_CALL_RET;
 
         // 0x03: NOP
         uut.mem_inst.mem[6] = 8'h00;
+        uut.mem_inst.mem[7] = 8'h00;
+        uut.mem_inst.mem[8] = 8'h00;
 
         // 0x04: CALL R0 (Call Subroutine at address in R0 [0x20])
         // Op: 11 (1011), brx:01 (CALL), rb:00 (R0) -> B4
         // Expected Behavior: Push (PC+1 = 0x05) to Stack, Jump to 0x20.
-        uut.mem_inst.mem[7] = 8'hB4;
+        uut.mem_inst.mem[9] = 8'hB4;
 
         // 0x05: LDM R2, 0xAA (Success Marker - We returned!)
         // This is the instruction we expect to run AFTER returning.
-        uut.mem_inst.mem[8] = 8'hC2;
-        uut.mem_inst.mem[9] = 8'hAA;
+        uut.mem_inst.mem[10] = 8'hC2;
+        uut.mem_inst.mem[11] = 8'hAA;
 
         // 0x07: STOP (Infinite Loop or NOPs)
-        uut.mem_inst.mem[10] = 8'h00; 
+        uut.mem_inst.mem[12] = 8'h00; 
 
         // -------------------------------------------------------------
         // SUBROUTINE (Starts at 0x20)

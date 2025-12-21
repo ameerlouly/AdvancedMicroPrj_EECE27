@@ -166,8 +166,8 @@ module tb_Advanced_Instructions;
     // ========================================================================
     always @(posedge clk) begin
         if (rstn) begin
-            $display("Time:%4t | PC:%2d | IR:%h | R0:%h R1:%h R2:%h R3:%h | Flags:%b", 
-                     $time, PC, uut.IR, R0, R1, R2, R3, uut.ccr_inst.CCR_reg);
+            $display("Time:%4t | PC:%2d | IR:%h | R0:%h R1:%h R2:%h R3:%h", 
+                     $time, PC, uut.IR, R0, R1, R2, R3);
         end
     end
 

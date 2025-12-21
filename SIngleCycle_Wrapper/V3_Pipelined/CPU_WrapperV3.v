@@ -61,6 +61,7 @@ module CPU_WrapperV3 (
     wire       idex_loop_sel;
     wire       idex_ret_sel;
     wire       idex_int_signal;
+    wire       idex_rti_sel;
 
 
 
@@ -231,6 +232,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
             cu_sp_sel,
             cu_reg_dist;
     wire    cu_ret_sel;
+    wire cu_rti_sel;        // Karim added this
 
     // Execute Wires
     wire [1 : 0]   cu_alu_src;
@@ -244,6 +246,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
     // Write-Back Control
     wire cu_io_write;
     wire cu_loop_sel;
+    
 
     Control_unit ctrl_inst (
         .clk            (clk),
@@ -274,6 +277,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .MemWrite       (cu_mem_write),
         .MemRead        (cu_mem_read),
         .Ret_sel        (cu_ret_sel),
+        .Rti_sel        (cu_rti_sel),       // karim
         // Write-Back Control
         .IO_Write       (cu_io_write)
     );
@@ -379,6 +383,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .isCall         (cu_isCall),
         .loop_sel       (cu_loop_sel),
         .Ret_sel        (cu_ret_sel),
+        .Rti_sel        (cu_rti_sel),
         .int_signal     (int_sig_regout),
 
         // ---------- Data inputs from ID stage ----------
@@ -401,6 +406,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .isCall_out      (idex_isCall),
         .loop_sel_out    (idex_loop_sel),
         .Ret_sel_out     (idex_ret_sel),
+        .Rti_sel_out     (idex_rti_sel),
         .int_signal_out  (idex_int_signal),
 
         // ---------- Data outputs to EX stage ----------
@@ -494,6 +500,8 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .N         (alu_n),
         .C         (alu_c),
         .V         (alu_v),
+        .intr      (idex_int_signal),
+        .rti       (idex_rti_sel),
         .flag_en   (idex_UpdateFlags),
         .flag_mask (alu_flag_mask), // 4 bits
         .CCR   (ccr_reg_out)  // 4 bits
@@ -566,7 +574,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
     mux2to1 #(.WIDTH(8)) ret_mux (
         .d0     (exmem_IP_mux_out),
         .d1     (alu_out),
-        .sel    (idex_ret_sel),
+        .sel    (idex_ret_sel | idex_rti_sel),
         .out    (ret_mux_out)
     );    
 
