@@ -97,6 +97,7 @@ R3
 R4
 n@_opt1
 R5
+R1
 T_opt2
 !s110 1765671699
 V>Xj=865VdiSXZN?U1LN3V0
@@ -109,710 +110,763 @@ n@_opt2
 R5
 R1
 vALU
-Z6 !s110 1766358312
+Z6 !s110 1766362153
 !i10b 1
 !s100 HYWC41zfhj7I@AWdh^W_i2
-IO8i<1PB=ncO@2Z]9Y_?B`1
-Z7 dD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined
-w1765654271
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
-!i122 2136
-L0 1 133
+Z7 !s11b Dg1SIo80bB@j0V0VzS_@n1
+If;D8dO>^oR5Li9RE44aFl3
 Z8 VDg1SIo80bB@j0V0VzS_@n1
-Z9 OL;L;2021.1;73
+Z9 dF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined
+Z10 w1765657193
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
+!i122 2218
+L0 1 133
+Z11 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z10 !s108 1766358312.000000
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
-!i113 0
-Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 !s108 1766362153.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v|
+!i113 1
+Z13 o-work work
 R4
 n@a@l@u
 vBranch_Unit
 R6
 !i10b 1
 !s100 2d1F?b@d8DNY@YEBzc^EN3
-I3BEBGDHnG4H2YJz06Ki7f1
 R7
-w1765659665
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
-!i122 2137
-L0 1 73
+ILHdl^@4W2U<80ak^^VB5I3
 R8
 R9
+Z14 w1765832559
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v
+!i122 2219
+L0 1 73
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
-!i113 0
-R11
+R12
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v|
+!i113 1
+R13
 R4
 n@branch_@unit
 vCCR
 R6
 !i10b 1
 !s100 7=@JOIV[jJFLcniEP4la03
-I;`RFD8giaX2ZKMGe]UfhV1
 R7
-Z12 w1766247473
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
-!i122 2138
-L0 1 41
+IRP`]EXD2g;<U=UlcQFo_Q1
 R8
 R9
+Z15 w1766304984
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v
+!i122 2220
+L0 1 41
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
-!i113 0
-R11
+R12
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v|
+!i113 1
+R13
 R4
 n@c@c@r
 vControl_unit
-R6
+!s110 1766370920
 !i10b 1
-!s100 `n?WBQ]X76>C4BRgO=J`P0
-IW]e9BLmS8`ogEOPRM0O812
+!s100 NR_AG_KHV9llG?^3Xj18S3
 R7
-w1766355604
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
-!i122 2139
-L0 1 402
+I;4OI`SO;kXIUO>4=`RmFU0
 R8
 R9
+w1766370914
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v
+!i122 2282
+L0 1 377
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
-!i113 0
-R11
+!s108 1766370920.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v|
+!i113 1
+R13
 R4
 n@control_unit
 vCPU_WrapperV3
-R6
+!s110 1766423539
 !i10b 1
-!s100 ;z<K_zcQ[MBRO0jCGXZjD3
-IXm[n?eYFKNWYaWII5nKn10
+!s100 =1zV9VK=H0a39AZbGP1<A1
 R7
-w1766358258
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
-!i122 2140
-L0 1 664
+I:ORaY;:1La;GJ3Ij3k7D61
 R8
 R9
+w1766423537
+8F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\CPU_WrapperV3.v
+FF:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\CPU_WrapperV3.v
+!i122 2335
+L0 1 688
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v|
-!i113 0
-R11
+!s108 1766423539.000000
+!s107 F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\CPU_WrapperV3.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\CPU_WrapperV3.v|
+!i113 1
+R13
 R4
 n@c@p@u_@wrapper@v3
 vCPU_WrapperV3_tb
-R6
+Z16 !s110 1766362156
 !i10b 1
 !s100 Gg>QRLgLCULUzO547XdBW3
-I`[bP6?7=jG?NO]]G`D`6;3
 R7
-w1765587752
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
-!i122 2141
-L0 1 47
+IXOQ@[OT@oWABM>;;lEe:R0
 R8
 R9
+R10
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v
+!i122 2228
+L0 1 47
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
-!i113 0
-R11
+Z17 !s108 1766362156.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb.v|
+!i113 1
+R13
 R4
 n@c@p@u_@wrapper@v3_tb
 vEX_MEM_reg
-R6
+!s110 1766365278
 !i10b 1
-!s100 ;;n<oAILIJ`UgZH4W5E>V1
-I@2W6R_]AZhdnjJWfA=YoQ3
+!s100 `g=@EYBiGkkZ2==QfX[TL1
 R7
-w1766356715
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
-!i122 2143
-L0 1 66
+IMo=2jG5ii`H0>H[3U1;fg2
 R8
 R9
+w1766365165
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v
+!i122 2262
+L0 1 70
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v|
-!i113 0
-R11
+!s108 1766365278.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v|
+!i113 1
+R13
 R4
 n@e@x_@m@e@m_reg
 vFU
-R6
+Z18 !s110 1766362158
 !i10b 1
 !s100 XZS00Y=DnKB^L_^T_0ZCV0
-IVU]i8jcL4ScRzBk13P3EC0
 R7
-Z13 w1766351317
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
-!i122 2144
-L0 1 85
+I6OX4GDfYb9n55LFlOMR942
 R8
 R9
+Z19 w1766361962
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v
+!i122 2235
+L0 1 85
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
-!i113 0
-R11
+Z20 !s108 1766362158.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v|
+!i113 1
+R13
 R4
 n@f@u
 vHU
-R6
+!s110 1766423151
 !i10b 1
-!s100 >648BF]H]28MUJb8Y03][1
-Im<dj755oA21ieZg`g`fG;0
+!s100 mDF3j3jfi4C<agG_f]C1h2
 R7
-R12
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
-!i122 2145
-Z14 L0 1 49
+IZczi1YLd@[MCh4Rn:ZHjM1
 R8
 R9
+w1766423139
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v
+!i122 2333
+Z21 L0 1 49
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
-!i113 0
-R11
+!s108 1766423150.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v|
+!i113 1
+R13
 R4
 n@h@u
 vid_ex_reg
-R6
+!s110 1766370635
 !i10b 1
-!s100 JX]ab08F5Xb0`9dP`:bZc2
-I6ek88:a]^J<H5IS<Ukj7D1
+!s100 UVECARIeiT^jdNH7J9[6J0
 R7
-w1766355894
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
-!i122 2146
-L0 1 144
+IBlCeP`Smm5_WU]38Si>^73
 R8
 R9
+w1766370632
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v
+!i122 2280
+L0 1 166
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v|
-!i113 0
-R11
+!s108 1766370635.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v|
+!i113 1
+R13
 R4
 vIF_ID_Reg
-R6
+Z22 !s110 1766362160
 !i10b 1
 !s100 8]Tk6ZDh]eQnPUnIz2J111
-IPf@?DfGIB`7QmTTSFLT=z3
 R7
-w1765559117
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
-!i122 2147
-Z15 L0 1 54
+IY58ZH>N6<43XdY7JG2c:G0
 R8
 R9
+R10
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v
+!i122 2238
+Z23 L0 1 54
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
-!i113 0
-R11
+!s108 1766362159.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v|
+!i113 1
+R13
 R4
 n@i@f_@i@d_@reg
 vinterrupt_reg
-Z16 !s110 1766358313
+R22
 !i10b 1
 !s100 ZU:WG^U16f0F`JgBaRejf3
-I=ecaW3^@5LXfS]C^LaF_^1
 R7
-R12
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v
-!i122 2161
-L0 1 16
+I5<U6GQMBnDX6==Q8j7K640
 R8
 R9
+w1766239895
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v
+!i122 2239
+L0 1 16
+R11
 r1
 !s85 0
 31
-Z17 !s108 1766358313.000000
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v|
-!i113 0
-R11
+Z24 !s108 1766362160.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v|
+!i113 1
+R13
 R4
 vMEM_WB_Reg
-R6
+Z25 !s110 1766362161
 !i10b 1
 !s100 cKlYGW0Gm17AI]<?LH=^h0
-I?=HMl[CeXoCC1U:6nHBf<1
 R7
-w1765752461
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v
-!i122 2148
-R15
+IWCoe0gg^ZkK?bjFPKO4^H0
 R8
 R9
+R14
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v
+!i122 2243
+R23
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v|
-!i113 0
-R11
+Z26 !s108 1766362161.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v|
+!i113 1
+R13
 R4
 n@m@e@m_@w@b_@reg
 vmemory
-R6
+!s110 1766423995
 !i10b 1
-!s100 hQP9eTF]=URn0[QPYf`oe3
-IMK7c[ZbF_>GKVZFe2C1dF1
+!s100 T2je2g?SkX1Ha6IOIgj]a2
 R7
-w1765749049
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
-!i122 2149
-L0 1 46
+I3;:9TS_WAT0LVZ1_4A>8^2
 R8
 R9
+w1766423992
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
+!i122 2340
+L0 1 46
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
-!i113 0
-R11
+!s108 1766423995.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v|
+!i113 1
+R13
 R4
 vmux2to1
-R16
+R25
 !i10b 1
 !s100 ijKEI9QmoS`_A3b^OD@]j0
-I3J2@S^d7aEAl76IC;@F<]2
 R7
-w1765574356
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
-!i122 2150
-Z18 L0 1 17
+I3d_Ze_OE02]:zA3@3h:_;3
 R8
 R9
+R10
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
+!i122 2245
+Z27 L0 1 17
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
-!i113 0
-R11
+R26
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v|
+!i113 1
+R13
 R4
 vmux4to1
-R16
+Z28 !s110 1766362162
 !i10b 1
 !s100 >eV?RQhKf_=A08j1[EVRg1
-I=QQMZaB43XN51o9N1gNSX2
 R7
-w1765574358
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
-!i122 2151
-R18
+I8>@^gQ>5hL?fB7UIXP71?0
 R8
 R9
+R10
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
+!i122 2246
+R27
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
-!i113 0
-R11
+Z29 !s108 1766362162.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v|
+!i113 1
+R13
 R4
 vmux4to1pc
-R16
+R28
 !i10b 1
 !s100 f6^EY<VPiYcQMCmWF@9R>3
-ISH8PG8?37:NzbQQXIYRj=1
 R7
-R12
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v
-!i122 2160
-L0 1 26
+IJH1Qlk4_PW6;I2Oe@_8Kd2
 R8
 R9
+w1766236608
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v
+!i122 2247
+L0 1 26
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v|
-!i113 0
-R11
+R29
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v|
+!i113 1
+R13
 R4
 vPc
-R16
+Z30 !s110 1766362163
 !i10b 1
 !s100 Q?oFNB]z22h1gjmdBjFN;0
-I>3?I`VhPBIMgaFhTO]oYK3
 R7
-w1764664349
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
-!i122 2152
-L0 1 21
+I]`S;cLTz=538oV[Y85AZ?0
 R8
 R9
+R10
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
+!i122 2248
+L0 1 21
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
-!i113 0
-R11
+R29
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v|
+!i113 1
+R13
 R4
 n@pc
 vRegister_file
-R16
+R30
 !i10b 1
 !s100 d8ZT]LUBOTV@jo]2W8Sm]1
-I<PM?AjUDoh0S8XT^<X_Wi3
 R7
-R12
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
-!i122 2153
-R14
+I=m:A2C1SRcP41RR3ll4Yn2
 R8
 R9
+R15
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
+!i122 2249
+R21
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
-!i113 0
-R11
+!s108 1766362163.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v|
+!i113 1
+R13
 R4
 n@register_file
 vtb_Advanced_Instructions
-R16
+Z31 !s110 1766362154
 !i10b 1
 !s100 M736?QEJEA5?9_D61bY632
-IGeXZW@ee8S<gI;i5:_DR^1
 R7
-Z19 w1766339635
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
-!i122 2154
-L0 3 172
+ICMSA9MS88JHdRZmhG[V3=2
 R8
 R9
+Z32 w1766345866
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v
+!i122 2222
+L0 3 172
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v|
-!i113 0
-R11
+Z33 !s108 1766362154.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Advanced_tb_ai.v|
+!i113 1
+R13
 R4
 ntb_@advanced_@instructions
 vtb_ALU_Sequence
-R16
+Z34 !s110 1766362155
 !i10b 1
 !s100 ?7S91fN81hY1HlfWS4C^g0
-ILZ?FRmHPKan`F96ZiaXK^2
 R7
-w1766353342
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v
-!i122 2164
-L0 3 115
+If4W^IQHgXXBNkQ;1Cj9IY3
 R8
 R9
+R19
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v
+!i122 2224
+L0 3 115
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v|
-!i113 0
-R11
+Z35 !s108 1766362155.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_OverFWDtb.v|
+!i113 1
+R13
 R4
 ntb_@a@l@u_@sequence
 vtb_Call_Indirect
-!s110 1766358314
+Z36 !s110 1766362157
 !i10b 1
 !s100 =M0zj]TQ[0>NfT`C]?YWc2
-IjSUXOYma<nibOFnj]f`;P3
 R7
-w1766357910
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v
-!i122 2165
-L0 3 105
+IYdl1gHa8[b6@?<_^bU<7G3
 R8
 R9
+R19
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v
+!i122 2232
+L0 3 105
+R11
 r1
 !s85 0
 31
-!s108 1766358314.000000
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v|
-!i113 0
-R11
+Z37 !s108 1766362157.000000
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_call.v|
+!i113 1
+R13
 R4
 ntb_@call_@indirect
 vtb_CALL_Only
-!s110 1765832800
+R18
 !i10b 1
 !s100 _aQQbk8JnhoLE7`I`1XK;2
-!s11b Dg1SIo80bB@j0V0VzS_@n1
+R7
 IR]^JW1<QC=dRm3P_Rc;X53
 R8
-dF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined
-w1765832559
+R9
+R14
 8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v
 FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v
-!i122 1352
+!i122 2234
 L0 3 111
-OV;L;2020.1;71
+R11
 r1
 !s85 0
 31
-!s108 1765832800.000000
+R20
 !s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v|
 !s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/frcall.v|
 !i113 1
-o-work work
+R13
 R4
 ntb_@c@a@l@l_@only
 vtb_CALL_RET
-R16
+R34
 !i10b 1
 !s100 nkmDO@FXZdiTK_PYB:cCJ3
-I4gz;L2ciD6[MkaKc3P33n1
 R7
-R19
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v
-!i122 2159
-L0 3 142
+IZzV9]zcOm1Q2:hWlaT`]Y3
 R8
 R9
+R32
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v
+!i122 2225
+L0 3 142
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v|
-!i113 0
-R11
+R35
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_ret_tb.v|
+!i113 1
+R13
 R4
 ntb_@c@a@l@l_@r@e@t
 vtb_Comprehensive_ALU
-R16
+!s110 1766364958
 !i10b 1
 !s100 :UQXOi8g4D3kV_I^AOMW52
-IIJ4fbndn8gN9zBA<]jM[?1
 R7
-w1766352586
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v
-!i122 2162
-L0 3 126
+I8UWAVM[^<zXca5=?NnJDL3
 R8
 R9
+w1766362794
+8F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\kareem_formatA.v
+FF:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\kareem_formatA.v
+!i122 2258
+L0 3 126
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_formatA.v|
-!i113 0
-R11
+!s108 1766364957.000000
+!s107 F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\kareem_formatA.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\kareem_formatA.v|
+!i113 1
+R13
 R4
 ntb_@comprehensive_@a@l@u
 vtb_CPU_FormatA_B
-R16
+R31
 !i10b 1
 !s100 j]hgcU0]]HUl?VM=j<H_>1
-Ig^OmZmSFBZ=5@IG9RADzb1
 R7
-w1765751019
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v
-!i122 2155
-L0 3 145
+IO;d58]I21?6RNCBY<OfdB3
 R8
 R9
+R14
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v
+!i122 2223
+L0 3 145
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v|
-!i113 0
-R11
+R33
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_AnBonly_tb.v|
+!i113 1
+R13
 R4
 ntb_@c@p@u_@format@a_@b
 vtb_INST_TEST
-R6
+R36
 !i10b 1
 !s100 AnF:BORIAE_ToTcR`<>@K2
-I9J6@]YV4Be>0b5CUT[GV`0
 R7
-w1765749451
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
-!i122 2142
-L0 3 134
+ImDfM;BYGTm>kFdMGe<oHk1
 R8
 R9
+R14
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v
+!i122 2229
+L0 3 134
+R11
 r1
 !s85 0
 31
-R10
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
-!i113 0
-R11
+R17
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3_tb_ai.v|
+!i113 1
+R13
 R4
 ntb_@i@n@s@t_@t@e@s@t
 vtb_LDD_Only
-R16
+R36
 !i10b 1
 !s100 >Za=[WXEQz7ZAGOaChMa@0
-I5D:n:9MS95K2eG1FUYU`M3
 R7
-w1765749177
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
-!i122 2157
-L0 3 101
+Ila?6VLFN6WX9nCAZFQ:E02
 R8
 R9
+R14
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v
+!i122 2231
+L0 3 101
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v|
-!i113 0
-R11
+R37
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr.v|
+!i113 1
+R13
 R4
 ntb_@l@d@d_@only
 vtb_MemOps
-R16
+R25
 !i10b 1
 !s100 KANN4BW2>IodW?NhOR_lZ0
-IHDAa9fOeNfF<mk5a`3WRI0
 R7
-R13
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v
-!i122 2163
-L0 3 154
+IK4[bK:dO<O_2]PUb3lJ7a0
 R8
 R9
+R32
+8F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\karim_formatL_tb.v
+FF:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\karim_formatL_tb.v
+!i122 2242
+L0 3 154
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/karim_formatL_tb.v|
-!i113 0
-R11
+R24
+!s107 F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\karim_formatL_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\karim_formatL_tb.v|
+!i113 1
+R13
 R4
 ntb_@mem@ops
 vtb_OutputPort
-R16
+!s110 1766424698
 !i10b 1
-!s100 X=3@TUZ4k4gKdaF7UikfD1
-I^Xg`Ug]Md:YF@bINhWgU72
+!s100 in8Cg4IX3^QBBJ7fF;o721
 R7
-R19
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v
-!i122 2158
-L0 3 102
+IlheE4]2C00<NLcWloNmKE3
 R8
 R9
+w1766424695
+8F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\fr_out.v
+FF:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\fr_out.v
+!i122 2346
+L0 3 135
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v|
-!i113 0
-R11
+!s108 1766424698.000000
+!s107 F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\fr_out.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:\Third Year\First Term\Advance Micro\Final Project\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\fr_out.v|
+!i113 1
+R13
 R4
 ntb_@output@port
 vtb_PROJECT_ASM
 R16
 !i10b 1
 !s100 NMNBGkCMG@kno5STR31bi3
-IG@[1>@oE5?^:<Uf^KDlaI3
 R7
-w1765677634
-8D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v
-FD:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v
-!i122 2156
-L0 3 109
+I2;m30^f6oa_KmRSCfCB182
 R8
 R9
+R14
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v
+!i122 2226
+L0 3 109
+R11
 r1
 !s85 0
 31
-R17
-!s107 D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v|
-!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/Github/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v|
-!i113 0
-R11
+R35
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_Kareem_tb.v|
+!i113 1
+R13
 R4
 ntb_@p@r@o@j@e@c@t_@a@s@m
+vtb_rti_test
+R22
+!i10b 1
+!s100 R]l]lA2ch8@COfnRoGF[N0
+R7
+IV?eojlY3z=n@]N0L;m8_M2
+R8
+R9
+R32
+8F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_rti_tb.v
+FF:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_rti_tb.v
+!i122 2241
+L0 3 169
+R11
+r1
+!s85 0
+31
+R24
+!s107 F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_rti_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/kareem_rti_tb.v|
+!i113 1
+R13
+R4
