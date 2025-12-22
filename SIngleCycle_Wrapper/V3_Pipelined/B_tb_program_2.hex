@@ -1,0 +1,53 @@
+// --- RESET VECTOR ---
+@00
+C0 10  // 00: LDM R0, 0x10
+B0     // 02: JMP R0
+
+// --- B-FORMAT TEST SUITE ---
+@10
+// 1. Test JZ (Jump if Zero)
+30     // 10: SUB R0, R0 (Sets Z=1)
+C1 16  // 11: LDM R1, 0x16 (Target)
+91     // 13: JZ R1       (Op 9, brx 0, rb 1)
+00 00  // 14: TRAP (If JZ fails)
+
+@16
+// 2. Test JC (Jump if Carry)
+68     // 16: SETC (Sets C=1) - Assumes Op 6 ra=2 is SETC
+C1 1C  // 17: LDM R1, 0x1C
+99     // 19: JC R1       (Op 9, brx 2, rb 1)
+00 00  // 1A: TRAP
+
+@1C
+// 3. Test CALL & RET
+C1 40  // 1C: LDM R1, 0x40 (Subroutine)
+B5     // 1E: CALL R1     (Op 11, brx 1, rb 1)
+// --- Returns here ---
+C0 25  // 1F: LDM R0, 0x25 (Next Test Start)
+B0     // 21: JMP R0
+
+@25
+// 4. Test LOOP (2 Iterations)
+C0 02  // 25: LDM R0, 0x02 (Counter)
+C1 29  // 27: LDM R1, 0x29 (Target)
+00     // 29: NOP (Loop Body)
+A1     // 2A: LOOP R0, R1  (Op 10, ra 0, rb 1)
+00 00
+
+// 5. Test JN (Jump if Negative)
+C0 FF  // 2C: LDM R0, 0xFF 
+30     // 2E: SUB R1, R1 
+11     // 2F: SUB R1, R0   (0 - 255 = -255, Sets N=1)
+C2 36  // 30: LDM R2, 0x36
+96     // 32: JN R2        (Op 9, brx 1, rb 2)
+00 00
+
+@36
+// SUCCESS END POINT
+C0 EE  // 36: LDM R0, 0xEE (Success Marker)
+00     // 38: HALT
+
+// --- SUBROUTINE ---
+@40
+C2 AA  // 40: LDM R2, 0xAA (Inside Subroutine)
+B8     // 42: RET          (Op 11, brx 2)

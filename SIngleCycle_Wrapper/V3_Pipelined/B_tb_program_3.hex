@@ -1,0 +1,28 @@
+@00
+80      //NOT R0, R0        R0 is FF
+80      //R0 is 0
+C2 30
+C1 10   // 02: LDM R1, 0x10 (Main Program Start)
+B1      // 04: JMP R1(0x10)
+
+// --- MAIN PROGRAM ---
+@10
+31      //R0 = R0 - R1(10)
+84      //R0 = -R0
+96      //if i came from reset, i'm +ve, and won't Jump
+        //if i came from ISR, i'm -ve, i will jump to R2(0x30)
+C0 00
+00
+00
+00
+B1      //Go to 0x10 with R0=0 as if i came from reset
+        //If i returned from ISR, will jump to R1=0x40
+
+// --- INTERRUPT SERVICE ROUTINE (ISR) ---
+@80
+C1 40  // R1 = 40
+BC     // RTI          (Return from Interrupt)
+
+// --- POST-INTERRUPT SUCCESS ---
+@40
+C2 FF  // LDM R2, 0xFF (Success Marker)

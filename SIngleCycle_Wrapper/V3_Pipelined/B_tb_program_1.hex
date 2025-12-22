@@ -1,0 +1,17 @@
+// --- RESET VECTOR ---
+@00
+C0 10  // 00: LDM R0, 0x10
+B0     // 02: JMP R0
+
+// --- MAIN PROGRAM ---
+@10
+C2 30   //R2 <- 0x30
+B6      //CALL R2(0x30)
+B4      //CALL R0
+
+@30
+C0 40   //R0 <- 40
+B8      //RET
+
+@40
+C0 FF   //R0 <- FF
