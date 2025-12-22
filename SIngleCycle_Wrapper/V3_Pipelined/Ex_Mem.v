@@ -1,6 +1,7 @@
 module EX_MEM_reg (
     input wire clk, rst,
     input wire [7:0] pc_plus1,
+    input wire [7:0] Rd1,
     input wire [7:0] Rd2,
     input wire       IO_Write,
     input wire [1:0] RegDistidx,
@@ -15,6 +16,7 @@ module EX_MEM_reg (
     input wire       isNotRet,
 
     output reg [7:0] pc_plus1_out,
+    output reg [7:0] Rd1_out,
     output reg [7:0] Rd2_out,
     output reg IO_Write_out,
     output reg [1:0] RegDistidx_out,
@@ -33,6 +35,7 @@ module EX_MEM_reg (
     always @(posedge clk or negedge rst) begin
         if(!rst) begin
             pc_plus1_out <= 0;
+            Rd1_out <= 0;
             Rd2_out <= 0;
             IO_Write_out <= 0;
             RegDistidx_out <= 0;
@@ -48,6 +51,7 @@ module EX_MEM_reg (
         end
         else begin
             pc_plus1_out <= pc_plus1;
+            Rd1_out <= Rd1;
             Rd2_out <= Rd2;
             IO_Write_out <= IO_Write;
             RegDistidx_out <= RegDistidx;

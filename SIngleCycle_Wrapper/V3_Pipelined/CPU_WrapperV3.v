@@ -69,6 +69,7 @@ module CPU_WrapperV3 (
 
 // Ex-mem output wires
     wire [7:0]      exmem_pc_plus1;    // output [7:0]
+    wire [7:0]      exmem_Rd1;         // output [7:0]
     wire [7:0]      exmem_Rd2;         // output [7:0]
     wire            exmem_IO_Write;    // output [0:0]
     wire [1:0]      exmem_RegDistidx;  // output [1:0]
@@ -561,7 +562,8 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .clk        (clk), // 1 bit, input
         .rst        (rstn), // 1 bit, input
         .pc_plus1   (idex_pc_plus1), // 8 bits, input
-        .Rd2        (idex_rb_val), // 8 bits, input //? Make sure its correct
+        .Rd1        (idex_ra_val), // 8 bits, input 
+        .Rd2        (idex_rb_val), // 8 bits, input 
         .IO_Write   (idex_IO_Write), // 1 bit, input
         .RegDistidx (idex_RegDistidx), // 2 bits, input
         .ALU_res    (alu_out), // 8 bits, input
@@ -576,6 +578,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
 
         // ---------------- Outputs ----------------
         .pc_plus1_out   (exmem_pc_plus1),    // 8 bits, output
+        .Rd1_out        (exmem_Rd1),         // 8 bits, output
         .Rd2_out        (exmem_Rd2),         // 8 bits, output
         .IO_Write_out   (exmem_IO_Write),    // 1 bit, output
         .RegDistidx_out (exmem_RegDistidx),  // 2 bits, output
@@ -603,17 +606,17 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
 
     //todo for Farhan to edit
     // //! Call Mux
-    // wire [7 : 0]    call_mux_out;
-    // mux2to1 #(.WIDTH(8)) call_mux (
-    //     .d0     (exmem_IP_mux_out),
-    //     .d1     (exmem_Rd2),
-    //     .sel    (exmem_isCall & exmem_isNotRet),
-    //     .out    (call_mux_out)
-    // );      
+     wire [7 : 0]    call_mux_out;
+     mux2to1 #(.WIDTH(8)) call_mux (
+         .d0     (exmem_IP_mux_out),
+        .d1     (exmem_Rd1),
+         .sel    (exmem_isCall & exmem_isNotRet),
+        .out    (call_mux_out)
+     );      
 
     //! Return Logic
     mux2to1 #(.WIDTH(8)) ret_mux (
-        .d0     (exmem_IP_mux_out),
+        .d0     (call_mux_out),
         .d1     (alu_out),
         .sel    (idex_ret_sel | idex_rti_sel),
         .out    (ret_mux_out)

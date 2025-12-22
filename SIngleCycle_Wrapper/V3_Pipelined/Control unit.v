@@ -40,8 +40,6 @@ module Control_unit (
     localparam Reset     =2'b00;
     localparam FETCH     =2'b01;
     localparam FETCH_IMM =2'b10;
-    localparam S_INTR    =2'b11;
-
     // ========================================================================
     // ALU OPERATION CODES 
     // ========================================================================
@@ -106,13 +104,6 @@ module Control_unit (
         end
         FETCH: 
         begin
-            /*
-            if(INTR)
-            begin
-                Inject_Int = 'd1;
-                next_state = S_INTR;
-            end
-            */
             if(opcode=='d12)
             begin
                 IF_ID_Write_En ='d0;
@@ -126,10 +117,6 @@ module Control_unit (
         begin
                 next_state     = FETCH;    
         end 
-        S_INTR:
-        begin
-                next_state      = FETCH ;
-        end
         default: next_state     = FETCH;
         endcase    
     end
@@ -154,18 +141,6 @@ module Control_unit (
         Ret_sel        = 'd0;
         Rti_sel        = 'd0;
         ISNOT_RET      = 'd1;
-
-        if (current_state == S_INTR) 
-            begin
-            // Behavior: Similar to CALL, but saves PC (handled by Fetch Mux)
-            MemWrite   = 1;          // Push to stack
-            SP_EN      = 1;          // Update SP
-            SP_OP      = 0;          // Decrement
-            SP_SEL     = 1;          // Address is SP
-            Alu_Op     = OP_PASS_A;  // Pass SP to Mem Addr
-            IS_CALL    = 1;          // Select PC to write (not Reg)
-        end
-
         case (opcode)
         4'b0000: //NOP
         begin

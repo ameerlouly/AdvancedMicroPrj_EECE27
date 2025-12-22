@@ -112,7 +112,29 @@ module id_ex_reg(
             isNotRet_out <= 0;
         end
         else if(inject_bubble) begin
-            ALU_op_out <= 0; // no op
+            BType_out <= 0;
+            MemToReg_out <= 0;
+            RegWrite_out <= 0;
+            MemWrite_out <= 0;
+            MemRead_out <= 0;
+            UpdateFlags_out <= 0;
+            RegDistidx_out <= 0;
+            ALU_src_out <= 0;
+            ALU_op_out <= 0;
+            IO_Write_out <= 0;
+            ra_val_out <= 0;
+            rb_val_out <= 0;
+            ra_out <= 0;
+            rb_out <= 0;
+            IP_out <= 0;
+            imm_out <= 0;
+            pc_plus1_out <= 0;
+            isCall_out <= 0;
+            loop_sel_out <= 0;
+            Ret_sel_out <= 0;
+            int_signal_out<=0;
+            Rti_sel_out <= 0;
+            isNotRet_out <= 0;
         end
         else begin
             BType_out <= BType;
