@@ -20,7 +20,7 @@ module HU(
         control_zero = 0; // Default: let control signals pass
 
         // 2. Load-Use Hazard Detection
-        if(opcode=='d12)
+        if(opcode=='d12 )
         begin
             if (id_ex_mem_read && (id_ex_rd == if_id_rb)) begin
             pc_en        = 0;   // Freeze PC
@@ -31,7 +31,7 @@ module HU(
         end
         else 
         begin
-        if (id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb)) begin
+        if (id_ex_mem_read && (id_ex_rd == if_id_ra || id_ex_rd == if_id_rb) && opcode!='d7) begin
             pc_en        = 0;   // Freeze PC
             if_id_en     = 0;   // Freeze IF/ID (Keep instr in Decode)
             control_zero = 1;   // <--- INSERT BUBBLE into ID/EX

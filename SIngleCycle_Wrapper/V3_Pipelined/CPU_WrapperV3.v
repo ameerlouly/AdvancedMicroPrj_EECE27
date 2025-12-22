@@ -41,6 +41,8 @@ module CPU_WrapperV3 (
 // IDEX Output Wires
     wire [2:0] idex_BType;       // output [2:0]
     wire [1:0] idex_MemToReg;    // output [1:0]
+    wire [1:0] ID_EX_Rs_Addr;    // output [1:0]
+    wire [1:0] ID_EX_Rt_Addr;    // output [1:0]
     wire       idex_RegWrite;    // output [0:0]
     wire       idex_MemWrite;    // output [0:0]
     wire       idex_MemRead;     // output [0:0]
@@ -367,6 +369,7 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         .rb_date    (rb_data_out)
     );
 
+
     wire [7 : 0]    rf_ra_fwd_mux_out;
     mux2to1 #(.WIDTH(8)) rf_ra_fwd_mux (
         .d0     (ra_data_out),
@@ -384,6 +387,24 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
     );  
 
 /*** ID_EX Reg *****************************************************************************/
+// Inside Decode Stage (Combinational Logic)
+
+    // 1. Detect if this is an instruction that implicitly reads SP (R3)
+    // Adjust these opcode checks to match your specific definitions
+    wire Is_RET_RTI  = (ifid_IR[7:4] == 4'd11) && (ifid_IR[3:2] >= 2'b10); // RET(2) or RTI(3)
+    wire Is_POP      = (ifid_IR[7:4] == 4'd7)  && (ifid_IR[3:2] == 2'b01); // POP(1)
+    
+    wire Stack_Read_Op = Is_RET_RTI || Is_POP ;
+
+    // 2. The Logic Fix: Override the Register Address
+    // If it is a Stack Op, tell the pipeline we are reading R3 (11).
+    // Otherwise, read the normal bits from the instruction.
+    
+    // For ALU Input A (Rs):
+    assign ID_EX_Rs_Addr = (Stack_Read_Op) ? 2'b11 : ifid_IR[3:2];
+
+    // For ALU Input B (Rt) - OPTIONAL depending on where you wire SP
+    assign ID_EX_Rt_Addr = (Stack_Read_Op) ? 2'b11 : ifid_IR[1:0];
 
     id_ex_reg id_ex_reg_inst (
         .clk            (clk), // 1 bit, input
@@ -417,8 +438,8 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
         // ---------- Data inputs from ID stage ----------
         .ra_val_in      (rf_ra_fwd_mux_out), // 8 bits, input
         .rb_val_in      (rf_rb_fwd_mux_out), // 8 bits, input
-        .ra             (ifid_IR[3:2]), // 2 bits, input
-        .rb             (ifid_IR[1:0]), // 2 bits, input
+        .ra             (ID_EX_Rs_Addr), // 2 bits, input // i will modify
+        .rb             (ID_EX_Rt_Addr), // 2 bits, input
 
         // ---------- Control outputs to EX stage ----------
         .BType_out       (idex_BType),       // 3 bits, output
