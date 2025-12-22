@@ -26,7 +26,7 @@ integer i ;
     begin
         if (!rst) 
         begin
-            for (i=0; i<=255;i=i+1)
+            for (i=128; i<=255;i=i+1)
                 begin
                     mem[i] <= 'd0;
                 end
