@@ -132,6 +132,7 @@ module CPU_WrapperV3 (
         .d3(IR), //M[0] , M[1]
         .sel(pc_src),
         .int_sig(int_sig),
+        .rst(rstn),
         .out(pc_next)
     );
 /*** MUX FOR INTERRUPT *****************************************************************************/
@@ -152,6 +153,7 @@ module CPU_WrapperV3 (
     .int_sig(int_sig),
     .int_sig_reg(int_sig_regout)
    );
+   
 
 /*** Memory *****************************************************************************/
     
