@@ -1,7 +1,6 @@
 // --- RESET VECTOR ---
 @00
-C0 10  // 00: LDM R0, 0x10
-B0     // 02: JMP R0
+10
 
 // --- MAIN PROGRAM ---
 @10
@@ -11,6 +10,7 @@ A6     // 14: LOOP R1, R2  (Decrements R1, jumps to 14 if R1 > 0)
 
 // Subroutine Test
 C2 30  // 15: LDM R2, 0x30 (Subroutine addr)
+00 00 00
 B6     // 17: CALL R2      (Push PC+1, jump to 0x30)
 
 // Conditionals (JZ)

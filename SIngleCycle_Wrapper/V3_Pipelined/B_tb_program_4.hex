@@ -1,0 +1,59 @@
+@00
+10     // M[0]: Reset Vector (Jump to 0x10)
+60     // M[1]: Interrupt Vector (ISR at 0x60)
+
+@10
+// --- 1. JZ (Jump if Zero) ---
+30     // 10: SUB R0, R0   (Sets Z=1)
+C1 18  // 11: LDM R1, 0x18 
+91     // 13: JZ R1        (Branch Taken)
+C0 FF  // 14: TRAP - PC should skip this
+00 00  // 16: NOP Buffer
+
+@18
+// --- 2. JC (Jump if Carry) ---
+68     // 18: SETC         (Sets C=1)
+C1 22  // 19: LDM R1, 0x22
+99     // 1B: JC R1        (Branch Taken)
+C0 FF  // 1C: TRAP - PC should skip this
+00 00  // 1E: NOP Buffer
+
+@22
+// --- 3. CALL & RET ---
+C1 50  // 22: LDM R1, 0x50 (Subroutine Addr)
+B5     // 24: CALL R1      (Push PC, Jump to 50)
+// Return point:
+C0 30  // 25: LDM R0, 0x30 (Should reach here after RET)
+B0     // 27: JMP R0
+
+@30
+// --- 4. LOOP (2 Iterations) ---
+C0 02  // 30: LDM R0, 0x02
+C1 34  // 32: LDM R1, 0x34 (Body)
+00     // 34: NOP          (Loop Body)
+A1     // 35: LOOP R0, R1  (Jump to 34 if R0 > 0)
+// --- 5. FALL THROUGH (Loop Finished) ---
+C0 AA  // 36: LDM R0, 0xAA (Wait Marker for Interrupt)
+C1 3b  // 38: LDM R1, 0x3c
+00
+00
+00
+00
+B1     // 3e: JMP R1       (Spin here for Interrupt)
+
+@50
+// --- SUBROUTINE ---
+C2 A1  // 50: LDM R2, 0xA1 (Subroutine Marker)
+B8     // 52: RET
+C0 FF  // 53: TRAP
+
+@60
+// --- ISR ---
+C0 BB  // 60: LDM R0, 0xBB (ISR Marker)
+C1 70  // 62: LDM R1, 0x70 (Target for after RTI)
+00 00 00
+BC     // 64: RTI          (Return to Success point)
+
+@70
+// --- SUCCESS ---
+C0 EE  // 70: LDM R0, 0xEE (Final Success Marker)

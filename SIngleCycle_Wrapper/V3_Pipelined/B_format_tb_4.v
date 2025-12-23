@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module tb_B_Format_Calls;
+module tb_B_Format_Ultimate;
 
     // 1. Signals
     reg clk, rstn, int_sig;
@@ -43,13 +43,18 @@ module tb_B_Format_Calls;
 
     initial begin
         rstn = 1; I_Port = 0; int_sig = 0;
-
+        
         // LOAD PROGRAM FROM HEX FILE
-        $display("Loading B_tb_program_0.hex into memory...");
-        $readmemh("B_tb_program_0.hex", uut.mem_inst.mem);
-
+        $display("Loading B_tb_program_4.hex into memory...");
+        $readmemh("B_tb_program_4.hex", uut.mem_inst.mem);
         #20 rstn = 0;
-        #20 rstn = 1;
+        #10 rstn = 1;
+
+        #750;
+        $display("--- TRIGGERING INTERRUPT ---");
+        int_sig = 1;
+        #10; // Hold for one clock cycle
+        int_sig = 0;
 
         // Safety timeout
         #2500;
@@ -64,13 +69,13 @@ module tb_B_Format_Calls;
                      $time, PC, uut.IR, R0, R1, R2, SP, stack_peek[3], stack_peek[2], stack_peek[1], stack_peek[0]);
 
             // Detect End of Simulation
-            if (PC == 8'h41) begin
+            if (PC == 8'h71) begin
                 #200; // Final cycle
                 $display("-------------------------------------------------------");
-                if (R0 == 8'hFF) 
+                if (R0 == 8'hEE) 
                     $display("SUCCESS: B-Format tests passed. Final R0: %h", R0);
                 else 
-                    $display("FAILURE: Expected R0=FF, got %h", R0);
+                    $display("FAILURE: Expected R0=EE, got %h", R0);
                 $display("-------------------------------------------------------");
                 $stop;
             end
