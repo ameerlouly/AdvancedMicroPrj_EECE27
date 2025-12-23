@@ -2,138 +2,143 @@
 
 module tb_OutputPort;
 
-  // ========================================================================
-    // 1. Resources & Signals
-    // ========================================================================
-    reg clk;
-    reg rstn;
-    reg int_sig;
+    // =================================================
+    // Signals
+    // =================================================
+    reg clk, rstn;
     reg [7:0] I_Port;
+    reg int_sig;
     wire [7:0] O_Port;
 
-    // --- SPY SIGNALS (Internal Visibility) ---
-    wire [7:0] PC = uut.PC.pc_current;
-    wire [7:0] R0 = uut.regfile_inst.regs[0]; // JMP Target
-    wire [7:0] R1 = uut.regfile_inst.regs[1]; // CALL Target
-    wire [7:0] R2 = uut.regfile_inst.regs[2]; // Status Flag
-    wire [7:0] R3 = uut.regfile_inst.regs[3]; // Stack Pointer / Subroutine work
-
-    // ========================================================================
-    // 2. DUT Instantiation
-    // ========================================================================
+    // =================================================
+    // UUT
+    // =================================================
     CPU_WrapperV3 uut (
-        .clk(clk), 
-        .rstn(rstn), 
-        .I_Port(I_Port), 
+        .clk(clk),
+        .rstn(rstn),
+        .I_Port(I_Port),
         .int_sig(int_sig),
         .O_Port(O_Port)
     );
 
-    // ========================================================================
-    // 3. Clock Generation
-    // ========================================================================
+    // =================================================
+    // Spy signals
+    // =================================================
+    wire [7:0] PC = uut.PC.pc_current;
+    wire [7:0] R0 = uut.regfile_inst.regs[0];
+    wire [7:0] R1 = uut.regfile_inst.regs[1];
+    wire [7:0] R2 = uut.regfile_inst.regs[2];
+
+    // =================================================
+    // Clock (10ns)
+    // =================================================
+    always #5 clk = ~clk;
+
+    // =================================================
+    // MAIN
+    // =================================================
+    integer i;
     initial begin
         clk = 0;
-        forever #5 clk = ~clk; 
-    end
+        // -------------------------------------------------
+        // Reset vector → PC = 0x10
+        // -------------------------------------------------
+        uut.mem_inst.mem[8'h00] = 8'h10;
+        rstn = 0;
+        I_Port = 0;
+        int_sig = 0;
 
-    // ========================================================================
-    // 4. Test Sequence
-    // ========================================================================
-    initial begin
-        // --- 4.1 Initialization ---
-        I_Port = 0; int_sig = 0; rstn = 0; 
-        
-        $display("-------------------------------------------------------------");
-        $display(" LOADING PROGRAM: JMP -> TRAP SKIP -> CALL -> RET");
-        $display("-------------------------------------------------------------");
-
-        // --- 4.3 Start Processor ---
-        #20 rstn = 1;
-        uut.regfile_inst.regs[3] = 8'hFF; // Init Stack Pointer
-        uut.regfile_inst.regs[2] = 8'h00; // Clear R2
-
-        // --- 4.2 Load Memory ---
-
-        // 0x00: LDM R0, 0x06  (Load JMP Target Address)
-        uut.mem_inst.mem[0] = 8'hC0; uut.mem_inst.mem[1] = 8'h06; //done
-
-        // 0x02: JMP R0        (Unconditional Jump to Address 6)
-        // Op:11(B), brx:0, rb:0 -> B0
-        uut.mem_inst.mem[2] = 8'hB0; //done
-
-        // 0x03: LDM R2, 0xFF  (TRAP! If R2 becomes FF, JMP failed)
-        uut.mem_inst.mem[3] = 8'hC2; uut.mem_inst.mem[4] = 8'hFF;
-        
-        // 0x05: NOP (Alignment padding, should be skipped)
-        uut.mem_inst.mem[5] = 8'h00; 
-
-        // --- JUMP LANDS HERE (Address 0x06) ---
-        
-        // 0x06: LDM R1, 0x0C  (Load CALL Target Address 12)
-        uut.mem_inst.mem[6] = 8'hC1; uut.mem_inst.mem[7] = 8'h0C;
-
-        // 0x08: CALL R1       (Call Subroutine at 12. Pushes PC=9 to Stack)
-        // Op:11(B), brx:1, rb:1 -> B5
-        uut.mem_inst.mem[8] = 8'hB5;
-
-        // --- RETURN LANDS HERE (Address 0x09) ---
-
-        // 0x09: LDM R2, 0xAA  (Success Flag! We returned correctly)
-        uut.mem_inst.mem[9] = 8'hC2; uut.mem_inst.mem[10] = 8'hAA;
-
-        // 0x0B: STOP
-        uut.mem_inst.mem[11] = 8'h00;
-
-        // --- SUBROUTINE (Address 0x0C / 12) ---
-        
-        // 0x0C: LDM R0, 0x55  (Indicate inside Subroutine)
-        uut.mem_inst.mem[12] = 8'hC0; uut.mem_inst.mem[13] = 8'h55;
-
-        // 0x0E: RET           (Return to Address 9)
-        // Op:11(B), brx:2, rb:2 (User preference) -> BA
-        uut.mem_inst.mem[14] = 8'hBA;
-
+        // -------------------------------------------------
+        // Clear stack/data only
+        // -------------------------------------------------
+        for (i = 8'd128; i < 256; i = i + 1)
+            uut.mem_inst.mem[i] = 8'h00;
 
         
 
-        // --- 4.4 Runtime Duration ---
-        #300; 
+        // -------------------------------------------------
+        // MAIN PROGRAM @ 0x10
+        // -------------------------------------------------
+        uut.mem_inst.mem[8'h10] = 8'hC0; // LDM R0     20 at R0
+        uut.mem_inst.mem[8'h11] = 8'h20; // addr sub1
+        uut.mem_inst.mem[8'h12] = 8'hB4; // CALL R0
 
-        // ====================================================================
-        // 5. Verification & Results
-        // ====================================================================
-        $display("-------------------------------------------------------------");
-        $display(" FINAL RESULTS");
-        $display("-------------------------------------------------------------");
-        
-        $display("R0 Value : %h (Expected 55 - Set inside Subroutine)", R0);
-        $display("R2 Value : %h (Expected AA - Success Flag)", R2);
-        
-        // CHECK 1: Did we skip the trap?
-        if (R2 == 8'hFF) 
-            $display("[FAIL] JMP Failed. Trap code executed (R2=FF).");
-        else 
-            $display("[PASS] JMP Verified. Trap skipped.");
+        uut.mem_inst.mem[8'h13] = 8'h21; // ADD R0,R1 (after both CALLs) R0 SAME 20
+        uut.mem_inst.mem[8'h14] = 8'h00; // NOP
 
-        // CHECK 2: Did CALL/RET work?
-        if (R0 == 8'h55 && R2 == 8'hAA) 
-            $display("[PASS] CALL & RET Verified. Subroutine executed and returned.");
-        else 
-            $display("[FAIL] Flow Control Error.");
+        // -------------------------------------------------
+        // SUBROUTINE 1 @ 0x20
+        // -------------------------------------------------
+        uut.mem_inst.mem[8'h20] = 8'hC1; // LDM R1 1 AT R1
+        uut.mem_inst.mem[8'h21] = 8'h01; // R1 = 1
 
-        $display("-------------------------------------------------------------");
+        uut.mem_inst.mem[8'h22] = 8'hC0; // LDM R0 30 AT R0
+        uut.mem_inst.mem[8'h23] = 8'h30; // addr sub2
+        uut.mem_inst.mem[8'h24] = 8'h00; // addr sub2
+        uut.mem_inst.mem[8'h25] = 8'hB4; //
+        uut.mem_inst.mem[8'h26] = 8'h00; // 
+        uut.mem_inst.mem[8'h27] = 8'h00; // 
+
+        uut.mem_inst.mem[8'h28] = 8'hB8; // RET
+
+        // -------------------------------------------------
+        // SUBROUTINE 2 @ 0x30
+        // -------------------------------------------------
+        uut.mem_inst.mem[8'h30] = 8'hC2; // LDM R2
+        uut.mem_inst.mem[8'h31] = 8'h02; // R2 = 2
+        uut.mem_inst.mem[8'h32] = 8'hB8; // RET
+
+        // -------------------------------------------------
+        // Initial registers
+        // -------------------------------------------------
+        uut.regfile_inst.regs[0] = 0;
+        uut.regfile_inst.regs[1] = 0;
+        uut.regfile_inst.regs[2] = 0;
+
+        // -------------------------------------------------
+        // Reset
+        // -------------------------------------------------
+        #10;
+        rstn = 1;
+
+        // -------------------------------------------------
+        // Run
+        // -------------------------------------------------
+        #250;
+
+        // -------------------------------------------------
+        // CHECKS
+        // -------------------------------------------------
+        if (R1 !== 8'd1) begin
+            $display("[FAIL] Subroutine 1 not executed");
+            $stop;
+        end
+
+        if (R2 !== 8'd2) begin
+            $display("[FAIL] Subroutine 2 not executed");
+            $stop;
+        end
+
+        if (R0 !== 8'd48) begin
+            $display("[FAIL] Return order incorrect (R0 != 3)");
+            $stop;
+        end
+
+        $display("\n====================================");
+        $display(" TWO CALLS TEST PASSED");
+        $display("====================================");
+        $display("R0=%0d R1=%0d R2=%0d PC=%h", R0, R1, R2, PC);
+
         $stop;
     end
 
-    // ========================================================================
-    // 6. Monitor
-    // ========================================================================
+    // =================================================
+    // Monitor (optional)
+    // =================================================
     always @(posedge clk) begin
-        if (rstn) begin
-            $display("Time:%4t | PC:%2h | IR:%2h | R0:%2h R1:%2h R2:%2h", 
-                     $time, PC, uut.IR, R0, R1, R2);
-        end
+        if (rstn)
+            $display("PC:%02h | R0:%0d | R1:%0d | R2:%0d",
+                      PC, R0, R1, R2);
     end
 
 endmodule
