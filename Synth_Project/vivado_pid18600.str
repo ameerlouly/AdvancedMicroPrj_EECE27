@@ -1,0 +1,457 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:03:12 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 18600
+License: Customer
+
+Current time: 	Tue Dec 23 16:35:24 EET 2025
+Time zone: 	Eastern European Time (Africa/Cairo)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 12
+
+Screen size: 1536x864
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 45 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	D:/Xilinx/Vivado/2018.2/tps/win64/jre
+Java executable location: 	D:/Xilinx/Vivado/2018.2/tps/win64/jre/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	Karim
+User home directory: C:/Users/Karim
+User working directory: D:/AdvancedMicroPrj_EECE27/Synth_Project
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: D:/Xilinx/Vivado
+HDI_APPROOT: D:/Xilinx/Vivado/2018.2
+RDI_DATADIR: D:/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: D:/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: C:/Users/Karim/AppData/Roaming/Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: C:/Users/Karim/AppData/Roaming/Xilinx/Vivado/2018.2/
+Vivado layouts directory: C:/Users/Karim/AppData/Roaming/Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	D:/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	D:/AdvancedMicroPrj_EECE27/Synth_Project/vivado.log
+Vivado journal file location: 	D:/AdvancedMicroPrj_EECE27/Synth_Project/vivado.jou
+Engine tmp dir: 	D:/AdvancedMicroPrj_EECE27/Synth_Project/.Xil/Vivado-18600-DESKTOP-OM7RFET
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: D:/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: D:/Xilinx/Vivado/2018.2
+XILINX_SDK: D:/Xilinx/SDK/2018.2
+XILINX_VIVADO: D:/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: D:/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	145 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 538 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bx (ck):  Open Project : addNotify
+// Opening Vivado Project: D:\AdvancedMicroPrj_EECE27\Synth_Project\Synth_Project.xpr. Version: Vivado v2018.2 
+// [GUI Memory]: 71 MB (+71931kb) [00:00:10]
+// [Engine Memory]: 497 MB (+370125kb) [00:00:10]
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project D:/AdvancedMicroPrj_EECE27/Synth_Project/Synth_Project.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project D:/AdvancedMicroPrj_EECE27/Synth_Project/Synth_Project.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 78 MB (+3968kb) [00:00:14]
+// [Engine Memory]: 587 MB (+67319kb) [00:00:14]
+// [GUI Memory]: 86 MB (+3793kb) [00:00:15]
+// [Engine Memory]: 619 MB (+3497kb) [00:00:16]
+// HMemoryUtils.trashcanNow. Engine heap size: 626 MB. GUI used memory: 41 MB. Current time: 12/23/25 4:35:28 PM EET
+// Tcl Message: open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 797.418 ; gain = 110.195 
+// Project name: Synth_Project; location: D:/AdvancedMicroPrj_EECE27/Synth_Project; part: xc7a35ticpg236-1L
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (ck): Add Sources: addNotify
+// Tcl Message: update_compile_order -fileset sources_1 
+selectButton("NEXT", "Next >"); // JButton (j, c)
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+// Elapsed time: 21 seconds
+dismissFileChooser();
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a (C, c)
+// Elapsed time: 59 seconds
+String[] filenames31467 = {"D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Branch_Unit.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CCR.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Control unit.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/FU.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/HU.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/ID_EX_Reg.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/IF_ID_reg.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/MEM_WB_Reg.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Out_reg.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v", "D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton (j, c)
+// 'h' command handler elapsed time: 92 seconds
+dismissDialog("Add Sources"); // c (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 655 MB (+4819kb) [00:01:57]
+// HMemoryUtils.trashcanNow. Engine heap size: 655 MB. GUI used memory: 41 MB. Current time: 12/23/25 4:37:11 PM EET
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// A (ck): Run Synthesis: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (A)
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Run Synthesis"); // A (ck)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs synth_1 -jobs 6 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Tue Dec 23 16:37:21 2025] Launched synth_1... Run output will be captured here: D:/AdvancedMicroPrj_EECE27/Synth_Project/Synth_Project.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 8 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// Elapsed time: 20 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CPU_WrapperV3 (CPU_WrapperV3.v)]", 1); // B (D, ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 47 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// f (ck): Launch Runs: addNotify
+// [Engine Memory]: 689 MB (+1188kb) [00:03:19]
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 6 
+// Tcl Message: [Tue Dec 23 16:38:32 2025] Launched impl_1... Run output will be captured here: D:/AdvancedMicroPrj_EECE27/Synth_Project/Synth_Project.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+selectButton(PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, "4 warnings"); // h (Q, ck)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+// HMemoryUtils.trashcanNow. Engine heap size: 721 MB. GUI used memory: 42 MB. Current time: 12/23/25 4:38:36 PM EET
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6014] Unused sequential element ex_mem_reg_inst/Rd2_out_reg was removed.  [D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Ex_Mem.v:39]. ]", 2, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;D:\AdvancedMicroPrj_EECE27\SIngleCycle_Wrapper\V3_Pipelined\Ex_Mem.v;-;;-;16;-;line;-;39;-;;-;16;-;"); // ah (O, ck)
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // u (O, ck)
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // u (O, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // u (O, ck)
+// bx (ck):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a35ticpg236-1L 
+// TclEventType: RUN_STEP_COMPLETED
+// [Engine Memory]: 738 MB (+15979kb) [00:03:44]
+// HMemoryUtils.trashcanNow. Engine heap size: 793 MB. GUI used memory: 43 MB. Current time: 12/23/25 4:38:56 PM EET
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: PLACEDB_MODIFIY_PRE
+// TclEventType: LOC_CONSTRAINT_ADD
+// TclEventType: SIGNAL_MODIFY
+// TclEventType: DEBUG_PORT_ADD
+// TclEventType: DEBUG_CORE_ADD
+// TclEventType: DEBUG_CORE_CONFIG_CHANGE
+// TclEventType: DEBUG_PORT_CONFIG_CHANGE
+// TclEventType: DEBUG_PORT_ADD
+// TclEventType: DEBUG_PORT_CONFIG_CHANGE
+// TclEventType: DEBUG_PORT_ADD
+// TclEventType: DEBUG_PORT_CONFIG_CHANGE
+// TclEventType: DEBUG_PORT_ADD
+// TclEventType: DEBUG_PORT_CONFIG_CHANGE
+// TclEventType: DEBUG_PORT_ADD
+// TclEventType: DEBUG_PORT_CONFIG_CHANGE
+// TclEventType: DEBUG_CORE_CONFIG_CHANGE
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 987 MB. GUI used memory: 43 MB. Current time: 12/23/25 4:38:59 PM EET
+// [Engine Memory]: 987 MB (+222146kb) [00:03:48]
+// TclEventType: DESIGN_NEW
+// [Engine Memory]: 1,085 MB (+50603kb) [00:03:48]
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 92 MB (+1863kb) [00:03:49]
+// [GUI Memory]: 102 MB (+5563kb) [00:03:49]
+// Schematic: addNotify
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 527 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Device 21-403] Loading part xc7a35ticpg236-1L INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [D:/AdvancedMicroPrj_EECE27/Constraints_basys3.xdc] Finished Parsing XDC File [D:/AdvancedMicroPrj_EECE27/Constraints_basys3.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Tcl Message: open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 1267.668 ; gain = 386.789 
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+// aJ (ck): Report Timing Summary: addNotify
+// Elapsed time: 14 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aJ)
+dismissDialog("Report Timing Summary"); // aJ (ck)
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// bx (ck):  Report Timing Summary : addNotify
+// [Engine Memory]: 1,218 MB (+82491kb) [00:04:00]
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [Engine Memory]: 1,492 MB (+223809kb) [00:04:02]
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+// Tcl Message: report_timing_summary: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1807.340 ; gain = 539.672 
+// Elapsed time: 10 seconds
+dismissDialog("Report Timing Summary"); // bx (ck)
+// [GUI Memory]: 108 MB (+584kb) [00:04:03]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,492 MB. GUI used memory: 77 MB. Current time: 12/23/25 4:39:16 PM EET
+// Elapsed time: 17 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Utilization]", 25, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RESOURCE_UTILIZATION
+// a (ck): Report Utilization: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (a)
+dismissDialog("Report Utilization"); // a (ck)
+// TclEventType: UTILIZATION_RESULT_GENERATED
+// Tcl Message: report_utilization -name utilization_1 
+// bx (ck):  Report Utilization : addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 1,492 MB. GUI used memory: 85 MB. Current time: 12/23/25 4:39:34 PM EET
+// Tcl Message: report_utilization: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1811.984 ; gain = 0.000 
+dismissDialog("Report Utilization"); // bx (ck)
+// [GUI Memory]: 113 MB (+107kb) [00:04:35]
+// [GUI Memory]: 119 MB (+27kb) [00:04:50]
+// TclEventType: RUN_COMPLETED
+// ah (ck): Implementation Completed: addNotify
+// Elapsed time: 97 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN
+// e (ck): Close Design: addNotify
+selectButton(PAResourceAtoD.ClosePlanner_NO, "No"); // a (e)
+// bx (ck):  Open Implemented Design : addNotify
+dismissDialog("Close Design"); // e (ck)
+// Tcl Message: open_run impl_1 
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,507 MB. GUI used memory: 86 MB. Current time: 12/23/25 4:41:18 PM EET
+// TclEventType: DESIGN_NEW
+// [Engine Memory]: 1,573 MB (+6091kb) [00:06:07]
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 626 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Timing 38-478] Restoring timing data from binary archive. INFO: [Timing 38-479] Binary timing data restore complete. INFO: [Project 1-856] Restoring constraints from binary archive. INFO: [Project 1-853] Binary constraint restore complete. 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.499 . Memory (MB): peak = 2027.121 ; gain = 0.000 
+// Tcl Message: Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.500 . Memory (MB): peak = 2027.121 ; gain = 0.000 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 54 instances were transformed.   CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 48 instances   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 6 instances  
+// TclEventType: DRC_ADDED
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: DRC_ADDED
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// [GUI Memory]: 130 MB (+5944kb) [00:06:08]
+// [GUI Memory]: 139 MB (+2217kb) [00:06:09]
+// [GUI Memory]: 147 MB (+926kb) [00:06:09]
+// [GUI Memory]: 155 MB (+637kb) [00:06:09]
+// TclEventType: TIMING_SUMMARY_UPDATED
+// 'dP' command handler elapsed time: 9 seconds
+dismissDialog("Open Implemented Design"); // bx (ck)
+// [GUI Memory]: 168 MB (+5329kb) [00:06:22]
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "DRC", 6); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Power", 5); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Timing", 8); // aE (Q, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Timing Summary]", 33, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+// aJ (ck): Report Timing Summary: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (aJ)
+dismissDialog("Report Timing Summary"); // aJ (ck)
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// Tcl Message: INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1L, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+// bx (ck):  Report Timing Summary : addNotify
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [Engine Memory]: 1,663 MB (+12478kb) [00:06:36]
+dismissDialog("Report Timing Summary"); // bx (ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 128 MB. Current time: 12/23/25 4:41:51 PM EET
+// Elapsed time: 160 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Open Implemented Design, Report Utilization]", 39, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RESOURCE_UTILIZATION
+// a (ck): Report Utilization: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (a)
+dismissDialog("Report Utilization"); // a (ck)
+// TclEventType: UTILIZATION_RESULT_GENERATED
+// Tcl Message: report_utilization -name utilization_1 
+// bx (ck):  Report Utilization : addNotify
+// [GUI Memory]: 177 MB (+1070kb) [00:09:18]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 141 MB. Current time: 12/23/25 4:44:31 PM EET
+// Tcl Message: report_utilization: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2244.480 ; gain = 25.523 
+dismissDialog("Report Utilization"); // bx (ck)
+maximizeFrame(PAResourceOtoP.PAViews_UTILIZATION, "Utilization - utilization_1"); // aw (aE, ck)
+// [GUI Memory]: 188 MB (+2204kb) [00:10:25]
+// Device view-level: 0.4
+// Device view-level: 0.7
+// Device view-level: 1.0
+// Device view-level: 1.3
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 143 MB. Current time: 12/23/25 4:46:03 PM EET
+// Device view-level: 1.0
+// Device view-level: 0.7
+// Device view-level: 0.4
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 142 MB. Current time: 12/23/25 4:46:03 PM EET
+// Device view-level: 0.7
+// Device view-level: 1.0
+// Device view-level: 1.3
+// Device view-level: 1.6
+// Device view-level: 2.2
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 158 MB. Current time: 12/23/25 4:46:05 PM EET
+// Device view-level: 2.5
+// Device view-level: 3.0
+// Device view-level: 3.3
+// Device view-level: 3.6
+// [GUI Memory]: 201 MB (+3191kb) [00:10:55]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 156 MB. Current time: 12/23/25 4:46:07 PM EET
+// Device view-level: 3.9
+// Device view-level: 3.6
+// Device view-level: 3.3
+// Device view-level: 3.0
+// Device view-level: 3.3
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 157 MB. Current time: 12/23/25 4:46:10 PM EET
+// Device view-level: 3.6
+// Device view-level: 3.9
+// Device view-level: 4.2
+// Device view-level: 4.5
+// Device view-level: 4.8
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 150 MB. Current time: 12/23/25 4:46:11 PM EET
+// Device view-level: 5.1
+// Device view-level: 5.4
+// Device view-level: 5.1
+// Device view-level: 4.8
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 145 MB. Current time: 12/23/25 4:46:14 PM EET
+// Device view-level: 5.1
+// Device view-level: 5.4
+// Device view-level: 5.1
+// Device view-level: 4.8
+// Device view-level: 4.5
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 144 MB. Current time: 12/23/25 4:46:17 PM EET
+// Device view-level: 4.2
+// Device view-level: 3.9
+// Device view-level: 3.6
+// Device view-level: 3.3
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 144 MB. Current time: 12/23/25 4:46:17 PM EET
+// Device view-level: 3.0
+// Device view-level: 2.7
+// Device view-level: 2.5
+// Device view-level: 2.2
+// Device view-level: 1.9
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 156 MB. Current time: 12/23/25 4:46:18 PM EET
+// Device view-level: 1.6
+// Device view-level: 1.3
+// Device view-level: 1.0
+// Device view-level: 0.7
+// Device view-level: 0.4
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 156 MB. Current time: 12/23/25 4:46:18 PM EET
+// Elapsed time: 106 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_UTILIZATION, "Utilization - utilization_1"); // aw
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+// Device view-level: 0.1
+// Device view-level: 0.0
+// HMemoryUtils.trashcanNow. Engine heap size: 1,665 MB. GUI used memory: 152 MB. Current time: 12/23/25 4:56:54 PM EET
+// Device view-level: 0.3
+// Device view-level: 0.6
+// Elapsed time: 633 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // u (O, ck)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// C (ck): Settings: addNotify
+dismissDialog("Settings"); // C (ck)
+selectTab((HResource) null, (HResource) null, "Sources", 0); // aE (Q, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, CPU_WrapperV3 (CPU_WrapperV3.v)]", 1, true); // B (D, ck) - Node
+// [GUI Memory]: 212 MB (+1408kb) [00:21:56]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // B (D, ck) - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Add Sources]", 2, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (ck): Add Sources: addNotify
+// [GUI Memory]: 224 MB (+854kb) [00:22:21]
+// Elapsed time: 59 seconds
+selectButton("NEXT", "Next >"); // JButton (j, c)

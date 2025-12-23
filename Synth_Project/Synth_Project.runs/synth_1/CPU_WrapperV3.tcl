@@ -17,8 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35ticpg236-1L
 
 set_param project.singleFileAddWarning.threshold 0
@@ -43,9 +41,12 @@ read_verilog -library xil_defaultlib {
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Memory.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux2to1.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1.v
+  D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Mux4to1_pc.v
+  D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Out_reg.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Pc.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/Register_file.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/another_ALU.v
+  D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/interrupt_reg.v
   D:/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/CPU_WrapperV3.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
