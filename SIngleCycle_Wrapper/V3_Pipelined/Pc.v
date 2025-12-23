@@ -6,11 +6,11 @@ module Pc (
     output reg [7:0] pc_current
 );
 
-always @(posedge clk or negedge rst ) 
+always @(posedge clk  ) 
 begin
     if(!rst)
     begin
-        pc_current <= 8'd0; 
+        pc_current <= pc_next; 
     end
     else if(pc_write)
     begin
