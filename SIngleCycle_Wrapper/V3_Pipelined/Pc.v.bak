@@ -6,7 +6,7 @@ module Pc (
     output reg [7:0] pc_current
 );
 
-always @(posedge clk ) 
+always @(posedge clk  ) 
 begin
     if(!rst)
     begin
