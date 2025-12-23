@@ -34,6 +34,7 @@ module tb_MemOps;
     // ========================================================================
     initial begin
         clk = 0;
+        uut.mem_inst.mem[0] = 8'h1;
         forever #5 clk = ~clk; 
     end
 
@@ -53,22 +54,23 @@ module tb_MemOps;
         // 1. LDM R0, 198 (0xC6) -> Load pointer address
         // --------------------------------------------------------------------
         // Op: 12 (1100), ra:00, rb:00 -> C0
-        uut.mem_inst.mem[0] = 8'hC0; 
-        uut.mem_inst.mem[1] = 8'hC6; // Immediate 198
+         
+        uut.mem_inst.mem[1] = 8'hC0; 
+        uut.mem_inst.mem[2] = 8'hC6; // Immediate 198
 
         // --------------------------------------------------------------------
         // 2. LDM R1, 20 (0x14) -> Data to store later
         // --------------------------------------------------------------------
         // Op: 12 (1100), ra:00, rb:01 -> C1
-        uut.mem_inst.mem[2] = 8'hC1;
-        uut.mem_inst.mem[3] = 8'h14; // Immediate 20
+        uut.mem_inst.mem[3] = 8'hC1;
+        uut.mem_inst.mem[4] = 8'h14; // Immediate 20
 
         // --------------------------------------------------------------------
         // 3. LDM R3, 39 (0x27) -> Data to store indirect
         // --------------------------------------------------------------------
         // Op: 12 (1100), ra:00, rb:11 -> C3
-        uut.mem_inst.mem[4] = 8'hC3;
-        uut.mem_inst.mem[5] = 8'h27; // Immediate 39
+        uut.mem_inst.mem[5] = 8'hC3;
+        uut.mem_inst.mem[6] = 8'h27; // Immediate 39
 
         // --------------------------------------------------------------------
 
@@ -76,21 +78,21 @@ module tb_MemOps;
         // 5. STD R1, 200 (0xC8) -> Store R1 (20) into Mem[200]
         // --------------------------------------------------------------------
         // Op: 12 (1100), ra:10 (STD), rb:01 (R1) -> C9
-        uut.mem_inst.mem[6] = 8'hC9;
-        uut.mem_inst.mem[7] = 8'hC8; // Address 200
+        uut.mem_inst.mem[7] = 8'hC9;
+        uut.mem_inst.mem[8] = 8'hC8; // Address 200
 
         // --------------------------------------------------------------------
         // 6. LDD R2, 200 (0xC8) -> Load R2 from Mem[200]. Expect R2 = 20.
         // --------------------------------------------------------------------
         // Op: 12 (1100), ra:01 (LDD), rb:10 (R2) -> C6
-        uut.mem_inst.mem[8] = 8'hC6;
-        uut.mem_inst.mem[9] = 8'hC8; // Address 200
+        uut.mem_inst.mem[9] = 8'hC6;
+        uut.mem_inst.mem[10] = 8'hC8; // Address 200
 
         // --------------------------------------------------------------------
         // 7. STI R0, R3 -> Store Indirect. Mem[R0] = R3. Mem[198] = 39.
         // --------------------------------------------------------------------
         // Op: 14 (1110), ra:00 (Ptr R0), rb:11 (Src R3) -> E3
-        uut.mem_inst.mem[10] = 8'hE3;
+        uut.mem_inst.mem[11] = 8'hE3;
 
         // --------------------------------------------------------------------
 
@@ -100,12 +102,12 @@ module tb_MemOps;
         // NOTE: Adjusted based on logic. "LDI R2, R3" implies using R0 as ptr.
         // --------------------------------------------------------------------
         // Op: 13 (1101), ra:00 (Ptr R0), rb:10 (Dest R2) -> D2
-        uut.mem_inst.mem[11] = 8'hD2;
+        uut.mem_inst.mem[12] = 8'hD2;
 
         // --------------------------------------------------------------------
         // END: Stop
         // --------------------------------------------------------------------
-        uut.mem_inst.mem[12] = 8'h00;
+        uut.mem_inst.mem[13] = 8'h00;
 
 
 
