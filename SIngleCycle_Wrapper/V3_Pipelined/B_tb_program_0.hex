@@ -1,0 +1,28 @@
+// --- RESET VECTOR ---
+@00
+C0 10  // 00: LDM R0, 0x10
+B0     // 02: JMP R0
+
+// --- MAIN PROGRAM ---
+@10
+C1 02  // 10: LDM R1, 0x02 (Loop counter)
+C2 14  // 12: LDM R2, 0x14 (Loop target)
+A6     // 14: LOOP R1, R2  (Decrements R1, jumps to 14 if R1 > 0)
+
+// Subroutine Test
+C2 30  // 15: LDM R2, 0x30 (Subroutine addr)
+B6     // 17: CALL R2      (Push PC+1, jump to 0x30)
+
+// Conditionals (JZ)
+30     // 18: SUB R0, R0   (Sets Zero flag)
+C2 40  // 19: LDM R2, 0x40 (End target)
+92     // 1B: JZ R2        (Jump to 0x40 if Z=1)
+
+// --- SUBROUTINE ---
+@30
+C0 AA  // 30: LDM R0, 0xAA (Marker)
+B8     // 32: RET          (Pop PC)
+
+// --- END POINT ---
+@40
+C0 FF  // 40: LDM R0, 0xFF (Final Success Marker)

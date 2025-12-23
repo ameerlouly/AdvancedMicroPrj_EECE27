@@ -48,6 +48,11 @@ module tb_OutputPort;
         $display(" LOADING PROGRAM: JMP -> TRAP SKIP -> CALL -> RET");
         $display("-------------------------------------------------------------");
 
+        // --- 4.3 Start Processor ---
+        #20 rstn = 1;
+        uut.regfile_inst.regs[3] = 8'hFF; // Init Stack Pointer
+        uut.regfile_inst.regs[2] = 8'h00; // Clear R2
+
         // --- 4.2 Load Memory ---
 
         // 0x00: LDM R0, 0x06  (Load JMP Target Address)
@@ -90,10 +95,7 @@ module tb_OutputPort;
         uut.mem_inst.mem[14] = 8'hBA;
 
 
-        // --- 4.3 Start Processor ---
-        #20 rstn = 1;
-        uut.regfile_inst.regs[3] = 8'hFF; // Init Stack Pointer
-        uut.regfile_inst.regs[2] = 8'h00; // Clear R2
+        
 
         // --- 4.4 Runtime Duration ---
         #300; 
