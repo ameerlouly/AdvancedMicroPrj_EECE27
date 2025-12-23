@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date             : Sat Dec 20 01:18:15 2025
+| Date             : Tue Dec 23 16:40:18 2025
 | Host             : DESKTOP-OM7RFET running 64-bit major release  (build 9200)
 | Command          : report_power -file CPU_WrapperV3_power_routed.rpt -pb CPU_WrapperV3_power_summary_routed.pb -rpx CPU_WrapperV3_power_routed.rpx
 | Design           : CPU_WrapperV3
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.086        |
+| Total On-Chip Power (W)  | 0.090        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.024        |
+| Dynamic (W)              | 0.028        |
 | Device Static (W)        | 0.062        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 99.6         |
-| Junction Temperature (C) | 25.4         |
+| Max Ambient (C)          | 99.5         |
+| Junction Temperature (C) | 25.5         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.007 |        4 |       --- |             --- |
-| Slice Logic              |     0.006 |     8783 |       --- |             --- |
-|   LUT as Logic           |     0.006 |     2956 |     20800 |           14.21 |
-|   F7/F8 Muxes            |    <0.001 |      829 |     32600 |            2.54 |
-|   Register               |    <0.001 |     4290 |     41600 |           10.31 |
+| Slice Logic              |     0.007 |     8611 |       --- |             --- |
+|   LUT as Logic           |     0.007 |     3031 |     20800 |           14.57 |
+|   F7/F8 Muxes            |    <0.001 |      519 |     32600 |            1.59 |
+|   Register               |    <0.001 |     4304 |     41600 |           10.35 |
 |   CARRY4                 |    <0.001 |       41 |      8150 |            0.50 |
 |   LUT as Shift Register  |    <0.001 |       91 |      9600 |            0.95 |
 |   LUT as Distributed RAM |    <0.001 |       24 |      9600 |            0.25 |
-|   Others                 |     0.000 |      249 |       --- |             --- |
-| Signals                  |     0.011 |     5969 |       --- |             --- |
+|   Others                 |     0.000 |      250 |       --- |             --- |
+| Signals                  |     0.014 |     6437 |       --- |             --- |
 | Block RAM                |    <0.001 |        1 |        50 |            2.00 |
 | I/O                      |    <0.001 |       19 |       106 |           17.92 |
 | Static Power             |     0.062 |          |           |                 |
-| Total                    |     0.086 |          |           |                 |
+| Total                    |     0.090 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     0.031 |       0.025 |      0.006 |
+| Vccint    |       0.950 |     0.036 |       0.030 |      0.006 |
 | Vccaux    |       1.800 |     0.011 |       0.000 |      0.011 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -145,8 +145,8 @@ Table of Contents
 +------------------------------------------------------------------------------------+-----------+
 | Name                                                                               | Power (W) |
 +------------------------------------------------------------------------------------+-----------+
-| CPU_WrapperV3                                                                      |     0.024 |
-|   PC                                                                               |     0.002 |
+| CPU_WrapperV3                                                                      |     0.028 |
+|   PC                                                                               |     0.001 |
 |   alu_inst                                                                         |    <0.001 |
 |   ccr_inst                                                                         |    <0.001 |
 |   ctrl_inst                                                                        |    <0.001 |
@@ -235,12 +235,12 @@ Table of Contents
 |           U_SYNC                                                                   |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_inst                                              |    <0.001 |
 |         SWITCH_N_EXT_BSCAN.bscan_switch                                            |    <0.001 |
-|   ex_mem_reg_inst                                                                  |     0.004 |
-|   id_ex_reg_inst                                                                   |     0.002 |
+|   ex_mem_reg_inst                                                                  |     0.005 |
+|   id_ex_reg_inst                                                                   |     0.007 |
 |   if_id_reg_inst                                                                   |    <0.001 |
-|   mem_inst                                                                         |     0.008 |
+|   mem_inst                                                                         |     0.009 |
 |   mem_wb_reg_inst                                                                  |    <0.001 |
-|   mem_writeD_b_mux2to1                                                             |     0.003 |
+|   out_reg                                                                          |    <0.001 |
 |   regfile_inst                                                                     |    <0.001 |
 |   u_ila_0                                                                          |     0.003 |
 |     inst                                                                           |     0.003 |
@@ -414,6 +414,7 @@ Table of Contents
 |                     u_srlC                                                         |    <0.001 |
 |                     u_srlD                                                         |    <0.001 |
 |         xsdb_memory_read_inst                                                      |    <0.001 |
+|   u_interrupt_reg                                                                  |    <0.001 |
 +------------------------------------------------------------------------------------+-----------+
 
 

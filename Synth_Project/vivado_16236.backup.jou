@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sat Dec 20 02:14:00 2025
+# Process ID: 16236
+# Current directory: D:/AdvancedMicroPrj_EECE27/Synth_Project
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent5972 D:\AdvancedMicroPrj_EECE27\Synth_Project\Synth_Project.xpr
+# Log file: D:/AdvancedMicroPrj_EECE27/Synth_Project/vivado.log
+# Journal file: D:/AdvancedMicroPrj_EECE27/Synth_Project\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/AdvancedMicroPrj_EECE27/Synth_Project/Synth_Project.xpr
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+report_utilization -name utilization_1
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
