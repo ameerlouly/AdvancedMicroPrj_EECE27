@@ -575,3 +575,85 @@ run -all
 # ** Note: $stop    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(132)
 #    Time: 260 ns  Iteration: 0  Instance: /tb_OutputPort
 # Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 132
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# PC:10 | R0:0 | R1:0 | R2:0
+# PC:11 | R0:0 | R1:0 | R2:0
+# PC:12 | R0:0 | R1:0 | R2:0
+# PC:13 | R0:0 | R1:0 | R2:0
+# PC:14 | R0:0 | R1:0 | R2:0
+# PC:20 | R0:0 | R1:0 | R2:0
+# PC:21 | R0:32 | R1:0 | R2:0
+# PC:22 | R0:32 | R1:0 | R2:0
+# PC:23 | R0:32 | R1:0 | R2:0
+# PC:24 | R0:32 | R1:0 | R2:0
+# PC:25 | R0:32 | R1:0 | R2:0
+# PC:26 | R0:32 | R1:1 | R2:0
+# PC:27 | R0:32 | R1:1 | R2:0
+# PC:30 | R0:48 | R1:1 | R2:0
+# PC:31 | R0:48 | R1:1 | R2:0
+# PC:32 | R0:48 | R1:1 | R2:0
+# PC:33 | R0:48 | R1:1 | R2:0
+# PC:34 | R0:48 | R1:1 | R2:0
+# PC:26 | R0:48 | R1:1 | R2:0
+# PC:27 | R0:48 | R1:1 | R2:2
+# PC:28 | R0:48 | R1:1 | R2:2
+# PC:29 | R0:48 | R1:1 | R2:2
+# PC:2a | R0:48 | R1:1 | R2:2
+# PC:13 | R0:48 | R1:1 | R2:2
+# PC:14 | R0:48 | R1:1 | R2:2
+# 
+# ====================================
+#  TWO CALLS TEST PASSED
+# ====================================
+# R0=48 R1=1 R2=2 PC=15
+# ** Note: $stop    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(132)
+#    Time: 260 ns  Iteration: 0  Instance: /tb_OutputPort
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 132
+# Compile of fr_out.v was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.tb_OutputPort
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# PC:10 | R0:0 | R1:0 | R2:0
+# PC:11 | R0:0 | R1:0 | R2:0
+# PC:12 | R0:0 | R1:0 | R2:0
+# PC:13 | R0:0 | R1:0 | R2:0
+# PC:14 | R0:0 | R1:0 | R2:0
+# PC:20 | R0:0 | R1:0 | R2:0
+# PC:21 | R0:32 | R1:0 | R2:0
+# PC:22 | R0:32 | R1:0 | R2:0
+# PC:23 | R0:32 | R1:0 | R2:0
+# PC:24 | R0:32 | R1:0 | R2:0
+# PC:25 | R0:32 | R1:0 | R2:0
+# PC:26 | R0:32 | R1:1 | R2:0
+# PC:27 | R0:32 | R1:1 | R2:0
+# PC:30 | R0:48 | R1:1 | R2:0
+# PC:31 | R0:48 | R1:1 | R2:0
+# PC:32 | R0:48 | R1:1 | R2:0
+# PC:33 | R0:48 | R1:1 | R2:0
+# PC:34 | R0:48 | R1:1 | R2:0
+# PC:26 | R0:48 | R1:1 | R2:0
+# PC:27 | R0:48 | R1:1 | R2:2
+# PC:28 | R0:48 | R1:1 | R2:2
+# PC:29 | R0:48 | R1:1 | R2:2
+# PC:13 | R0:48 | R1:1 | R2:2
+# PC:14 | R0:48 | R1:1 | R2:2
+# PC:15 | R0:48 | R1:1 | R2:2
+# 
+# ====================================
+#  TWO CALLS TEST PASSED
+# ====================================
+# R0=48 R1=1 R2=2 PC=16
+# ** Note: $stop    : F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v(131)
+#    Time: 260 ns  Iteration: 0  Instance: /tb_OutputPort
+# Break in Module tb_OutputPort at F:/Third Year/First Term/Advance Micro/Final Project/AdvancedMicroPrj_EECE27/SIngleCycle_Wrapper/V3_Pipelined/fr_out.v line 131

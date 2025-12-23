@@ -64,7 +64,7 @@ module tb_OutputPort;
         uut.mem_inst.mem[8'h12] = 8'hB4; // CALL R0
 
         uut.mem_inst.mem[8'h13] = 8'h21; // ADD R0,R1 (after both CALLs) R0 SAME 20
-        uut.mem_inst.mem[8'h14] = 8'h00; // NOP
+       
 
         // -------------------------------------------------
         // SUBROUTINE 1 @ 0x20
@@ -75,11 +75,10 @@ module tb_OutputPort;
         uut.mem_inst.mem[8'h22] = 8'hC0; // LDM R0 30 AT R0
         uut.mem_inst.mem[8'h23] = 8'h30; // addr sub2
         uut.mem_inst.mem[8'h24] = 8'h00; // addr sub2
-        uut.mem_inst.mem[8'h25] = 8'hB4; //
+        uut.mem_inst.mem[8'h25] = 8'hB4; // CALL R0
         uut.mem_inst.mem[8'h26] = 8'h00; // 
-        uut.mem_inst.mem[8'h27] = 8'h00; // 
 
-        uut.mem_inst.mem[8'h28] = 8'hB8; // RET
+        uut.mem_inst.mem[8'h27] = 8'hB8; // RET
 
         // -------------------------------------------------
         // SUBROUTINE 2 @ 0x30
