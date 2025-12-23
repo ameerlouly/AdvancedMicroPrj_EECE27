@@ -629,9 +629,9 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
     // //! Call Mux
      wire [7 : 0]    call_mux_out;
      mux2to1 #(.WIDTH(8)) call_mux (
-         .d0     (exmem_IP_mux_out),
+        .d0     (exmem_IP_mux_out),
         .d1     (exmem_Rd1),
-         .sel    (exmem_isCall & exmem_isNotRet),
+        .sel    (exmem_isCall & exmem_isNotRet),
         .out    (call_mux_out)
      );      
 
@@ -678,11 +678,21 @@ mux2to1 #(.WIDTH(2))u_interrupt_ra_mux
 
 /*** Output Port ****************************************************************************************/
 
-    mux2to1 #(.WIDTH(8)) output_port_mux (
-        .d0     (8'b00000000),
-        .d1     (memwb_FW_val),
-        .sel    (memwb_IO_Write),
-        .out    (O_Port)
+    //? Old Arch
+    // mux2to1 #(.WIDTH(8)) output_port_mux (
+    //     .d0     (8'b00000000),
+    //     .d1     (memwb_FW_val),
+    //     .sel    (memwb_IO_Write),
+    //     .out    (O_Port)
+    // );
+
+    OUT out_reg(
+        .clk (clk),   // Input: Clock signal
+        .rst (rstn),   // Input: Reset signal
+        .en  (memwb_IO_Write),   // Input: Enable signal
+        .in  (memwb_FW_val),   // Input [7:0]: 8-bit input data bus
+        .out (O_Port)    // Output [7:0]: 8-bit output data bus
     );
+
 
 endmodule
