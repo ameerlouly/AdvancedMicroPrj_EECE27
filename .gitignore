@@ -5,4 +5,5 @@ SIngleCycle_Wrapper/V3_Pipelined/wlf*
 SIngleCycle_Wrapper/V3_Pipelined/work/
 *.mpf
 *.mpf_new
-
+*.mti
+SIngleCycle_Wrapper/V3_Pipelined/V3_Pipelined.cr.mti
